@@ -15,17 +15,17 @@
            CSS VARIABLES & RESET
            ========================================= */
         :root {
-            /* Refined Premium Palette */
-            --bg-light: #FAF8F5;
+            /* Refined Premium Palette with updated background tones */
+            --bg-light: #F0EBE4;       /* Softer, warmer beige for better card contrast */
             --bg-dark: #151210;
             --card-bg: #FFFFFF;
             --text-primary: #1A1512;
             --text-light: #F5F0EB;
             --text-secondary: #7A6E68;
             --text-muted: #9E948E;
-            --accent: #C59D5F;       /* Refined Elegant Gold */
-            --accent-dark: #8B6B4A;  /* Warm Bronze */
-            --border-light: #F0EBE6;
+            --accent: #C59D5F;         /* Refined Elegant Gold */
+            --accent-dark: #8B6B4A;    /* Warm Bronze */
+            --border-light: #E6E0D8;
             --border-dark: rgba(245, 240, 235, 0.08);
             
             --font-heading: 'Playfair Display', serif;
@@ -183,11 +183,11 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(250, 248, 245, 0.85);
+            background: rgba(240, 235, 228, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(240, 235, 230, 0.5);
+            border-bottom: 1px solid rgba(230, 224, 216, 0.5);
             transition: all 0.3s ease;
         }
 
@@ -356,7 +356,7 @@
         }
 
         /* =========================================
-           MENU SECTION (Editorial Redesign)
+           MENU SECTION (Editorial Redesign with Framed Photos)
            ========================================= */
         .menu-section {
             padding: var(--section-padding);
@@ -372,17 +372,18 @@
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 48px;
         }
 
         .menu-card {
             background: var(--card-bg);
-            border-radius: 4px;
-            overflow: hidden;
+            border-radius: 2px;
+            overflow: visible;
             transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-light);
         }
 
         /* Featured card spans full width with horizontal layout */
@@ -394,19 +395,26 @@
         .menu-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 30px 60px -15px rgba(26, 21, 18, 0.08);
+            border-color: var(--accent);
         }
 
+        /* Framed Photo Design: Reduced size, elegant frame */
         .menu-card-image {
-            height: 100%;
-            min-height: 350px;
+            height: 260px; /* Reduced height to make it roughly half the visual weight */
+            margin: 24px 24px 0 24px;
+            border: 1px solid var(--border-light);
+            padding: 10px; /* Creates the elegant frame effect */
+            background: #FAF8F5;
             overflow: hidden;
             position: relative;
-            flex: 1;
+            flex: none;
         }
 
         .menu-card.featured .menu-card-image {
-            min-height: 450px;
-            flex: 1.2;
+            height: 100%;
+            min-height: 400px;
+            margin: 24px 0 24px 24px;
+            flex: 1;
         }
 
         .menu-card-image img {
@@ -414,14 +422,16 @@
             height: 100%;
             object-fit: cover;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            filter: grayscale(10%);
         }
 
         .menu-card:hover .menu-card-image img {
             transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         .menu-card-content {
-            padding: 48px 40px;
+            padding: 32px 32px 40px 32px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -431,17 +441,17 @@
         }
 
         .menu-card.featured .menu-card-content {
-            padding: 60px 50px;
+            padding: 48px 50px 48px 40px;
         }
 
         /* Elegant background numbering */
         .menu-card-number {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 16px;
+            right: 24px;
             font-family: var(--font-heading);
-            font-size: 6rem;
-            color: rgba(26, 21, 18, 0.03);
+            font-size: 5rem;
+            color: rgba(26, 21, 18, 0.04);
             font-style: italic;
             line-height: 1;
             pointer-events: none;
@@ -451,12 +461,12 @@
         .menu-card.featured .menu-card-number {
             top: 40px;
             right: 40px;
-            font-size: 8rem;
+            font-size: 7rem;
         }
 
         .menu-card h3 {
             font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 1.85rem;
             color: var(--text-primary);
             margin-bottom: 16px;
             font-weight: 400;
@@ -467,10 +477,10 @@
 
         .menu-card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.8;
             font-weight: 300;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             position: relative;
             z-index: 1;
         }
@@ -782,7 +792,8 @@
             }
 
             .menu-card.featured .menu-card-image {
-                min-height: 300px;
+                height: 300px;
+                margin: 24px 24px 0 24px;
             }
 
             .split-layout {
@@ -836,7 +847,7 @@
 
             .menu-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 48px;
             }
 
             .menu-card.featured {
