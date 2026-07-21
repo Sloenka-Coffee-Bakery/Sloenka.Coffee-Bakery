@@ -372,9 +372,9 @@
             border-color: var(--accent);
         }
 
-        /* Framed Photo Design: Reduced size, elegant frame, half-visible effect */
+        /* Framed Photo Design: Larger size, top-aligned to show text/details at the top */
         .menu-card-image {
-            height: 200px;
+            height: 280px; /* Increased height for better visibility */
             margin: 24px 24px 0 24px;
             border: 1px solid var(--border-light);
             padding: 10px;
@@ -388,7 +388,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 25%; /* Shows primarily the top half of the image */
+            object-position: top center; /* Ensures the top of the photo is fully visible */
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
             filter: grayscale(30%);
         }
@@ -755,7 +755,8 @@
             }
 
             .menu-card-image {
-                height: 180px;
+                height: 240px; /* Adjusted for mobile but still keeping the top visible */
+                margin: 16px 16px 0 16px;
             }
 
             .offer-text h2 {
