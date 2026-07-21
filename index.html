@@ -15,8 +15,8 @@
            CSS VARIABLES & RESET
            ========================================= */
         :root {
-            /* Refined Premium Palette with updated background tones */
-            --bg-light: #F0EBE4;       /* Softer, warmer beige for better card contrast */
+            /* Refined Premium Palette with updated warmer background tones */
+            --bg-light: #EBE6DF;       /* Richer, warmer beige for elegant contrast */
             --bg-dark: #151210;
             --card-bg: #FFFFFF;
             --text-primary: #1A1512;
@@ -25,7 +25,7 @@
             --text-muted: #9E948E;
             --accent: #C59D5F;         /* Refined Elegant Gold */
             --accent-dark: #8B6B4A;    /* Warm Bronze */
-            --border-light: #E6E0D8;
+            --border-light: #DDD6CC;
             --border-dark: rgba(245, 240, 235, 0.08);
             
             --font-heading: 'Playfair Display', serif;
@@ -183,11 +183,11 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(240, 235, 228, 0.85);
+            background: rgba(235, 230, 223, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(230, 224, 216, 0.5);
+            border-bottom: 1px solid rgba(221, 214, 204, 0.5);
             transition: all 0.3s ease;
         }
 
@@ -361,6 +361,10 @@
         .menu-section {
             padding: var(--section-padding);
             background-color: var(--bg-light);
+            /* Subtle elegant background design */
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(197, 157, 95, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(139, 107, 74, 0.06) 0%, transparent 40%);
         }
 
         .menu-header {
@@ -390,6 +394,7 @@
         .menu-card.featured {
             grid-column: span 2;
             flex-direction: row;
+            align-items: stretch;
         }
 
         .menu-card:hover {
@@ -398,36 +403,45 @@
             border-color: var(--accent);
         }
 
-        /* Framed Photo Design: Reduced size, elegant frame */
+        /* Framed Photo Design: Reduced size, elegant frame, half-visible effect */
         .menu-card-image {
-            height: 260px; /* Reduced height to make it roughly half the visual weight */
-            margin: 24px 24px 0 24px;
-            border: 1px solid var(--border-light);
-            padding: 10px; /* Creates the elegant frame effect */
-            background: #FAF8F5;
+            height: 180px; /* Significantly reduced height */
+            width: 80%;
+            margin: 32px auto 0 auto;
+            border: 1px solid rgba(197, 157, 95, 0.2);
+            padding: 8px;
+            background: #FFFFFF;
             overflow: hidden;
             position: relative;
             flex: none;
-        }
-
-        .menu-card.featured .menu-card-image {
-            height: 100%;
-            min-height: 400px;
-            margin: 24px 0 24px 24px;
-            flex: 1;
+            box-shadow: 0 15px 35px rgba(26, 21, 18, 0.06);
         }
 
         .menu-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            filter: grayscale(10%);
+            object-position: center 25%; /* Shows primarily the top half of the image for an elegant crop */
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+            filter: grayscale(25%) brightness(0.95);
         }
 
         .menu-card:hover .menu-card-image img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
+            transform: scale(1.15);
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .menu-card.featured .menu-card-image {
+            height: 100%;
+            min-height: 380px;
+            width: 100%;
+            margin: 0;
+            padding: 12px;
+            border-radius: 2px;
+        }
+        
+        .menu-card.featured .menu-card-image img {
+            object-position: center center;
         }
 
         .menu-card-content {
@@ -793,7 +807,8 @@
 
             .menu-card.featured .menu-card-image {
                 height: 300px;
-                margin: 24px 24px 0 24px;
+                width: 80%;
+                margin: 32px auto 0 auto;
             }
 
             .split-layout {
