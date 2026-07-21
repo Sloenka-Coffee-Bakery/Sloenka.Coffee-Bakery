@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sloenka | Breakfast Menu</title>
+    <title>Sloenka | Evening Indulgence</title>
     
     <!-- Google Fonts: Playfair Display for elegant editorial headings, Inter for clean body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,19 +15,19 @@
            CSS VARIABLES & RESET
            ========================================= */
         :root {
-            /* Sophisticated, warm, and professional palette */
-            --bg-color: #FDFBF9;
-            --card-bg: #FFFFFF;
-            --text-primary: #1A1512;
-            --text-secondary: #6B5E58;
-            --accent: #A67B5B;       /* Warm latte gold */
-            --accent-dark: #8C6A5D;
-            --border-light: #EBE5E1;
+            /* Luxurious Evening Palette */
+            --bg-dark: #0F0D0C;
+            --bg-card: #1A1715;
+            --text-primary: #F5F0EB;
+            --text-secondary: #A89F97;
+            --accent: #D4A574;       /* Warm Gold */
+            --accent-hover: #E8C9A8;
+            --border-subtle: rgba(245, 240, 235, 0.1);
             
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
             
-            --max-width: 1100px;
+            --max-width: 1200px;
             --section-padding: 120px 24px;
         }
 
@@ -43,11 +43,11 @@
 
         body {
             font-family: var(--font-body);
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
         img {
@@ -77,7 +77,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--accent);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             display: block;
         }
 
@@ -105,16 +105,16 @@
            HEADER / NAVIGATION
            ========================================= */
         header {
-            padding: 28px 24px;
+            padding: 24px 24px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(253, 251, 249, 0.92);
+            background: rgba(15, 13, 12, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(235, 229, 225, 0.6);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .nav-container {
@@ -146,7 +146,7 @@
 
         .nav-links a {
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 400;
             color: var(--text-secondary);
             letter-spacing: 0.5px;
             position: relative;
@@ -176,14 +176,13 @@
            ========================================= */
         .hero {
             position: relative;
-            height: 85vh;
-            min-height: 600px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            margin-top: 0;
+            padding-top: 80px;
         }
 
         .hero-bg {
@@ -192,267 +191,369 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Using one of the provided images as a stunning, darkened background */
-            background: linear-gradient(to bottom, rgba(26, 21, 18, 0.3), rgba(26, 21, 18, 0.7)),
-                        url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195');
+            /* Using the cafe interior/cozy image as background */
+            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_928a2b21-ed61-4d4a-8afd-1344bf18ce16.jpg?v=1784656239');
             background-size: cover;
             background-position: center;
-            transform: scale(1.05);
-            animation: slowZoom 20s infinite alternate;
+            /* Cinematic slow zoom animation */
+            animation: slowZoom 30s infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Elegant dark gradient overlay for readability */
+            background: linear-gradient(to bottom, rgba(15, 13, 12, 0.4) 0%, rgba(15, 13, 12, 0.85) 60%, var(--bg-dark) 100%);
         }
 
         @keyframes slowZoom {
-            from { transform: scale(1.05); }
-            to { transform: scale(1.15); }
+            from { transform: scale(1.0); }
+            to { transform: scale(1.1); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            color: #FFFFFF;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 24px;
+            animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .hero-content .section-label {
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 4px;
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            border-radius: 50px;
+            background: rgba(212, 165, 116, 0.05);
         }
 
         .hero-content h1 {
             font-family: var(--font-heading);
-            font-size: 4.5rem;
-            line-height: 1.1;
+            font-size: 5rem;
+            line-height: 1.05;
             margin-bottom: 32px;
             font-weight: 400;
+        }
+
+        .hero-content h1 em {
+            color: var(--accent);
             font-style: italic;
         }
 
         .hero-content p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 300;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto;
-            letter-spacing: 0.5px;
+            margin: 0 auto 48px;
         }
 
-        .scroll-hint {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 48px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            animation: float 3s ease-in-out infinite;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .scroll-hint::after {
-            content: '';
-            width: 1px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.2);
         }
 
         /* =========================================
-           MENU SECTION
+           FEATURE / SPLIT SECTION
            ========================================= */
-        .menu-section {
+        .feature-section {
             padding: var(--section-padding);
-        }
-
-        .menu-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 48px;
-        }
-
-        .menu-card {
-            background: var(--card-bg);
-            border-radius: 4px; /* Slight rounding for a refined, editorial look */
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(26, 21, 18, 0.08);
-            border-color: transparent;
-        }
-
-        .menu-card-image {
-            height: 320px;
-            overflow: hidden;
             position: relative;
         }
 
-        .menu-card-image img {
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .feature-text h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 32px;
+            border-radius: 8px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .highlight-text h4 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .highlight-text p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .feature-image-wrapper {
+            position: relative;
+        }
+
+        .feature-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
             width: 100%;
             height: 100%;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .feature-image {
+            position: relative;
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 600px;
             object-fit: cover;
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .menu-card:hover .menu-card-image img {
-            transform: scale(1.08);
-        }
-
-        .menu-card-content {
-            padding: 40px 32px;
-            text-align: center;
-        }
-
-        .menu-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .menu-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .menu-card-tag {
-            display: inline-block;
-            margin-top: 24px;
-            padding: 8px 20px;
-            border: 1px solid var(--border-light);
-            color: var(--accent-dark);
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-card:hover .menu-card-tag {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
+        .feature-image:hover img {
+            transform: scale(1.05);
         }
 
         /* =========================================
-           INFO / HOURS SECTION
+           DISCOUNT BANNER SECTION
            ========================================= */
-        .info-section {
+        .discount-banner {
             padding: 100px 24px;
-            background-color: var(--text-primary);
-            color: #FFFFFF;
+            background: linear-gradient(135deg, var(--bg-card) 0%, #25201C 100%);
             text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
         }
 
-        .info-section .section-label {
-            color: var(--accent);
-        }
-
-        .info-section .section-title {
-            color: #FFFFFF;
-            font-size: 2.5rem;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            max-width: 900px;
-            margin: 60px auto 0;
-        }
-
-        .info-item h4 {
+        .discount-banner::before {
+            content: '40%';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-family: var(--font-heading);
-            font-size: 1.25rem;
-            margin-bottom: 12px;
+            font-size: 20vw;
+            color: rgba(212, 165, 116, 0.03);
+            font-weight: 600;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .discount-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .discount-content h2 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
             color: var(--accent);
+            margin-bottom: 24px;
             font-weight: 400;
             font-style: italic;
         }
 
-        .info-item p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
+        .discount-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
             line-height: 1.8;
-            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         /* =========================================
            FOOTER
            ========================================= */
         footer {
-            padding: 48px 24px;
-            background-color: #110E0C;
+            padding: 80px 24px 40px;
+            background-color: var(--bg-dark);
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: #FFFFFF;
+            font-size: 2.5rem;
+            color: var(--text-primary);
             font-style: italic;
-            margin-bottom: 16px;
+            margin-bottom: 32px;
         }
 
-        footer p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-item h4 {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .footer-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-subtle);
+            color: rgba(168, 159, 151, 0.5);
+            font-size: 0.85rem;
         }
 
         /* =========================================
            RESPONSIVE DESIGN
            ========================================= */
+        @media (max-width: 968px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .feature-image-wrapper {
+                order: -1; /* Image on top on mobile */
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .feature-image img {
+                height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .discount-content h2 {
+                font-size: 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             :root {
                 --section-padding: 80px 20px;
             }
 
             .nav-links {
-                display: none; /* Clean minimal look on mobile */
+                display: none;
             }
 
             .hero-content h1 {
                 font-size: 2.75rem;
             }
 
-            .hero-content p {
-                font-size: 1rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
             }
 
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .feature-text h2 {
+                font-size: 2.25rem;
             }
 
-            .menu-card-image {
-                height: 280px;
+            .discount-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 40px;
             }
         }
     </style>
@@ -467,8 +568,9 @@
             <a href="#" class="logo">Sloenka<span>.</span></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#menu">Our Sets</a></li>
-                    <li><a href="#info">Visit Us</a></li>
+                    <li><a href="#offer">The Offer</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#visit">Visit Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -480,103 +582,91 @@
              ========================================= -->
         <section class="hero">
             <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="section-label">Morning Rituals</span>
-                <h1>The Breakfast Collection</h1>
-                <p>Start your day with one of our new breakfast sets, available every day until 19:00.</p>
+                <span class="hero-badge">Evening Ritual</span>
+                <h1>The Night <em>Bakery</em><br>Has Arrived</h1>
+                <p>Experience the magic of Sloenka after dark. Indulge in our freshly baked, flaky croissants with an exclusive evening offer.</p>
+                <a href="#offer" class="btn-primary">Discover the Offer</a>
             </div>
-            <div class="scroll-hint">Scroll</div>
         </section>
 
         <!-- =========================================
-             MENU SECTION
+             FEATURE / EXPERIENCE SECTION
              ========================================= -->
-        <section class="menu-section" id="menu">
+        <section class="feature-section" id="experience">
             <div class="container">
-                <div class="menu-header">
-                    <span class="section-label">Curated for You</span>
-                    <h2 class="section-title">Signature Morning Sets</h2>
-                    <div class="divider divider-center"></div>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;">
-                        Each set is thoughtfully composed to bring harmony to your morning. 
-                        Crafted with locally sourced ingredients and baked fresh daily in our kitchen.
-                    </p>
-                </div>
-
-                <div class="menu-grid">
-                    <!-- Classic Set -->
-                    <article class="menu-card">
-                        <div class="menu-card-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec360759-145b-4dbc-adac-eed73ddac1da.jpg?v=1784656208" alt="Classic Set">
+                <div class="split-layout">
+                    <div class="feature-text">
+                        <span class="section-label">Our Craft</span>
+                        <h2>Baked Fresh,<br>Served Late.</h2>
+                        <div class="divider"></div>
+                        <p>We believe that great pastry doesn't have an curfew. Our bakers craft each croissant with meticulous attention to detail, using premium European butter and time-honored lamination techniques.</p>
+                        <p>As the city winds down, our ovens warm up. The result? A warm, buttery, perfectly flaky croissant waiting for you when you need it most.</p>
+                        
+                        <div class="highlight-box">
+                            <div class="highlight-icon">🥐</div>
+                            <div class="highlight-text">
+                                <h4>Artisan Quality</h4>
+                                <p>Hand-rolled daily, never frozen, always exceptional.</p>
+                            </div>
                         </div>
-                        <div class="menu-card-content">
-                            <h3>Classic Set</h3>
-                            <p>A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.</p>
-                            <span class="menu-card-tag">Timeless</span>
+                    </div>
+                    
+                    <div class="feature-image-wrapper">
+                        <div class="feature-image">
+                            <!-- Using the second provided image here -->
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_25bb8629-4228-4b6e-937a-6223532642f4.jpg?v=1784656235" alt="Freshly baked croissants at Sloenka">
                         </div>
-                    </article>
-
-                    <!-- English Breakfast Set -->
-                    <article class="menu-card">
-                        <div class="menu-card-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_e2823a60-c646-4e99-84f0-de3000d2deb8.jpg?v=1784656201" alt="English Breakfast Set">
-                        </div>
-                        <div class="menu-card-content">
-                            <h3>English Breakfast Set</h3>
-                            <p>A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.</p>
-                            <span class="menu-card-tag">Hearty</span>
-                        </div>
-                    </article>
-
-                    <!-- Salmon Benedict Set -->
-                    <article class="menu-card">
-                        <div class="menu-card-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195" alt="Salmon Benedict Set">
-                        </div>
-                        <div class="menu-card-content">
-                            <h3>Salmon Benedict Set</h3>
-                            <p>Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.</p>
-                            <span class="menu-card-tag">Chef's Choice</span>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- =========================================
-             INFO / HOURS SECTION
+             DISCOUNT BANNER SECTION
              ========================================= -->
-        <section class="info-section" id="info">
-            <div class="container">
-                <span class="section-label">Join Us</span>
-                <h2 class="section-title">We Await Your Arrival</h2>
-                <div class="divider divider-center" style="background-color: rgba(255,255,255,0.2);"></div>
+        <section class="discount-banner" id="offer">
+            <div class="discount-content">
+                <span class="section-label">Exclusive Evening Offer</span>
+                <h2>-40% Off All Croissants</h2>
+                <p>Treat yourself to the perfect end to your day. Every single night, we invite you to enjoy our entire selection of artisan croissants at a special evening price. Because everyone deserves a little late-night indulgence.</p>
                 
-                <div class="info-grid">
-                    <div class="info-item">
+                <div class="time-badge">
+                    <span>🕒</span>
+                    <span>Available Daily from 21:00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             FOOTER
+             ========================================= -->
+        <footer id="visit">
+            <div class="container">
+                <div class="footer-logo">Sloenka.</div>
+                
+                <div class="footer-info">
+                    <div class="footer-item">
                         <h4>Location</h4>
                         <p>123 Baker Street, Suite 4<br>Portland, OR 97205</p>
                     </div>
-                    <div class="info-item">
-                        <h4>Breakfast Hours</h4>
-                        <p>Monday – Sunday<br>7:00 AM – 7:00 PM</p>
+                    <div class="footer-item">
+                        <h4>Evening Hours</h4>
+                        <p>Monday – Sunday<br>Open until 23:00<br><em>(Croissant discount from 21:00)</em></p>
                     </div>
-                    <div class="info-item">
-                        <h4>Reservations</h4>
+                    <div class="footer-item">
+                        <h4>Contact</h4>
                         <p>hello@sloenka.coffee<br>+1 (555) 123-4567</p>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
-    <footer>
-        <div class="footer-logo">Sloenka.</div>
-        <p>&copy; 2026 Sloenka Coffee and Bakery. Crafted with intention.</p>
-    </footer>
+                <div class="copyright">
+                    <p>&copy; 2026 Sloenka Coffee and Bakery. Crafted with intention.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
 
 </body>
 </html>
