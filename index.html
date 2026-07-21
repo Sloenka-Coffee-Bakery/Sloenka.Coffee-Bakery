@@ -267,8 +267,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* UPDATED IMAGE HERE */
-            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_6e16cb9c-10a5-4cc8-bb67-6d0881d6113a.jpg?v=1784659815');
+            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_5c83d877-85bf-4c0c-861a-d38ca32617f4.jpg?v=1784656213');
             background-size: cover;
             background-position: center;
             animation: slowZoom 30s infinite alternate ease-in-out;
@@ -357,7 +356,7 @@
         }
 
         /* =========================================
-           MENU SECTION (Light Theme)
+           MENU SECTION (Editorial Redesign)
            ========================================= */
         .menu-section {
             padding: var(--section-padding);
@@ -372,98 +371,131 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
         }
 
         .menu-card {
             background: var(--card-bg);
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 10px 40px -10px rgba(26, 21, 18, 0.04);
             transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 10;
+        /* Featured card spans full width with horizontal layout */
+        .menu-card.featured {
+            grid-column: span 2;
+            flex-direction: row;
         }
 
         .menu-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px -15px rgba(26, 21, 18, 0.1);
-        }
-
-        .menu-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(26, 21, 18, 0.08);
         }
 
         .menu-card-image {
-            height: 340px;
+            height: 100%;
+            min-height: 350px;
             overflow: hidden;
             position: relative;
+            flex: 1;
+        }
+
+        .menu-card.featured .menu-card-image {
+            min-height: 450px;
+            flex: 1.2;
         }
 
         .menu-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .menu-card:hover .menu-card-image img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .menu-card-content {
-            padding: 44px 36px;
-            text-align: center;
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            position: relative;
+            flex: 1;
+        }
+
+        .menu-card.featured .menu-card-content {
+            padding: 60px 50px;
+        }
+
+        /* Elegant background numbering */
+        .menu-card-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: rgba(26, 21, 18, 0.03);
+            font-style: italic;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .menu-card.featured .menu-card-number {
+            top: 40px;
+            right: 40px;
+            font-size: 8rem;
         }
 
         .menu-card h3 {
             font-family: var(--font-heading);
-            font-size: 1.85rem;
+            font-size: 2rem;
             color: var(--text-primary);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             font-weight: 400;
             font-style: italic;
+            position: relative;
+            z-index: 1;
         }
 
         .menu-card p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.8;
             font-weight: 300;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
         }
 
         .menu-card-tag {
-            display: inline-block;
-            padding: 8px 24px;
-            background: transparent;
-            border: 1px solid var(--border-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: rgba(197, 157, 95, 0.08);
             color: var(--accent-dark);
             font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.4s ease;
+            align-self: flex-start;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
         }
 
         .menu-card:hover .menu-card-tag {
             background: var(--accent-dark);
             color: white;
-            border-color: var(--accent-dark);
         }
 
         /* =========================================
@@ -744,6 +776,15 @@
            RESPONSIVE DESIGN
            ========================================= */
         @media (max-width: 968px) {
+            .menu-card.featured {
+                grid-column: span 2;
+                flex-direction: column;
+            }
+
+            .menu-card.featured .menu-card-image {
+                min-height: 300px;
+            }
+
             .split-layout {
                 grid-template-columns: 1fr;
                 gap: 80px;
@@ -798,8 +839,8 @@
                 gap: 40px;
             }
 
-            .menu-card-image {
-                height: 300px;
+            .menu-card.featured {
+                grid-column: span 1;
             }
 
             .offer-text h2 {
@@ -874,7 +915,7 @@
         </section>
 
         <!-- =========================================
-             BREAKFAST MENU SECTION
+             BREAKFAST MENU SECTION (Editorial Redesign)
              ========================================= -->
         <section class="menu-section" id="menu">
             <div class="container">
@@ -889,14 +930,15 @@
                 </div>
 
                 <div class="menu-grid">
-                    <!-- Classic Set -->
-                    <article class="menu-card">
+                    <!-- Classic Set (Featured Full Width) -->
+                    <article class="menu-card featured">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec360759-145b-4dbc-adac-eed73ddac1da.jpg?v=1784656208" alt="Classic Set">
                         </div>
                         <div class="menu-card-content">
+                            <span class="menu-card-number">01</span>
                             <h3>Classic Set</h3>
-                            <p>A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.</p>
+                            <p>A timeless morning favorite. Perfectly balanced flavors, freshly baked artisan bread, and house-made preserves to awaken your senses and set the tone for a wonderful day.</p>
                             <span class="menu-card-tag">Timeless</span>
                         </div>
                     </article>
@@ -907,6 +949,7 @@
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_e2823a60-c646-4e99-84f0-de3000d2deb8.jpg?v=1784656201" alt="English Breakfast Set">
                         </div>
                         <div class="menu-card-content">
+                            <span class="menu-card-number">02</span>
                             <h3>English Breakfast Set</h3>
                             <p>A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.</p>
                             <span class="menu-card-tag">Hearty</span>
@@ -919,6 +962,7 @@
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195" alt="Salmon Benedict Set">
                         </div>
                         <div class="menu-card-content">
+                            <span class="menu-card-number">03</span>
                             <h3>Salmon Benedict Set</h3>
                             <p>Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.</p>
                             <span class="menu-card-tag">Chef's Choice</span>
