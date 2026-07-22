@@ -55,6 +55,22 @@
             overflow-x: hidden;
         }
 
+        /* Page Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbcebe9f-ef6e-4fd2-ab7f-bb0f019fe55d.jpg?v=1784712903');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         img, video {
             max-width: 100%;
             display: block;
@@ -139,6 +155,40 @@
         }
 
         /* =========================================
+           LANGUAGE SWITCHER
+           ========================================= */
+        .lang-switcher {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            color: var(--accent-dark);
+            border-color: var(--accent-dark);
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+        /* =========================================
            HEADER / NAVIGATION
            ========================================= */
         header {
@@ -174,6 +224,12 @@
         .logo span {
             color: var(--accent-dark);
             font-style: normal;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 48px;
         }
 
         .nav-links {
@@ -241,7 +297,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Cinematic, multi-stop radial gradient for premium depth */
             background: radial-gradient(circle at center, rgba(26, 21, 18, 0.15) 0%, rgba(26, 21, 18, 0.65) 100%);
         }
 
@@ -458,6 +513,156 @@
             background: var(--accent-dark);
             color: white;
             border-color: var(--accent-dark);
+        }
+
+        /* =========================================
+           ICE CREAM SECTION (NEW - Aesthetic Design)
+           ========================================= */
+        .ice-cream-section {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, #FDF8F3 0%, #F5F0EB 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ice-cream-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(166, 123, 91, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .ice-cream-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ice-cream-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ice-cream-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 8px 30px rgba(26, 21, 18, 0.05);
+            position: relative;
+        }
+
+        .ice-cream-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(212, 165, 116, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ice-cream-card:hover::before {
+            opacity: 1;
+        }
+
+        .ice-cream-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.15);
+            border-color: var(--accent);
+        }
+
+        .ice-cream-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ice-cream-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .ice-cream-card:hover .ice-cream-image img {
+            transform: scale(1.1);
+        }
+
+        .ice-cream-price {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+        }
+
+        .ice-cream-content {
+            padding: 28px 24px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ice-cream-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .ice-cream-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .ice-cream-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ice-cream-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-dark);
         }
 
         /* =========================================
@@ -749,6 +954,14 @@
             .video-content h2 {
                 font-size: 3rem;
             }
+
+            .nav-wrapper {
+                gap: 24px;
+            }
+
+            .nav-links {
+                gap: 24px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -772,14 +985,15 @@
                 font-size: 2.5rem;
             }
 
-            .menu-grid {
+            .menu-grid,
+            .ice-cream-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .menu-card-image {
+            .menu-card-image,
+            .ice-cream-image {
                 height: 240px;
-                margin: 16px 16px 0 16px;
             }
 
             .offer-text h2 {
@@ -809,6 +1023,15 @@
             .video-content h2 {
                 font-size: 2.5rem;
             }
+
+            .lang-switcher {
+                gap: 8px;
+            }
+
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -820,14 +1043,22 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Sloenka<span>.</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#menu">Breakfast</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#evening">Evening Offer</a></li>
-                    <li><a href="#visit">Visit Us</a></li>
-                </ul>
-            </nav>
+            <div class="nav-wrapper">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#menu" data-lang="menu">Breakfast</a></li>
+                        <li><a href="#ice-cream" data-lang="iceCream">Ice Cream</a></li>
+                        <li><a href="#experience" data-lang="experience">Experience</a></li>
+                        <li><a href="#evening" data-lang="evening">Evening Offer</a></li>
+                        <li><a href="#visit" data-lang="visit">Visit Us</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang-code="en">EN</button>
+                    <button class="lang-btn" data-lang-code="ru">RU</button>
+                    <button class="lang-btn" data-lang-code="hy">HY</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -839,12 +1070,12 @@
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="hero-label">Artisanal Excellence</span>
-                <h1 class="hero-title">When Taste Meets Quality.</h1>
-                <p class="hero-description">Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.</p>
-                <a href="#menu" class="hero-btn">View Menu</a>
+                <span class="hero-label" data-lang="heroLabel">Artisanal Excellence</span>
+                <h1 class="hero-title" data-lang="heroTitle">When Taste Meets Quality.</h1>
+                <p class="hero-description" data-lang="heroDesc">Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.</p>
+                <a href="#menu" class="hero-btn" data-lang="viewMenu">View Menu</a>
             </div>
-            <div class="scroll-hint">Scroll</div>
+            <div class="scroll-hint" data-lang="scroll">Scroll</div>
         </section>
 
         <!-- =========================================
@@ -853,10 +1084,10 @@
         <section class="menu-section" id="menu">
             <div class="container">
                 <div class="menu-header">
-                    <span class="section-label">Curated for You</span>
-                    <h2 class="section-title">Signature Morning Sets</h2>
+                    <span class="section-label" data-lang="curated">Curated for You</span>
+                    <h2 class="section-title" data-lang="signatureMorning">Signature Morning Sets</h2>
                     <div class="divider divider-center"></div>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;">
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="morningDesc">
                         Each set is thoughtfully composed to bring harmony to your morning. 
                         Crafted with locally sourced ingredients and baked fresh daily in our kitchen.
                     </p>
@@ -869,9 +1100,9 @@
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec360759-145b-4dbc-adac-eed73ddac1da.jpg?v=1784656208" alt="Classic Set">
                         </div>
                         <div class="menu-card-content">
-                            <h3>Classic Set</h3>
-                            <p>A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.</p>
-                            <span class="menu-card-tag">Timeless</span>
+                            <h3 data-lang="classicSet">Classic Set</h3>
+                            <p data-lang="classicDesc">A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.</p>
+                            <span class="menu-card-tag" data-lang="timeless">Timeless</span>
                         </div>
                     </article>
 
@@ -881,9 +1112,9 @@
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_e2823a60-c646-4e99-84f0-de3000d2deb8.jpg?v=1784656201" alt="English Breakfast Set">
                         </div>
                         <div class="menu-card-content">
-                            <h3>English Breakfast Set</h3>
-                            <p>A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.</p>
-                            <span class="menu-card-tag">Hearty</span>
+                            <h3 data-lang="englishSet">English Breakfast Set</h3>
+                            <p data-lang="englishDesc">A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.</p>
+                            <span class="menu-card-tag" data-lang="hearty">Hearty</span>
                         </div>
                     </article>
 
@@ -893,9 +1124,133 @@
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195" alt="Salmon Benedict Set">
                         </div>
                         <div class="menu-card-content">
-                            <h3>Salmon Benedict Set</h3>
-                            <p>Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.</p>
-                            <span class="menu-card-tag">Chef's Choice</span>
+                            <h3 data-lang="salmonSet">Salmon Benedict Set</h3>
+                            <p data-lang="salmonDesc">Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.</p>
+                            <span class="menu-card-tag" data-lang="chefChoice">Chef's Choice</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             ICE CREAM SECTION (NEW - Aesthetic Design)
+             ========================================= -->
+        <section class="ice-cream-section" id="ice-cream">
+            <div class="container">
+                <div class="ice-cream-header">
+                    <span class="section-label" data-lang="handcrafted">Handcrafted Daily</span>
+                    <h2 class="section-title" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
+                    <div class="divider divider-center"></div>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="iceCreamDesc">
+                        Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, 
+                        crafted fresh daily in our kitchen. Indulge in the sweetness of perfection.
+                    </p>
+                </div>
+
+                <div class="ice-cream-grid">
+                    <!-- Ice Cream 1 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_08c343da-a622-4025-a475-f96530f55889.jpg?v=1784712913" alt="Ice Cream 1">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream1">Vanilla Bean</h3>
+                            <p data-lang="iceCream1Desc">Creamy Madagascar vanilla with real bean specks</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 2 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Ice Cream 2">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream2">Chocolate Fudge</h3>
+                            <p data-lang="iceCream2Desc">Rich Belgian chocolate with fudge swirls</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 3 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Ice Cream 3">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream3">Strawberry Delight</h3>
+                            <p data-lang="iceCream3Desc">Fresh strawberries with creamy base</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 4 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Ice Cream 4">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream4">Pistachio Dream</h3>
+                            <p data-lang="iceCream4Desc">Roasted pistachios in smooth cream</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 5 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Ice Cream 5">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream5">Caramel Swirl</h3>
+                            <p data-lang="iceCream5Desc">Buttery caramel ribbons throughout</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 6 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Ice Cream 6">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream6">Mint Chocolate</h3>
+                            <p data-lang="iceCream6Desc">Refreshing mint with chocolate chips</p>
+                        </div>
+                    </article>
+
+                    <!-- Ice Cream 7 -->
+                    <article class="ice-cream-card">
+                        <div class="ice-cream-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Ice Cream 7">
+                            <div class="ice-cream-price">700 AMD</div>
+                            <div class="ice-cream-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="ice-cream-content">
+                            <h3 data-lang="iceCream7">Cookies & Cream</h3>
+                            <p data-lang="iceCream7Desc">Crushed cookies in vanilla base</p>
                         </div>
                     </article>
                 </div>
@@ -914,10 +1269,10 @@
             <div class="video-overlay"></div>
             
             <div class="video-content">
-                <span class="section-label">The Sloenka Experience</span>
-                <h2>Crafted in Motion</h2>
-                <p>Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.</p>
-                <a href="#evening" class="btn-primary">Discover Our Offers</a>
+                <span class="section-label" data-lang="sloenkaExp">The Sloenka Experience</span>
+                <h2 data-lang="craftedMotion">Crafted in Motion</h2>
+                <p data-lang="videoDesc">Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.</p>
+                <a href="#evening" class="btn-primary" data-lang="discoverOffers">Discover Our Offers</a>
             </div>
         </section>
 
@@ -928,16 +1283,16 @@
             <div class="container">
                 <div class="split-layout">
                     <div class="offer-text">
-                        <span class="section-label section-label-light">Evening Indulgence</span>
-                        <h2>-40% Discounts for <em>All Croissants</em> from 21:00</h2>
+                        <span class="section-label section-label-light" data-lang="eveningIndulgence">Evening Indulgence</span>
+                        <h2 data-lang="discountTitle">-40% Discounts for <em>All Croissants</em> from 21:00</h2>
                         <div class="divider divider-light"></div>
-                        <p>We believe that great pastry doesn't have a curfew. As the city winds down, our ovens stay warm. Treat yourself to our freshly baked, flaky artisan croissants at an exclusive evening price, because everyone deserves a little late-night indulgence.</p>
+                        <p data-lang="discountDesc">We believe that great pastry doesn't have a curfew. As the city winds down, our ovens stay warm. Treat yourself to our freshly baked, flaky artisan croissants at an exclusive evening price, because everyone deserves a little late-night indulgence.</p>
                         
                         <div class="discount-badge">
                             <span class="percentage">-40%</span>
                             <div class="details">
-                                <strong>All Croissants</strong>
-                                <span>Available Daily from 21:00</span>
+                                <strong data-lang="allCroissants">All Croissants</strong>
+                                <span data-lang="availableDaily">Available Daily from 21:00</span>
                             </div>
                         </div>
                     </div>
@@ -956,21 +1311,21 @@
              ========================================= -->
         <section class="info-section" id="visit">
             <div class="container">
-                <span class="section-label section-label-light">Join Us</span>
-                <h2 class="section-title section-title-light" style="font-size: 2.5rem;">We Await Your Arrival</h2>
+                <span class="section-label section-label-light" data-lang="joinUs">Join Us</span>
+                <h2 class="section-title section-title-light" style="font-size: 2.5rem;" data-lang="awaitArrival">We Await Your Arrival</h2>
                 <div class="divider divider-center divider-light"></div>
                 
                 <div class="info-grid">
                     <div class="info-item">
-                        <h4>Location</h4>
+                        <h4 data-lang="location">Location</h4>
                         <p>123 Baker Street, Suite 4<br>Portland, OR 97205</p>
                     </div>
                     <div class="info-item">
-                        <h4>Hours</h4>
-                        <p>Monday – Sunday<br>7:00 AM – 11:00 PM<br><em>(Breakfast sets until 19:00)</em></p>
+                        <h4 data-lang="hours">Hours</h4>
+                        <p>Monday – Sunday<br>7:00 AM – 11:00 PM<br><em data-lang="breakfastUntil">(Breakfast sets until 19:00)</em></p>
                     </div>
                     <div class="info-item">
-                        <h4>Contact</h4>
+                        <h4 data-lang="contact">Contact</h4>
                         <p>hello@sloenka.coffee<br>+1 (555) 123-4567</p>
                     </div>
                 </div>
@@ -985,6 +1340,220 @@
         <div class="footer-logo">Sloenka.</div>
         <p>&copy; 2026 Sloenka Coffee and Bakery. Crafted with intention.</p>
     </footer>
+
+    <!-- =========================================
+         LANGUAGE TRANSLATION SCRIPT
+         ========================================= -->
+    <script>
+        const translations = {
+            en: {
+                menu: "Breakfast",
+                iceCream: "Ice Cream",
+                experience: "Experience",
+                evening: "Evening Offer",
+                visit: "Visit Us",
+                heroLabel: "Artisanal Excellence",
+                heroTitle: "When Taste Meets Quality.",
+                heroDesc: "Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.",
+                viewMenu: "View Menu",
+                scroll: "Scroll",
+                curated: "Curated for You",
+                signatureMorning: "Signature Morning Sets",
+                morningDesc: "Each set is thoughtfully composed to bring harmony to your morning. Crafted with locally sourced ingredients and baked fresh daily in our kitchen.",
+                classicSet: "Classic Set",
+                classicDesc: "A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.",
+                timeless: "Timeless",
+                englishSet: "English Breakfast Set",
+                englishDesc: "A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.",
+                hearty: "Hearty",
+                salmonSet: "Salmon Benedict Set",
+                salmonDesc: "Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.",
+                chefChoice: "Chef's Choice",
+                handcrafted: "Handcrafted Daily",
+                artisanIceCream: "Artisan Ice Cream Collection",
+                iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily in our kitchen. Indulge in the sweetness of perfection.",
+                iceCream1: "Vanilla Bean",
+                iceCream1Desc: "Creamy Madagascar vanilla with real bean specks",
+                iceCream2: "Chocolate Fudge",
+                iceCream2Desc: "Rich Belgian chocolate with fudge swirls",
+                iceCream3: "Strawberry Delight",
+                iceCream3Desc: "Fresh strawberries with creamy base",
+                iceCream4: "Pistachio Dream",
+                iceCream4Desc: "Roasted pistachios in smooth cream",
+                iceCream5: "Caramel Swirl",
+                iceCream5Desc: "Buttery caramel ribbons throughout",
+                iceCream6: "Mint Chocolate",
+                iceCream6Desc: "Refreshing mint with chocolate chips",
+                iceCream7: "Cookies & Cream",
+                iceCream7Desc: "Crushed cookies in vanilla base",
+                sloenkaExp: "The Sloenka Experience",
+                craftedMotion: "Crafted in Motion",
+                videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
+                discoverOffers: "Discover Our Offers",
+                eveningIndulgence: "Evening Indulgence",
+                discountTitle: "-40% Discounts for <em>All Croissants</em> from 21:00",
+                discountDesc: "We believe that great pastry doesn't have a curfew. As the city winds down, our ovens stay warm. Treat yourself to our freshly baked, flaky artisan croissants at an exclusive evening price, because everyone deserves a little late-night indulgence.",
+                allCroissants: "All Croissants",
+                availableDaily: "Available Daily from 21:00",
+                joinUs: "Join Us",
+                awaitArrival: "We Await Your Arrival",
+                location: "Location",
+                hours: "Hours",
+                breakfastUntil: "(Breakfast sets until 19:00)",
+                contact: "Contact"
+            },
+            ru: {
+                menu: "Завтрак",
+                iceCream: "Мороженое",
+                experience: "Опыт",
+                evening: "Вечернее Предложение",
+                visit: "Посетите Нас",
+                heroLabel: "Ремесленное Превосходство",
+                heroTitle: "Когда Вкус Встречает Качество.",
+                heroDesc: "Насладитесь идеальной гармонией ремесленного мастерства и премиальных ингредиентов. Каждый кусочек и глоток тщательно приготовлены, чтобы превратить ваши повседневные моменты во что-то по-настоящему особенное.",
+                viewMenu: "Посмотреть Меню",
+                scroll: "Прокрутить",
+                curated: "Подобрано для Вас",
+                signatureMorning: "Фирменные Утренние Наборы",
+                morningDesc: "Каждый набор тщательно составлен, чтобы принести гармонию вашему утру. Приготовлен из местных ингредиентов и выпекается свежим ежедневно на нашей кухне.",
+                classicSet: "Классический Набор",
+                classicDesc: "Вневременное утреннее любимое блюдо. Идеально сбалансированные вкусы, свежеиспеченный хлеб и ремесленные консервы, чтобы пробудить ваши чувства и задать тон прекрасному дню.",
+                timeless: "Вневременной",
+                englishSet: "Английский Завтрак",
+                englishDesc: "Сытный, традиционный утренний пир. Богатый, пикантный и глубоко удовлетворяющий, приготовленный из лучших местных ингредиентов для комфорта и энергии.",
+                hearty: "Сытный",
+                salmonSet: "Лосось Бенедикт",
+                salmonDesc: "Нежный копченый лосось на поджаренном ремесленном маффине, увенчанный идеально приготовленным яйцом пашот и нашим фирменным бархатистым голландским соусом.",
+                chefChoice: "Выбор Шефа",
+                handcrafted: "Ежедневное Ремесло",
+                artisanIceCream: "Коллекция Ремесленного Мороженого",
+                iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно на нашей кухне. Насладитесь сладостью совершенства.",
+                iceCream1: "Ванильный Боб",
+                iceCream1Desc: "Сливная мадагаскарская ваниль с настоящими бобами",
+                iceCream2: "Шоколадный Фадж",
+                iceCream2Desc: "Богатый бельгийский шоколад с завитками фаджа",
+                iceCream3: "Клубничное Наслаждение",
+                iceCream3Desc: "Свежая клубника со сливочной основой",
+                iceCream4: "Фисташковая Мечта",
+                iceCream4Desc: "Жареные фисташки в гладком креме",
+                iceCream5: "Карамельный Вихрь",
+                iceCream5Desc: "Масляные карамельные ленты повсюду",
+                iceCream6: "Мятный Шоколад",
+                iceCream6Desc: "Освежающая мята с шоколадной крошкой",
+                iceCream7: "Печенье и Сливки",
+                iceCream7Desc: "Измельченное печенье в ванильной основе",
+                sloenkaExp: "Опыт Sloenka",
+                craftedMotion: "Создано в Движении",
+                videoDesc: "Станьте свидетелем мастерства behind каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции, запечатленная в каждом моменте нашего ремесла.",
+                discoverOffers: "Откройте Наши Предложения",
+                eveningIndulgence: "Вечернее Наслаждение",
+                discountTitle: "-40% Скидка на <em>Все Круассаны</em> с 21:00",
+                discountDesc: "Мы верим, что у отличной выпечки нет комендантского часа. Когда город затихает, наши печи остаются теплыми. Побалуйте себя нашими свежеиспеченными, слоеными ремесленными круассанами по эксклюзивной вечерней цене, потому что каждый заслуживает небольшого ночного наслаждения.",
+                allCroissants: "Все Круассаны",
+                availableDaily: "Доступно Ежедневно с 21:00",
+                joinUs: "Присоединяйтесь к Нам",
+                awaitArrival: "Мы Ждем Вашего Прибытия",
+                location: "Местоположение",
+                hours: "Часы Работы",
+                breakfastUntil: "(Завтраки до 19:00)",
+                contact: "Контакт"
+            },
+            hy: {
+                menu: "Նախաճաշ",
+                iceCream: "Պաղպաղակ",
+                experience: "Փորձ",
+                evening: "Երեկոյան Առաջարկ",
+                visit: "Այցելեք Մեզ",
+                heroLabel: "Արհեստավորական Գերազանցություն",
+                heroTitle: "Երբ Համը Հանդիպում է Որակին։",
+                heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է՝ ձեր առօրյա պահերը վերածելու իսկապես արտասովոր բանի։",
+                viewMenu: "Դիտել Մենյուն",
+                scroll: "Ոլորել",
+                curated: "Ձեզ Համար Ընտրված",
+                signatureMorning: "Ֆիրմային Առավոտյան Հավաքածուներ",
+                morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով և թխված թարմ ամեն օր մեր խոհանոցում։",
+                classicSet: "Դասական Հավաքածու",
+                classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ՝ ձեր զգայարանները արթնացնելու և հիանալի օրվա տոն տալու համար։",
+                timeless: "Անժամանակ",
+                englishSet: "Անգլիական Նախաճաշ",
+                englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող, պատրաստված լավագույն տեղական բաղադրիչներով՝ հարմարավետության և էներգիայի համար։",
+                hearty: "Հագեցած",
+                salmonSet: "Սալմոն Բենեդիկտ",
+                salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով և մեր ֆիրմային թավիշյա հոլանդական սոուսով։",
+                chefChoice: "Շեֆի Ընտրություն",
+                handcrafted: "Ամենօրյա Արհեստ",
+                artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
+                iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է, պատրաստված թարմ ամեն օր մեր խոհանոցում։ Վայելեք կատարելության քաղցրությունը։",
+                iceCream1: "Վանիլային Հատիկ",
+                iceCream1Desc: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
+                iceCream2: "Շոկոլադե Ֆաջ",
+                iceCream2Desc: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
+                iceCream3: "Ելակային Հաճույք",
+                iceCream3Desc: "Թարմ ելակ՝ սերուցքային հիմքով",
+                iceCream4: "Պիստակային Երազ",
+                iceCream4Desc: "Խանձված պիստակներ՝ հարթ սերուցքով",
+                iceCream5: "Կարամելի Ոլորան",
+                iceCream5Desc: "Կարագային կարամելի ժապավեններ ամենուր",
+                iceCream6: "Անանուխ Շոկոլադ",
+                iceCream6Desc: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
+                iceCream7: "Թխվածք և Սերուցք",
+                iceCream7Desc: "Ջարդված թխվածք՝ վանիլային հիմքով",
+                sloenkaExp: "Sloenka Փորձ",
+                craftedMotion: "Ստեղծված Շարժման Մեջ",
+                videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։ Համի, տեքստուրայի և ավանդույթի սիմֆոնիա, գրավված մեր արհեստի յուրաքանչյուր պահին։",
+                discoverOffers: "Հայտնաբերեք Մեր Առաջարկները",
+                eveningIndulgence: "Երեկոյան Հաճույք",
+                discountTitle: "-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից",
+                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։ Վայելեք մեր թարմ թխված, շերտավոր արհեստավորական կրուասանները՝ էքսկլյուզիվ երեկոյան գնով, որովհետև բոլորը արժանի են փոքրիկ գիշերային հաճույքի։",
+                allCroissants: "Բոլոր Կրուասաններ",
+                availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
+                joinUs: "Միացեք Մեզ",
+                awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
+                location: "Վայր",
+                hours: "Ժամեր",
+                breakfastUntil: "(Նախաճաշեր մինչև 19:00)",
+                contact: "Կապ"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-lang]');
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    if (el.innerHTML.includes('<em>')) {
+                        const emContent = el.querySelector('em')?.innerHTML || '';
+                        el.innerHTML = translations[lang][key].replace('<em>', '<em>').replace('</em>', '</em>');
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang-code') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang-code');
+                updateLanguage(lang);
+            });
+        });
+    </script>
 
 </body>
 </html>
