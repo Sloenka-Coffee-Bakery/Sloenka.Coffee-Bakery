@@ -15,17 +15,16 @@
            CSS VARIABLES & RESET
            ========================================= */
         :root {
-            /* Premium Day & Night Palette - Updated for maximum elegance */
-            --bg-light: #F9F6F2;       /* Elegant warm cream */
+            --bg-light: #F9F6F2;
             --bg-dark: #1A1512;
             --card-bg: #FFFFFF;
             --text-primary: #1A1512;
             --text-light: #F5F0EB;
             --text-secondary: #6B5E58;
             --text-muted: #A89F97;
-            --accent: #D4A574;         /* Elegant Gold */
-            --accent-dark: #A67B5B;    /* Warm Latte */
-            --border-light: #E8E2DB;   /* Softer, warmer border */
+            --accent: #D4A574;
+            --accent-dark: #A67B5B;
+            --border-light: #E8E2DB;
             --border-dark: rgba(245, 240, 235, 0.1);
             
             --font-heading: 'Playfair Display', serif;
@@ -53,22 +52,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-        }
-
-        /* Page Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbcebe9f-ef6e-4fd2-ab7f-bb0f019fe55d.jpg?v=1784712903');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.08;
-            z-index: -1;
-            pointer-events: none;
         }
 
         img, video {
@@ -266,7 +249,7 @@
         }
 
         /* =========================================
-           HERO SECTION (Enhanced Elegance)
+           HERO SECTION
            ========================================= */
         .hero {
             position: relative;
@@ -414,7 +397,7 @@
         }
 
         /* =========================================
-           MENU SECTION (Elegant Aesthetic Background)
+           MENU SECTION
            ========================================= */
         .menu-section {
             padding: var(--section-padding);
@@ -516,42 +499,101 @@
         }
 
         /* =========================================
-           ICE CREAM SECTION (NEW - Aesthetic Design)
+           NEW ICE CREAM HERO SECTION (Parallax Background)
            ========================================= */
-        .ice-cream-section {
-            padding: var(--section-padding);
-            background: linear-gradient(135deg, #FDF8F3 0%, #F5F0EB 100%);
+        .ice-cream-hero {
             position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             overflow: hidden;
+            /* The requested beautiful background image */
+            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbcebe9f-ef6e-4fd2-ab7f-bb0f019fe55d.jpg?v=1784712903');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
         }
 
-        .ice-cream-section::before {
-            content: '';
+        .ice-cream-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(166, 123, 91, 0.08) 0%, transparent 50%);
-            pointer-events: none;
+            /* Elegant multi-stop gradient for readability and premium feel */
+            background: linear-gradient(to bottom, 
+                rgba(26, 21, 18, 0.75) 0%, 
+                rgba(26, 21, 18, 0.4) 50%, 
+                rgba(26, 21, 18, 0.8) 100%);
         }
 
-        .ice-cream-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
+        .ice-cream-hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: var(--text-light);
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        .ice-cream-hero-content .section-title {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .ice-cream-hero-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(245, 240, 235, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .price-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: rgba(212, 165, 116, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.4);
+            border-radius: 50px;
+            color: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 16px;
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
+            opacity: 0;
+        }
+
+        .price-highlight span {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-style: normal;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        /* =========================================
+           ICE CREAM GRID SECTION
+           ========================================= */
+        .ice-cream-section {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, #FDF8F3 0%, #F5F0EB 100%);
+            position: relative;
         }
 
         .ice-cream-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
-            position: relative;
-            z-index: 1;
         }
 
         .ice-cream-card {
@@ -744,7 +786,7 @@
         }
 
         /* =========================================
-           EVENING OFFER SECTION (Dark Theme)
+           EVENING OFFER SECTION
            ========================================= */
         .evening-offer {
             padding: var(--section-padding);
@@ -928,8 +970,8 @@
            RESPONSIVE DESIGN
            ========================================= */
         @media (max-width: 968px) {
-            .hero-title {
-                font-size: 4rem;
+            .hero-title, .ice-cream-hero-content .section-title {
+                font-size: 3.5rem;
             }
 
             .split-layout {
@@ -962,6 +1004,10 @@
             .nav-links {
                 gap: 24px;
             }
+            
+            .ice-cream-hero {
+                background-attachment: scroll; /* Disable parallax on mobile for performance */
+            }
         }
 
         @media (max-width: 768px) {
@@ -973,8 +1019,8 @@
                 display: none;
             }
 
-            .hero-title {
-                font-size: 3rem;
+            .hero-title, .ice-cream-hero-content .section-title {
+                font-size: 2.8rem;
             }
 
             .hero-description {
@@ -1064,7 +1110,7 @@
 
     <main>
         <!-- =========================================
-             HERO SECTION (Enhanced Elegance)
+             HERO SECTION
              ========================================= -->
         <section class="hero">
             <div class="hero-bg"></div>
@@ -1094,7 +1140,6 @@
                 </div>
 
                 <div class="menu-grid">
-                    <!-- Classic Set -->
                     <article class="menu-card">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec360759-145b-4dbc-adac-eed73ddac1da.jpg?v=1784656208" alt="Classic Set">
@@ -1106,7 +1151,6 @@
                         </div>
                     </article>
 
-                    <!-- English Breakfast Set -->
                     <article class="menu-card">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_e2823a60-c646-4e99-84f0-de3000d2deb8.jpg?v=1784656201" alt="English Breakfast Set">
@@ -1118,7 +1162,6 @@
                         </div>
                     </article>
 
-                    <!-- Salmon Benedict Set -->
                     <article class="menu-card">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195" alt="Salmon Benedict Set">
@@ -1134,25 +1177,31 @@
         </section>
 
         <!-- =========================================
-             ICE CREAM SECTION (NEW - Aesthetic Design)
+             NEW ICE CREAM HERO SECTION (Parallax Background)
              ========================================= -->
-        <section class="ice-cream-section" id="ice-cream">
-            <div class="container">
-                <div class="ice-cream-header">
-                    <span class="section-label" data-lang="handcrafted">Handcrafted Daily</span>
-                    <h2 class="section-title" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
-                    <div class="divider divider-center"></div>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="iceCreamDesc">
-                        Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, 
-                        crafted fresh daily in our kitchen. Indulge in the sweetness of perfection.
-                    </p>
+        <section class="ice-cream-hero" id="ice-cream">
+            <div class="ice-cream-hero-overlay"></div>
+            <div class="ice-cream-hero-content">
+                <span class="section-label section-label-light" data-lang="handcrafted" style="color: var(--accent);">Handcrafted Daily</span>
+                <h2 class="section-title" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
+                <div class="divider divider-center divider-light"></div>
+                <p data-lang="iceCreamDesc">Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily in our kitchen. Indulge in the sweetness of perfection.</p>
+                <div class="price-highlight">
+                    <span data-lang="only">Only</span> 700 AMD
                 </div>
+            </div>
+        </section>
 
+        <!-- =========================================
+             ICE CREAM GRID SECTION
+             ========================================= -->
+        <section class="ice-cream-section">
+            <div class="container">
                 <div class="ice-cream-grid">
                     <!-- Ice Cream 1 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_08c343da-a622-4025-a475-f96530f55889.jpg?v=1784712913" alt="Ice Cream 1">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_08c343da-a622-4025-a475-f96530f55889.jpg?v=1784712913" alt="Vanilla Bean">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1167,7 +1216,7 @@
                     <!-- Ice Cream 2 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Ice Cream 2">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Chocolate Fudge">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1182,7 +1231,7 @@
                     <!-- Ice Cream 3 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Ice Cream 3">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Strawberry Delight">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1197,7 +1246,7 @@
                     <!-- Ice Cream 4 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Ice Cream 4">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Pistachio Dream">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1212,7 +1261,7 @@
                     <!-- Ice Cream 5 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Ice Cream 5">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Caramel Swirl">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1227,7 +1276,7 @@
                     <!-- Ice Cream 6 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Ice Cream 6">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Mint Chocolate">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1242,7 +1291,7 @@
                     <!-- Ice Cream 7 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
-                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Ice Cream 7">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Cookies & Cream">
                             <div class="ice-cream-price">700 AMD</div>
                             <div class="ice-cream-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4V6H10V4C10 2.9 10.9 2 12 2M12 8C15.31 8 18 10.69 18 14V20H6V14C6 10.69 8.69 8 12 8M12 10C9.79 10 8 11.79 8 14V18H16V14C16 11.79 14.21 10 12 10Z"/></svg>
@@ -1372,6 +1421,7 @@
                 handcrafted: "Handcrafted Daily",
                 artisanIceCream: "Artisan Ice Cream Collection",
                 iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily in our kitchen. Indulge in the sweetness of perfection.",
+                only: "Only",
                 iceCream1: "Vanilla Bean",
                 iceCream1Desc: "Creamy Madagascar vanilla with real bean specks",
                 iceCream2: "Chocolate Fudge",
@@ -1428,27 +1478,28 @@
                 handcrafted: "Ежедневное Ремесло",
                 artisanIceCream: "Коллекция Ремесленного Мороженого",
                 iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно на нашей кухне. Насладитесь сладостью совершенства.",
+                only: "Всего",
                 iceCream1: "Ванильный Боб",
-                iceCream1Desc: "Сливная мадагаскарская ваниль с настоящими бобами",
+                iceCream1Desc: "Сливочная мадагаскарская ваниль с настоящими стручками",
                 iceCream2: "Шоколадный Фадж",
-                iceCream2Desc: "Богатый бельгийский шоколад с завитками фаджа",
+                iceCream2Desc: "Насыщенный бельгийский шоколад с шоколадными завитками",
                 iceCream3: "Клубничное Наслаждение",
-                iceCream3Desc: "Свежая клубника со сливочной основой",
+                iceCream3Desc: "Свежая клубника на сливочной основе",
                 iceCream4: "Фисташковая Мечта",
-                iceCream4Desc: "Жареные фисташки в гладком креме",
+                iceCream4Desc: "Жареные фисташки в нежном креме",
                 iceCream5: "Карамельный Вихрь",
-                iceCream5Desc: "Масляные карамельные ленты повсюду",
+                iceCream5Desc: "Сливочная карамель в каждом кусочке",
                 iceCream6: "Мятный Шоколад",
                 iceCream6Desc: "Освежающая мята с шоколадной крошкой",
                 iceCream7: "Печенье и Сливки",
-                iceCream7Desc: "Измельченное печенье в ванильной основе",
+                iceCream7Desc: "Хрустящее печенье в ванильном мороженом",
                 sloenkaExp: "Опыт Sloenka",
                 craftedMotion: "Создано в Движении",
-                videoDesc: "Станьте свидетелем мастерства behind каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции, запечатленная в каждом моменте нашего ремесла.",
+                videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции, запечатленная в каждом моменте нашего ремесла.",
                 discoverOffers: "Откройте Наши Предложения",
                 eveningIndulgence: "Вечернее Наслаждение",
                 discountTitle: "-40% Скидка на <em>Все Круассаны</em> с 21:00",
-                discountDesc: "Мы верим, что у отличной выпечки нет комендантского часа. Когда город затихает, наши печи остаются теплыми. Побалуйте себя нашими свежеиспеченными, слоеными ремесленными круассанами по эксклюзивной вечерней цене, потому что каждый заслуживает небольшого ночного наслаждения.",
+                discountDesc: "Мы верим, что у отличной выпечки нет комендантского часа. Когда город затихает, наши печи остаются теплыми. Побалуйте себя нашими свежеиспеченными, слоистыми ремесленными круассанами по эксклюзивной вечерней цене, потому что каждый заслуживает небольшого ночного наслаждения.",
                 allCroissants: "Все Круассаны",
                 availableDaily: "Доступно Ежедневно с 21:00",
                 joinUs: "Присоединяйтесь к Нам",
@@ -1484,6 +1535,7 @@
                 handcrafted: "Ամենօրյա Արհեստ",
                 artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է, պատրաստված թարմ ամեն օր մեր խոհանոցում։ Վայելեք կատարելության քաղցրությունը։",
+                only: "Ընդամենը",
                 iceCream1: "Վանիլային Հատիկ",
                 iceCream1Desc: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
                 iceCream2: "Շոկոլադե Ֆաջ",
@@ -1526,15 +1578,15 @@
                 const key = el.getAttribute('data-lang');
                 if (translations[lang][key]) {
                     if (el.innerHTML.includes('<em>')) {
-                        const emContent = el.querySelector('em')?.innerHTML || '';
-                        el.innerHTML = translations[lang][key].replace('<em>', '<em>').replace('</em>', '</em>');
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = translations[lang][key];
+                        el.innerHTML = tempDiv.innerHTML;
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             });
 
-            // Update active button
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-lang-code') === lang) {
@@ -1542,11 +1594,9 @@
                 }
             });
 
-            // Update HTML lang attribute
             document.documentElement.lang = lang;
         }
 
-        // Initialize language buttons
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.getAttribute('data-lang-code');
