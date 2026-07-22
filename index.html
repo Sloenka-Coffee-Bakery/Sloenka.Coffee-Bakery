@@ -455,7 +455,6 @@
             position: relative;
             padding: 120px 0;
             overflow: hidden;
-            /* Beautiful background image */
             background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbcebe9f-ef6e-4fd2-ab7f-bb0f019fe55d.jpg?v=1784712903');
             background-size: cover;
             background-position: center;
@@ -490,6 +489,26 @@
             font-size: 1.05rem;
             font-weight: 300;
             line-height: 1.8;
+        }
+
+        /* NEW: Single prominent price badge in the header */
+        .section-price-badge {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 40px;
+            background: rgba(212, 165, 116, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.4);
+            border-radius: 50px;
+            color: var(--text-light);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+            opacity: 0;
         }
 
         /* Scroll indicator */
@@ -601,22 +620,6 @@
             transform: scale(1.1);
         }
 
-        .ice-cream-price {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: var(--bg-dark);
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 600;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.5);
-            letter-spacing: 0.5px;
-        }
-
         .ice-cream-badge {
             position: absolute;
             top: 20px;
@@ -630,6 +633,7 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             backdrop-filter: blur(10px);
+            z-index: 2;
         }
 
         .ice-cream-content {
@@ -651,19 +655,6 @@
             font-size: 0.9rem;
             line-height: 1.7;
             font-weight: 300;
-            margin-bottom: 16px;
-        }
-
-        .ice-cream-content .price-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(212, 165, 116, 0.1);
-            color: var(--accent-dark);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 50px;
         }
 
         /* Navigation arrows for horizontal scroll */
@@ -994,6 +985,11 @@
             .ice-cream-image { height: 280px; }
             .ice-cream-scroll-wrapper { padding: 0 20px; }
             .scroll-nav { display: none; }
+            
+            .section-price-badge {
+                font-size: 1.25rem;
+                padding: 14px 28px;
+            }
         }
     </style>
 </head>
@@ -1094,6 +1090,9 @@
                 <h2 class="section-title" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
                 <div class="divider divider-center divider-light"></div>
                 <p data-lang="iceCreamDesc">Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.</p>
+                
+                <!-- SINGLE PRICE BADGE FOR THE ENTIRE SECTION -->
+                <div class="section-price-badge" data-lang="allPriceBadge">All Flavors — 700 AMD</div>
             </div>
 
             <div class="scroll-indicator">
@@ -1116,13 +1115,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_08c343da-a622-4025-a475-f96530f55889.jpg?v=1784712913" alt="Vanilla Bean">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeClassic">Classic</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic1">Vanilla Bean</h3>
                             <p data-lang="ic1d">Creamy Madagascar vanilla with real bean specks</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1130,13 +1127,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Chocolate Fudge">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeRich">Rich</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic2">Chocolate Fudge</h3>
                             <p data-lang="ic2d">Rich Belgian chocolate with fudge swirls</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1144,13 +1139,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Strawberry Delight">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeFresh">Fresh</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic3">Strawberry Delight</h3>
                             <p data-lang="ic3d">Fresh strawberries with creamy base</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1158,13 +1151,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Pistachio Dream">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgePremium">Premium</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic4">Pistachio Dream</h3>
                             <p data-lang="ic4d">Roasted pistachios in smooth cream</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1172,13 +1163,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Caramel Swirl">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeSweet">Sweet</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic5">Caramel Swirl</h3>
                             <p data-lang="ic5d">Buttery caramel ribbons throughout</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1186,13 +1175,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Mint Chocolate">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeCool">Cool</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic6">Mint Chocolate</h3>
                             <p data-lang="ic6d">Refreshing mint with chocolate chips</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
 
@@ -1200,13 +1187,11 @@
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Cookies & Cream">
-                            <span class="ice-cream-price">700 AMD</span>
                             <span class="ice-cream-badge" data-lang="badgeCrispy">Crispy</span>
                         </div>
                         <div class="ice-cream-content">
                             <h3 data-lang="ic7">Cookies & Cream</h3>
                             <p data-lang="ic7d">Crushed cookies in vanilla base</p>
-                            <span class="price-tag" data-lang="allPrice">All Flavors — 700 AMD</span>
                         </div>
                     </article>
                 </div>
@@ -1309,11 +1294,11 @@
                 handcrafted: "Handcrafted Daily",
                 artisanIceCream: "Artisan Ice Cream Collection",
                 iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.",
+                allPriceBadge: "All Flavors — 700 AMD",
                 scrollRight: "Scroll Right",
                 badgeClassic: "Classic", badgeRich: "Rich", badgeFresh: "Fresh",
                 badgePremium: "Premium", badgeSweet: "Sweet",
                 badgeCool: "Cool", badgeCrispy: "Crispy",
-                allPrice: "All Flavors — 700 AMD",
                 ic1: "Vanilla Bean", ic1d: "Creamy Madagascar vanilla with real bean specks",
                 ic2: "Chocolate Fudge", ic2d: "Rich Belgian chocolate with fudge swirls",
                 ic3: "Strawberry Delight", ic3d: "Fresh strawberries with creamy base",
@@ -1358,11 +1343,11 @@
                 handcrafted: "Ежедневное Ремесло",
                 artisanIceCream: "Коллекция Ремесленного Мороженого",
                 iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно. Насладитесь сладостью совершенства.",
+                allPriceBadge: "Все Вкусы — 700 AMD",
                 scrollRight: "Прокрутите Вправо",
                 badgeClassic: "Классика", badgeRich: "Насыщенный", badgeFresh: "Свежий",
                 badgePremium: "Премиум", badgeSweet: "Сладкий",
                 badgeCool: "Прохладный", badgeCrispy: "Хрустящий",
-                allPrice: "Все Вкусы — 700 AMD",
                 ic1: "Ванильный Боб", ic1d: "Сливочная мадагаскарская ваниль с настоящими бобами",
                 ic2: "Шоколадный Фадж", ic2d: "Насыщенный бельгийский шоколад с завитками фаджа",
                 ic3: "Клубничное Наслаждение", ic3d: "Свежая клубника со сливочной основой",
@@ -1407,11 +1392,11 @@
                 handcrafted: "Ամենօրյա Արհեստ",
                 artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
+                allPriceBadge: "Բոլոր Համերը — 700 AMD",
                 scrollRight: "Ոլորեք Աջ",
                 badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "Թարմ",
                 badgePremium: "Պրեմիում", badgeSweet: "Քաղցր",
                 badgeCool: "Զով", badgeCrispy: "Խրթխրթան",
-                allPrice: "Բոլոր Համերը — 700 AMD",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
                 ic2: "Շոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
                 ic3: "Ելակային Հաճույք", ic3d: "Թարմ ելակ՝ սերուցքային հիմքով",
