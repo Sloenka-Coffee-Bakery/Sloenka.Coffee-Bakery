@@ -491,7 +491,6 @@
             line-height: 1.8;
         }
 
-        /* NEW: Single prominent price badge in the header */
         .section-price-badge {
             display: inline-block;
             margin-top: 32px;
@@ -511,7 +510,6 @@
             opacity: 0;
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             display: flex;
             align-items: center;
@@ -560,7 +558,6 @@
             50% { transform: translateX(8px); }
         }
 
-        /* Horizontal scroll container */
         .ice-cream-scroll-wrapper {
             position: relative;
             z-index: 2;
@@ -578,11 +575,8 @@
             scroll-behavior: smooth;
         }
 
-        .ice-cream-scroll::-webkit-scrollbar {
-            display: none;
-        }
+        .ice-cream-scroll::-webkit-scrollbar { display: none; }
 
-        /* Ice cream cards */
         .ice-cream-card {
             flex: 0 0 340px;
             background: rgba(255, 255, 255, 0.98);
@@ -616,14 +610,11 @@
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .ice-cream-card:hover .ice-cream-image img {
-            transform: scale(1.1);
-        }
+        .ice-cream-card:hover .ice-cream-image img { transform: scale(1.1); }
 
         .ice-cream-badge {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 20px; left: 20px;
             background: rgba(26, 21, 18, 0.85);
             color: var(--text-light);
             padding: 8px 14px;
@@ -657,7 +648,6 @@
             font-weight: 300;
         }
 
-        /* Navigation arrows for horizontal scroll */
         .scroll-nav {
             position: absolute;
             top: 50%;
@@ -689,10 +679,106 @@
         .scroll-nav.prev { left: 20px; }
         .scroll-nav.next { right: 20px; }
 
-        .scroll-nav svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
+
+        /* =========================================
+           NEW AFFOGATO VIDEO SECTION
+           ========================================= */
+        .affogato-section {
+            position: relative;
+            padding: 140px 24px;
+            background-color: #2C221C; /* Dark coffee brown base */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        /* Dynamic Background Video */
+        .affogato-bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.35; /* Subtle visibility */
+            z-index: 0;
+            animation: slowZoom 40s infinite alternate ease-in-out;
+        }
+
+        /* Gradient Overlay for readability */
+        .affogato-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(44, 34, 28, 0.4) 0%, #2C221C 100%);
+            z-index: 1;
+        }
+
+        .affogato-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .affogato-title {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .flavor-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Staggered animations for items */
+        .flavor-item:nth-child(1) { animation-delay: 0.2s; }
+        .flavor-item:nth-child(2) { animation-delay: 0.4s; }
+        .flavor-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .flavor-bracket-text {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: lowercase;
+        }
+
+        .flavor-name {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .flavor-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: rgba(245, 240, 235, 0.7);
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 280px;
         }
 
         /* VIDEO SECTION */
@@ -929,6 +1015,7 @@
         /* RESPONSIVE */
         @media (max-width: 968px) {
             .hero-title { font-size: 4rem; }
+            .affogato-title { font-size: 3.5rem; }
 
             .split-layout {
                 grid-template-columns: 1fr;
@@ -951,9 +1038,9 @@
             .ice-cream-card { flex: 0 0 300px; }
             .ice-cream-image { height: 320px; }
             
-            .ice-cream-section {
-                background-attachment: scroll;
-            }
+            .ice-cream-section { background-attachment: scroll; }
+            
+            .flavor-grid { gap: 30px; }
         }
 
         @media (max-width: 768px) {
@@ -963,6 +1050,15 @@
             .hero-title { font-size: 3rem; }
             .hero-description { font-size: 1.05rem; }
             .section-title { font-size: 2.5rem; }
+            
+            .affogato-title { font-size: 2.5rem; margin-bottom: 40px; }
+            
+            /* Stack flavors vertically on mobile */
+            .flavor-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
             .menu-grid { grid-template-columns: 1fr; gap: 40px; }
             .menu-card-image { height: 240px; margin: 16px 16px 0 16px; }
             .offer-text h2 { font-size: 2.25rem; }
@@ -1003,6 +1099,7 @@
                     <ul class="nav-links">
                         <li><a href="#menu" data-lang="navBreakfast">Breakfast</a></li>
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
+                        <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
                         <li><a href="#visit" data-lang="navVisit">Visit</a></li>
@@ -1091,7 +1188,6 @@
                 <div class="divider divider-center divider-light"></div>
                 <p data-lang="iceCreamDesc">Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.</p>
                 
-                <!-- SINGLE PRICE BADGE FOR THE ENTIRE SECTION -->
                 <div class="section-price-badge" data-lang="allPriceBadge">All Flavors — 700 AMD</div>
             </div>
 
@@ -1111,7 +1207,6 @@
                 </div>
 
                 <div class="ice-cream-scroll" id="iceCreamScroll">
-                    <!-- Ice Cream 1 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_08c343da-a622-4025-a475-f96530f55889.jpg?v=1784712913" alt="Vanilla Bean">
@@ -1123,7 +1218,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 2 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Chocolate Fudge">
@@ -1135,7 +1229,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 3 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Strawberry Delight">
@@ -1147,7 +1240,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 4 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Pistachio Dream">
@@ -1159,7 +1251,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 5 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Caramel Swirl">
@@ -1171,7 +1262,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 6 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Mint Chocolate">
@@ -1183,7 +1273,6 @@
                         </div>
                     </article>
 
-                    <!-- Ice Cream 7 -->
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Cookies & Cream">
@@ -1194,6 +1283,45 @@
                             <p data-lang="ic7d">Crushed cookies in vanilla base</p>
                         </div>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             NEW AFFOGATO EDITION SECTION
+             ========================================= -->
+        <section class="affogato-section" id="affogato">
+            <!-- Background Video -->
+            <video class="affogato-bg-video" autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/1fe26f74af71415f81d2ba3fca6cad32.mov" type="video/mp4">
+            </video>
+            
+            <div class="affogato-overlay"></div>
+
+            <div class="affogato-content">
+                <h2 class="affogato-title" data-lang="affogatoTitle">New drinks: Affogato edition</h2>
+                
+                <div class="flavor-grid">
+                    <!-- Pistachio -->
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorPistachioBracket">[ pistachio ]</span>
+                        <h3 class="flavor-name" data-lang="flavorPistachio">Pistachio Affogato</h3>
+                        <p class="flavor-desc" data-lang="descPistachio">Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.</p>
+                    </div>
+
+                    <!-- Chocolate -->
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorChocolateBracket">[ chocolate ]</span>
+                        <h3 class="flavor-name" data-lang="flavorChocolate">Chocolate Affogato</h3>
+                        <p class="flavor-desc" data-lang="descChocolate">Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.</p>
+                    </div>
+
+                    <!-- Vanilla -->
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorVanillaBracket">[ vanilla ]</span>
+                        <h3 class="flavor-name" data-lang="flavorVanilla">Vanilla Affogato</h3>
+                        <p class="flavor-desc" data-lang="descVanilla">Classic Madagascar vanilla bean ice cream meeting the bold intensity of coffee.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1273,7 +1401,7 @@
     <script>
         const translations = {
             en: {
-                navBreakfast: "Breakfast", navIceCream: "Ice Cream", navExperience: "Experience",
+                navBreakfast: "Breakfast", navIceCream: "Ice Cream", navAffogato: "Affogato", navExperience: "Experience",
                 navEvening: "Evening", navVisit: "Visit",
                 heroLabel: "Artisanal Excellence",
                 heroTitle: "When Taste Meets Quality.",
@@ -1306,6 +1434,11 @@
                 ic5: "Caramel Swirl", ic5d: "Buttery caramel ribbons throughout",
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
+                // New Affogato Translations
+                affogatoTitle: "New drinks: Affogato edition",
+                flavorPistachioBracket: "[ pistachio ]", flavorPistachio: "Pistachio Affogato", descPistachio: "Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.",
+                flavorChocolateBracket: "[ chocolate ]", flavorChocolate: "Chocolate Affogato", descChocolate: "Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.",
+                flavorVanillaBracket: "[ vanilla ]", flavorVanilla: "Vanilla Affogato", descVanilla: "Classic Madagascar vanilla bean ice cream meeting the bold intensity of coffee.",
                 sloenkaExp: "The Sloenka Experience",
                 craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
@@ -1322,7 +1455,7 @@
                 contact: "Contact"
             },
             ru: {
-                navBreakfast: "Завтрак", navIceCream: "Мороженое", navExperience: "Опыт",
+                navBreakfast: "Завтрак", navIceCream: "Мороженое", navAffogato: "Аффогато", navExperience: "Опыт",
                 navEvening: "Вечер", navVisit: "Визит",
                 heroLabel: "Ремесленное Превосходство",
                 heroTitle: "Когда Вкус Встречает Качество.",
@@ -1355,6 +1488,11 @@
                 ic5: "Карамельный Вихрь", ic5d: "Масляные карамельные ленты повсюду",
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
+                // New Affogato Translations
+                affogatoTitle: "Новинка: Коллекция Аффогато",
+                flavorPistachioBracket: "[ фисташка ]", flavorPistachio: "Фисташковое Аффогато", descPistachio: "Насыщенный эспрессо, политый поверх сливочного фисташкового джелато с ореховой крошкой.",
+                flavorChocolateBracket: "[ шоколад ]", flavorChocolate: "Шоколадное Аффогато", descChocolate: "Декадентское бельгийское шоколадное мороженое, утопленное в горячем ароматном эспрессо.",
+                flavorVanillaBracket: "[ ваниль ]", flavorVanilla: "Ванильное Аффогато", descVanilla: "Классическое мадагаскарское ванильное мороженое встречается с_bold_ интенсивностью кофе.",
                 sloenkaExp: "Опыт Sloenka",
                 craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
@@ -1371,7 +1509,7 @@
                 contact: "Контакт"
             },
             hy: {
-                navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navExperience: "Փորձ",
+                navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navAffogato: "Աֆոգատո", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն",
                 heroTitle: "Երբ Համը Հանդիպում է Որակին։",
@@ -1386,31 +1524,36 @@
                 englishSet: "Անգլիական Նախաճաշ",
                 englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։",
                 hearty: "Հագեցած",
-                salmonSet: "Սալմոն Բենեդիկտ",
-                salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։",
+                salmonSet: "ալմոն Բենեդիկտ",
+                salmonDesc: "ուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։",
                 chefChoice: "Շեֆի Ընտրություն",
                 handcrafted: "Ամենօրյա Արհեստ",
                 artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
                 allPriceBadge: "Բոլոր Համերը — 700 AMD",
                 scrollRight: "Ոլորեք Աջ",
-                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "Թարմ",
-                badgePremium: "Պրեմիում", badgeSweet: "Քաղցր",
-                badgeCool: "Զով", badgeCrispy: "Խրթխրթան",
+                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "արմ",
+                badgePremium: "րեմիում", badgeSweet: "աղցր",
+                badgeCool: "Զով", badgeCrispy: "րթխրթան",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
                 ic2: "Շոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
                 ic3: "Ելակային Հաճույք", ic3d: "Թարմ ելակ՝ սերուցքային հիմքով",
                 ic4: "Պիստակային Երազ", ic4d: "Խանձված պիստակներ՝ հարթ սերուցքով",
                 ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
-                ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
+                ic6: "Անանուխ Շոկոլադ", ic6d: "արմացնող անանուխ շոկոլադե կտորներով",
                 ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
+                // New Affogato Translations
+                affogatoTitle: "որ խմիչքներ. Աֆոգատո հավաքածու",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո լցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական ոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
+                flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
                 sloenkaExp: "Sloenka Փորձ",
                 craftedMotion: "Ստեղծված Շարժման Մեջ",
-                videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
+                videoDesc: "Վկա եղեք յուրաքանչյուր ցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները",
                 eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
-                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
+                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ ունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
                 allCroissants: "Բոլոր Կրուասաններ",
                 availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
                 joinUs: "Միացեք Մեզ",
