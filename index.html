@@ -825,8 +825,8 @@
 
         .aesthetic-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
             max-width: 1100px;
             margin: 0 auto;
             position: relative;
@@ -835,7 +835,7 @@
 
         .aesthetic-card {
             background: #FFFFFF;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(166, 123, 91, 0.08);
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -846,12 +846,13 @@
         }
 
         .aesthetic-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 24px 60px rgba(166, 123, 91, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(166, 123, 91, 0.15);
         }
 
+        /* UPDATED: Smaller photo size so text is fully visible */
         .aesthetic-image-wrap {
-            height: 320px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
@@ -869,22 +870,23 @@
 
         .aesthetic-price-tag {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 16px;
+            right: 16px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 50px;
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--accent-dark);
             font-weight: 600;
             box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             letter-spacing: 0.5px;
         }
 
+        /* UPDATED: Optimized padding and font sizes for better text visibility */
         .aesthetic-info {
-            padding: 28px 24px 32px;
+            padding: 20px 20px 24px;
             text-align: center;
             flex-grow: 1;
             display: flex;
@@ -894,17 +896,17 @@
 
         .aesthetic-info h3 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-weight: 400;
         }
 
         .aesthetic-info p {
             font-family: var(--font-body);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.5;
             font-weight: 300;
         }
 
@@ -1229,7 +1231,8 @@
                 padding: 14px 28px;
             }
             
-            .aesthetic-image-wrap { height: 280px; }
+            /* UPDATED: Even smaller photo size on mobile for maximum text visibility */
+            .aesthetic-image-wrap { height: 180px; }
         }
     </style>
 </head>
@@ -1443,13 +1446,13 @@
         </section>
 
         <!-- =========================================
-             AESTHETIC GRID SECTION (REPLACES 3D CAROUSEL)
-             ========================================= -->
+           SIGNATURE CREATIONS SECTION (UPDATED)
+           ========================================= -->
         <section class="aesthetic-grid-section" id="specialty">
             <div class="container">
                 <div class="aesthetic-header">
                     <span class="section-label" data-lang="bakesLabel">Crafted with Love</span>
-                    <h2 class="section-title" data-lang="bakesTitle">Aesthetic Selection</h2>
+                    <h2 class="section-title" data-lang="bakesTitle">Signature Creations</h2>
                     <div class="divider divider-center"></div>
                     <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="bakesDesc">
                         A curated collection of our most beautiful and delicious creations, each priced at 1400 AMD.
@@ -1615,8 +1618,8 @@
                 ic5: "Caramel Swirl", ic5d: "Buttery caramel ribbons throughout",
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
-                // New Aesthetic Grid Translations
-                bakesLabel: "Crafted with Love", bakesTitle: "Aesthetic Selection",
+                // Updated Aesthetic Grid Translations
+                bakesLabel: "Crafted with Love", bakesTitle: "Signature Creations",
                 bakesDesc: "A curated collection of our most beautiful and delicious creations, each priced at 1400 AMD.",
                 bakePrice: "1400 AMD",
                 bake1: "Artisan Matcha Latte", bake1Desc: "Premium ceremonial grade matcha whisked to perfection with creamy oat milk.",
@@ -1659,8 +1662,8 @@
                 ic5: "Карамельный Вихрь", ic5d: "Масляные карамельные ленты повсюду",
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
-                // New Aesthetic Grid Translations
-                bakesLabel: "Сделано с любовью", bakesTitle: "Эстетичная Коллекция",
+                // Updated Aesthetic Grid Translations
+                bakesLabel: "Сделано с любовью", bakesTitle: "Фирменные Шедевры",
                 bakesDesc: "Подборка наших самых красивых и вкусных творений, каждое по цене 1400 AMD.",
                 bakePrice: "1400 AMD",
                 bake1: "Артизан Матча Латте", bake1Desc: "Премиальный церемониальный матча, идеально взбитый с кремовым овсяным молоком.",
@@ -1703,8 +1706,8 @@
                 ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
                 ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
                 ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
-                // New Aesthetic Grid Translations
-                bakesLabel: "Պատրաստված սիրով", bakesTitle: "Գեղագիտական Հավաքածու",
+                // Updated Aesthetic Grid Translations
+                bakesLabel: "Պատրաստված սիրով", bakesTitle: "Հեղինակային Ստեղծագործություններ",
                 bakesDesc: "Մեր ամենագեղեցիկ և համեղ ստեղծագործությունների ընտրանին, յուրաքանչյուրը՝ 1400 AMD:",
                 bakePrice: "1400 AMD",
                 bake1: "Արհեստավորական Մաչա Լատտե", bake1Desc: "Պրեմիում մաչա՝ կատարյալ հարվածած կրեմային վարսակի կաթով:",
