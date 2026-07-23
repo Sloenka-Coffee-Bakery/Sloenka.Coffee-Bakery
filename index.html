@@ -781,6 +781,130 @@
 
         .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
+        /* =========================================
+           SPECIALTY DRINKS SECTION (NEW)
+           ========================================= */
+        .specialty-drinks-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+            position: relative;
+        }
+
+        .specialty-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .specialty-scroll-wrapper {
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .specialty-scroll {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 40px 0 60px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .specialty-scroll::-webkit-scrollbar { display: none; }
+
+        .specialty-card {
+            flex: 0 0 340px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 20px rgba(26, 21, 18, 0.05);
+            scroll-snap-align: center;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(26, 21, 18, 0.12);
+        }
+
+        .specialty-image {
+            height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .specialty-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .specialty-card:hover .specialty-image img {
+            transform: scale(1.08);
+        }
+
+        .specialty-content {
+            padding: 24px 28px 32px;
+            text-align: center;
+        }
+
+        .specialty-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .specialty-price {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--accent-dark);
+            font-style: italic;
+            margin-top: 12px;
+        }
+
+        .specialty-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .specialty-nav:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .specialty-nav.prev { left: 20px; }
+        .specialty-nav.next { right: 20px; }
+
+        .specialty-nav svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         /* VIDEO SECTION */
         .video-experience {
             position: relative;
@@ -1041,6 +1165,7 @@
             .ice-cream-section { background-attachment: scroll; }
             
             .flavor-grid { gap: 30px; }
+            .specialty-card { flex: 0 0 300px; }
         }
 
         @media (max-width: 768px) {
@@ -1086,6 +1211,10 @@
                 font-size: 1.25rem;
                 padding: 14px 28px;
             }
+
+            .specialty-card { flex: 0 0 280px; }
+            .specialty-scroll-wrapper { padding: 0 20px; }
+            .specialty-nav { display: none; }
         }
     </style>
 </head>
@@ -1101,6 +1230,7 @@
                         <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#menu" data-lang="navBreakfast">Breakfast</a></li>
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
+                        <li><a href="#specialty" data-lang="navSpecialty">Specialty</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
                         <li><a href="#visit" data-lang="navVisit">Visit</a></li>
@@ -1327,6 +1457,88 @@
             </div>
         </section>
 
+        <!-- =========================================
+             SPECIALTY DRINKS SECTION (NEW)
+             ========================================= -->
+        <section class="specialty-drinks-section" id="specialty">
+            <div class="container">
+                <div class="specialty-header">
+                    <span class="section-label" data-lang="specialtyLabel">Fresh & Delicious</span>
+                    <h2 class="section-title" data-lang="specialtyTitle">Specialty Drinks</h2>
+                    <div class="divider divider-center"></div>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="specialtyDesc">
+                        Refreshing beverages crafted with care. Perfect for any time of day.
+                    </p>
+                </div>
+
+                <div class="specialty-scroll-wrapper">
+                    <div class="specialty-nav prev" onclick="scrollSpecialty(-1)">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </div>
+                    <div class="specialty-nav next" onclick="scrollSpecialty(1)">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </div>
+
+                    <div class="specialty-scroll" id="specialtyScroll">
+                        <!-- Item 1 -->
+                        <article class="specialty-card">
+                            <div class="specialty-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b0e903f6-24c8-438b-87e9-874bf24221a0.jpg?v=1784713000" alt="Specialty Drink 1">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 data-lang="specialty1">Fresh Smoothie</h3>
+                                <div class="specialty-price" data-lang="price1">1300 AMD</div>
+                            </div>
+                        </article>
+
+                        <!-- Item 2 -->
+                        <article class="specialty-card">
+                            <div class="specialty-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_2e7ab908-d355-4109-9174-77aa8ae7d958.jpg?v=1784713007" alt="Specialty Drink 2">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 data-lang="specialty2">Fresh Juice</h3>
+                                <div class="specialty-price" data-lang="price2">1200 AMD</div>
+                            </div>
+                        </article>
+
+                        <!-- Item 3 -->
+                        <article class="specialty-card">
+                            <div class="specialty-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b8d0ef42-0a5f-4888-9b97-54fcc05a4e9f.jpg?v=1784713012" alt="Specialty Drink 3">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 data-lang="specialty3">Premium Blend</h3>
+                                <div class="specialty-price" data-lang="price3">1600 AMD</div>
+                            </div>
+                        </article>
+
+                        <!-- Item 4 -->
+                        <article class="specialty-card">
+                            <div class="specialty-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_96c99356-c1d4-414f-959c-55a9d326c011.jpg?v=1784713017" alt="Specialty Drink 4">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 data-lang="specialty4">Signature Drink</h3>
+                                <div class="specialty-price" data-lang="price4">1700 AMD</div>
+                            </div>
+                        </article>
+
+                        <!-- Item 5 -->
+                        <article class="specialty-card">
+                            <div class="specialty-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ecfa2c13-6bb8-4ed2-b8e6-c81037b9e1ad.jpg?v=1784713026" alt="Specialty Drink 5">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 data-lang="specialty5">Classic Refreshment</h3>
+                                <div class="specialty-price" data-lang="price5">1200 AMD</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="video-experience" id="experience">
             <video class="bg-video" autoplay muted loop playsinline poster="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_928a2b21-ed61-4d4a-8afd-1344bf18ce16.jpg?v=1784656239">
                 <source src="https://cdn.shopify.com/videos/c/o/v/1cafa4449080404499fc379cfec57cda.mov" type="video/mp4">
@@ -1402,7 +1614,7 @@
     <script>
         const translations = {
             en: {
-                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navExperience: "Experience",
+                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSpecialty: "Specialty", navExperience: "Experience",
                 navEvening: "Evening", navVisit: "Visit",
                 heroLabel: "Artisanal Excellence",
                 heroTitle: "When Taste Meets Quality.",
@@ -1440,6 +1652,15 @@
                 ic5: "Caramel Swirl", ic5d: "Buttery caramel ribbons throughout",
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
+                // Specialty Drinks
+                specialtyLabel: "Fresh & Delicious",
+                specialtyTitle: "Specialty Drinks",
+                specialtyDesc: "Refreshing beverages crafted with care. Perfect for any time of day.",
+                specialty1: "Fresh Smoothie", price1: "1300 AMD",
+                specialty2: "Fresh Juice", price2: "1200 AMD",
+                specialty3: "Premium Blend", price3: "1600 AMD",
+                specialty4: "Signature Drink", price4: "1700 AMD",
+                specialty5: "Classic Refreshment", price5: "1200 AMD",
                 sloenkaExp: "The Sloenka Experience",
                 craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
@@ -1456,7 +1677,7 @@
                 contact: "Contact"
             },
             ru: {
-                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navExperience: "Опыт",
+                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSpecialty: "Напитки", navExperience: "Опыт",
                 navEvening: "Вечер", navVisit: "Визит",
                 heroLabel: "Ремесленное Превосходство",
                 heroTitle: "Когда Вкус Встречает Качество.",
@@ -1494,6 +1715,15 @@
                 ic5: "Карамельный Вихрь", ic5d: "Масляные карамельные ленты повсюду",
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
+                // Specialty Drinks
+                specialtyLabel: "Свежие и Вкусные",
+                specialtyTitle: "Фирменные Напитки",
+                specialtyDesc: "Освежающие напитки, приготовленные с заботой. Идеально подходят для любого времени дня.",
+                specialty1: "Свежий Смузи", price1: "1300 AMD",
+                specialty2: "Свежий Сок", price2: "1200 AMD",
+                specialty3: "Премиум Бленд", price3: "1600 AMD",
+                specialty4: "Фирменный Напиток", price4: "1700 AMD",
+                specialty5: "Классическое Освежение", price5: "1200 AMD",
                 sloenkaExp: "Опыт Sloenka",
                 craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
@@ -1510,19 +1740,19 @@
                 contact: "Контакт"
             },
             hy: {
-                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navExperience: "Փորձ",
+                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSpecialty: "Խմիչքներ", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական երազանցություն",
                 heroTitle: "Երբ Համը Հանդիպում է Որակին։",
-                heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ ուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
+                heroDesc: "այելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ ուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
                 viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել",
                 // New Affogato Translations
                 affogatoTitle: "որ խմիչքներ. Աֆոգատո հավաքածու",
-                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո լցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո ցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական ոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
                 flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
-                curated: "Ձեզ Համար Ընտրված",
-                signatureMorning: "Ֆիրմային Առավոտյան Հավաքածուներ",
+                curated: "եզ Համար Ընտրված",
+                signatureMorning: "իրմային Առավոտյան Հավաքածուներ",
                 morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով։",
                 classicSet: "Դասական Հավաքածու",
                 classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։",
@@ -1531,8 +1761,8 @@
                 englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։",
                 hearty: "Հագեցած",
                 salmonSet: "ալմոն Բենեդիկտ",
-                salmonDesc: "ուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։",
-                chefChoice: "Շեֆի Ընտրություն",
+                salmonDesc: "ուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված վով։",
+                chefChoice: "եֆի Ընտրություն",
                 handcrafted: "Ամենօրյա Արհեստ",
                 artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
@@ -1542,19 +1772,28 @@
                 badgePremium: "րեմիում", badgeSweet: "աղցր",
                 badgeCool: "Զով", badgeCrispy: "րթխրթան",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
-                ic2: "ոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
+                ic2: "ոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ ֆաջի ոլորաններով",
                 ic3: "Ելակային Հաճույք", ic3d: "Թարմ ելակ՝ սերուցքային հիմքով",
                 ic4: "Պիստակային Երազ", ic4d: "Խանձված պիստակներ՝ հարթ սերուցքով",
-                ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
-                ic6: "Անանուխ Շոկոլադ", ic6d: "արմացնող անանուխ շոկոլադե կտորներով",
+                ic5: "արամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
+                ic6: "Անանուխ Շոկոլադ", ic6d: "արմացնող անանուխ ոկոլադե կտորներով",
                 ic7: "Թխվածք և երուցք", ic7d: "արդված թխվածք վանիլային հիմքով",
+                // Specialty Drinks
+                specialtyLabel: "Թարմ և Համեղ",
+                specialtyTitle: "իրմային Խմիչքներ",
+                specialtyDesc: "Թարմացնող միչքներ՝ պատրաստված հոգատարությամբ։ Իդեալական ցանկացած ժամանակի համար։",
+                specialty1: "Թարմ Սմուզի", price1: "1300 AMD",
+                specialty2: "արմ Հյութ", price2: "1200 AMD",
+                specialty3: "րեմիում Խառնուրդ", price3: "1600 AMD",
+                specialty4: "իրմային Խմիչք", price4: "1700 AMD",
+                specialty5: "Դասական Թարմացում", price5: "1200 AMD",
                 sloenkaExp: "Sloenka Փորձ",
-                craftedMotion: "Ստեղծված Շարժման Մեջ",
-                videoDesc: "Վկա եղեք ուրաքանչյուր ցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
+                craftedMotion: "Ստեղծված Շարժման եջ",
+                videoDesc: "կա եղեք ուրաքանչյուր ցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները",
                 eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
-                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ ունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
+                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ ունի։ Երբ քաղաքը հանգստանում է, մեր եռոցները մնում են տաք։",
                 allCroissants: "Բոլոր Կրուասաններ",
                 availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
                 joinUs: "Միացեք Մեզ",
@@ -1593,14 +1832,21 @@
             });
         });
 
-        // Horizontal scroll functionality
+        // Horizontal scroll functionality for ice cream
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
             const scrollAmount = 380;
             scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // Mouse wheel horizontal scroll on desktop
+        // Horizontal scroll functionality for specialty drinks
+        function scrollSpecialty(direction) {
+            const scroll = document.getElementById('specialtyScroll');
+            const scrollAmount = 380;
+            scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Mouse wheel horizontal scroll on desktop for ice cream
         const scrollContainer = document.getElementById('iceCreamScroll');
         scrollContainer.addEventListener('wheel', (e) => {
             if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
@@ -1609,7 +1855,16 @@
             }
         }, { passive: false });
 
-        // Touch and drag functionality
+        // Mouse wheel horizontal scroll for specialty drinks
+        const specialtyScrollContainer = document.getElementById('specialtyScroll');
+        specialtyScrollContainer.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                specialtyScrollContainer.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+
+        // Touch and drag functionality for ice cream
         let isDown = false;
         let startX, scrollLeft;
 
@@ -1636,6 +1891,35 @@
             const x = e.pageX - scrollContainer.offsetLeft;
             const walk = (x - startX) * 2;
             scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch and drag functionality for specialty drinks
+        let isDownSpecialty = false;
+        let startXSpecialty, scrollLeftSpecialty;
+
+        specialtyScrollContainer.addEventListener('mousedown', (e) => {
+            isDownSpecialty = true;
+            specialtyScrollContainer.style.cursor = 'grabbing';
+            startXSpecialty = e.pageX - specialtyScrollContainer.offsetLeft;
+            scrollLeftSpecialty = specialtyScrollContainer.scrollLeft;
+        });
+
+        specialtyScrollContainer.addEventListener('mouseleave', () => {
+            isDownSpecialty = false;
+            specialtyScrollContainer.style.cursor = 'grab';
+        });
+
+        specialtyScrollContainer.addEventListener('mouseup', () => {
+            isDownSpecialty = false;
+            specialtyScrollContainer.style.cursor = 'grab';
+        });
+
+        specialtyScrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDownSpecialty) return;
+            e.preventDefault();
+            const x = e.pageX - specialtyScrollContainer.offsetLeft;
+            const walk = (x - startXSpecialty) * 2;
+            specialtyScrollContainer.scrollLeft = scrollLeftSpecialty - walk;
         });
     </script>
 
