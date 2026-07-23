@@ -782,127 +782,219 @@
         .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* =========================================
-           SPECIALTY DRINKS SECTION (NEW)
+           3D CAROUSEL SPECIALTY DRINKS SECTION
            ========================================= */
-        .specialty-drinks-section {
-            padding: var(--section-padding);
-            background-color: var(--bg-light);
-            position: relative;
-        }
-
-        .specialty-header {
+        .specialty-3d-section {
+            padding: 100px 20px;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .specialty-scroll-wrapper {
+            background: #1F1714; /* Rich espresso background */
             position: relative;
-            padding: 0 40px;
-        }
-
-        .specialty-scroll {
-            display: flex;
-            gap: 32px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding: 40px 0 60px;
-            scrollbar-width: none;
-            scroll-behavior: smooth;
-        }
-
-        .specialty-scroll::-webkit-scrollbar { display: none; }
-
-        .specialty-card {
-            flex: 0 0 340px;
-            background: var(--card-bg);
-            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 4px 20px rgba(26, 21, 18, 0.05);
-            scroll-snap-align: center;
         }
 
-        .specialty-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(26, 21, 18, 0.12);
+        /* Subtle elegant pattern overlay */
+        .specialty-3d-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff'%3E%3Cpath opacity='0.04' d='M60 20c10 10 10 30 0 40-10-10-10-30 0-40z'/%3E%3Cpath opacity='0.03' d='M60 100c10-10 10-30 0-40-10 10-10 30 0 40z'/%3E%3Cpath opacity='0.03' d='M20 60c10-10 30-10 40 0-10 10-30 10-40 0z'/%3E%3Cpath opacity='0.03' d='M100 60c-10-10-30-10-40 0 10 10 30 10 40 0z'/%3E%3Ccircle cx='60' cy='60' r='6' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 140px 140px;
+            opacity: 0.9;
+            pointer-events: none;
+            animation: patternMove 40s linear infinite;
+            z-index: 0;
         }
 
-        .specialty-image {
+        /* Warm gold/amber glow layer */
+        .specialty-3d-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.12) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 60%);
+            filter: blur(40px);
+            animation: floatGlow 12s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        /* Moving diagonal pattern */
+        .dd-3d-dots-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.02) 0px,
+                rgba(255,255,255,0.02) 1px,
+                transparent 1px,
+                transparent 14px
+            );
+            opacity: 0.3;
+            animation: movePattern 20s linear infinite;
+            z-index: 0;
+        }
+
+        /* Warm glow circles */
+        .dd-3d-glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(50px);
+            opacity: 0.4;
+        }
+        .glow-circle-1 { width: 400px; height: 400px; background: rgba(212, 165, 116, 0.1); top: -120px; right: -100px; }
+        .glow-circle-2 { width: 350px; height: 350px; background: rgba(212, 165, 116, 0.08); bottom: -100px; left: -80px; }
+        .glow-circle-3 { width: 260px; height: 260px; background: rgba(212, 165, 116, 0.06); top: 40%; left: 5%; }
+
+        .specialty-3d-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 🎠 3D Carousel Scene */
+        .dd-3d-scene {
+            perspective: 1200px;
+            width: 100%;
+            max-width: 600px;
             height: 380px;
-            overflow: hidden;
+            margin: 40px auto 0;
             position: relative;
+            z-index: 2;
         }
 
-        .specialty-image img {
+        .dd-3d-ring {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Individual 3D Card */
+        .dd-3d-item {
+            position: absolute;
+            width: 240px;
+            height: 340px;
+            left: 50%;
+            top: 50%;
+            margin-left: -120px;
+            margin-top: -170px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #F9F6F2; /* Light cream to contrast dark bg */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            backface-visibility: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dd-3d-item-img-wrap {
+            flex: 1;
+            overflow: hidden;
+            background: #E8E2DB;
+        }
+
+        .dd-3d-item-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.6s ease;
         }
 
-        .specialty-card:hover .specialty-image img {
+        .dd-3d-item:hover .dd-3d-item-img-wrap img {
             transform: scale(1.08);
         }
 
-        .specialty-content {
-            padding: 24px 28px 32px;
+        .dd-3d-item-info {
+            padding: 16px;
             text-align: center;
+            background: #F9F6F2;
+            border-top: 1px solid var(--border-light);
         }
 
-        .specialty-content h3 {
+        .dd-3d-item-name {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
-            margin-bottom: 12px;
             font-weight: 400;
+            margin-bottom: 6px;
         }
 
-        .specialty-price {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
+        .dd-3d-item-price {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--accent-dark);
-            font-style: italic;
-            margin-top: 12px;
+            letter-spacing: 1px;
         }
 
-        .specialty-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: var(--bg-light);
-            border: 1px solid var(--border-light);
-            border-radius: 50%;
+        /* Navigation Dots */
+        .dd-3d-dots {
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .dd-3d-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: none;
             cursor: pointer;
-            z-index: 10;
             transition: all 0.3s ease;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .specialty-nav:hover {
+        .dd-3d-dot.active {
             background: var(--accent);
-            color: var(--bg-dark);
-            border-color: var(--accent);
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.5);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
         }
 
-        .specialty-nav.prev { left: 20px; }
-        .specialty-nav.next { right: 20px; }
+        /* Animations */
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-60px, -60px); }
+        }
 
-        .specialty-nav svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        @keyframes floatGlow {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-40px, -40px); }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .dd-3d-scene {
+                height: 320px;
+                max-width: 100%;
+            }
+            .dd-3d-item {
+                width: 180px;
+                height: 260px;
+                margin-left: -90px;
+                margin-top: -130px;
+            }
+            .dd-3d-item-name {
+                font-size: 1rem;
+            }
+            .dd-3d-item-price {
+                font-size: 0.85rem;
+            }
         }
 
         /* VIDEO SECTION */
@@ -1165,7 +1257,6 @@
             .ice-cream-section { background-attachment: scroll; }
             
             .flavor-grid { gap: 30px; }
-            .specialty-card { flex: 0 0 300px; }
         }
 
         @media (max-width: 768px) {
@@ -1211,10 +1302,6 @@
                 font-size: 1.25rem;
                 padding: 14px 28px;
             }
-
-            .specialty-card { flex: 0 0 280px; }
-            .specialty-scroll-wrapper { padding: 0 20px; }
-            .specialty-nav { display: none; }
         }
     </style>
 </head>
@@ -1458,84 +1545,81 @@
         </section>
 
         <!-- =========================================
-             SPECIALTY DRINKS SECTION (NEW)
+             3D CAROUSEL SPECIALTY DRINKS SECTION
              ========================================= -->
-        <section class="specialty-drinks-section" id="specialty">
-            <div class="container">
-                <div class="specialty-header">
-                    <span class="section-label" data-lang="specialtyLabel">Fresh & Delicious</span>
-                    <h2 class="section-title" data-lang="specialtyTitle">Specialty Drinks</h2>
-                    <div class="divider divider-center"></div>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="specialtyDesc">
-                        Refreshing beverages crafted with care. Perfect for any time of day.
-                    </p>
-                </div>
+        <section class="specialty-3d-section" id="specialty">
+            <div class="dd-3d-dots-pattern"></div>
+            <div class="dd-3d-glow-circle glow-circle-1"></div>
+            <div class="dd-3d-glow-circle glow-circle-2"></div>
+            <div class="dd-3d-glow-circle glow-circle-3"></div>
 
-                <div class="specialty-scroll-wrapper">
-                    <div class="specialty-nav prev" onclick="scrollSpecialty(-1)">
-                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                    </div>
-                    <div class="specialty-nav next" onclick="scrollSpecialty(1)">
-                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-                    </div>
+            <div class="specialty-3d-content">
+                <span class="section-label section-label-light" data-lang="specialtyLabel">Fresh & Delicious</span>
+                <h2 class="section-title section-title-light" data-lang="specialtyTitle">Specialty Drinks</h2>
+                <div class="divider divider-center divider-light"></div>
 
-                    <div class="specialty-scroll" id="specialtyScroll">
-                        <!-- Item 1 -->
-                        <article class="specialty-card">
-                            <div class="specialty-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b0e903f6-24c8-438b-87e9-874bf24221a0.jpg?v=1784713000" alt="Specialty Drink 1">
+                <div class="dd-3d-scene">
+                    <div class="dd-3d-ring" id="dd3dRing">
+                        
+                        <!-- Item 1: 1300 AMD -->
+                        <article class="dd-3d-item">
+                            <div class="dd-3d-item-img-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b0e903f6-24c8-438b-87e9-874bf24221a0.jpg?v=1784713000" alt="Fresh Smoothie" loading="lazy">
                             </div>
-                            <div class="specialty-content">
-                                <h3 data-lang="specialty1">Fresh Smoothie</h3>
-                                <div class="specialty-price" data-lang="price1">1300 AMD</div>
+                            <div class="dd-3d-item-info">
+                                <div class="dd-3d-item-name" data-lang="specialty1">Fresh Smoothie</div>
+                                <div class="dd-3d-item-price" data-lang="price1">1300 AMD</div>
                             </div>
                         </article>
 
-                        <!-- Item 2 -->
-                        <article class="specialty-card">
-                            <div class="specialty-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_2e7ab908-d355-4109-9174-77aa8ae7d958.jpg?v=1784713007" alt="Specialty Drink 2">
+                        <!-- Item 2: 1200 AMD -->
+                        <article class="dd-3d-item">
+                            <div class="dd-3d-item-img-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_2e7ab908-d355-4109-9174-77aa8ae7d958.jpg?v=1784713007" alt="Fresh Juice" loading="lazy">
                             </div>
-                            <div class="specialty-content">
-                                <h3 data-lang="specialty2">Fresh Juice</h3>
-                                <div class="specialty-price" data-lang="price2">1200 AMD</div>
-                            </div>
-                        </article>
-
-                        <!-- Item 3 -->
-                        <article class="specialty-card">
-                            <div class="specialty-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b8d0ef42-0a5f-4888-9b97-54fcc05a4e9f.jpg?v=1784713012" alt="Specialty Drink 3">
-                            </div>
-                            <div class="specialty-content">
-                                <h3 data-lang="specialty3">Premium Blend</h3>
-                                <div class="specialty-price" data-lang="price3">1600 AMD</div>
+                            <div class="dd-3d-item-info">
+                                <div class="dd-3d-item-name" data-lang="specialty2">Fresh Juice</div>
+                                <div class="dd-3d-item-price" data-lang="price2">1200 AMD</div>
                             </div>
                         </article>
 
-                        <!-- Item 4 -->
-                        <article class="specialty-card">
-                            <div class="specialty-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_96c99356-c1d4-414f-959c-55a9d326c011.jpg?v=1784713017" alt="Specialty Drink 4">
+                        <!-- Item 3: 1600 AMD -->
+                        <article class="dd-3d-item">
+                            <div class="dd-3d-item-img-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b8d0ef42-0a5f-4888-9b97-54fcc05a4e9f.jpg?v=1784713012" alt="Premium Blend" loading="lazy">
                             </div>
-                            <div class="specialty-content">
-                                <h3 data-lang="specialty4">Signature Drink</h3>
-                                <div class="specialty-price" data-lang="price4">1700 AMD</div>
+                            <div class="dd-3d-item-info">
+                                <div class="dd-3d-item-name" data-lang="specialty3">Premium Blend</div>
+                                <div class="dd-3d-item-price" data-lang="price3">1600 AMD</div>
                             </div>
                         </article>
 
-                        <!-- Item 5 -->
-                        <article class="specialty-card">
-                            <div class="specialty-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ecfa2c13-6bb8-4ed2-b8e6-c81037b9e1ad.jpg?v=1784713026" alt="Specialty Drink 5">
+                        <!-- Item 4: 1700 AMD -->
+                        <article class="dd-3d-item">
+                            <div class="dd-3d-item-img-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_96c99356-c1d4-414f-959c-55a9d326c011.jpg?v=1784713017" alt="Signature Drink" loading="lazy">
                             </div>
-                            <div class="specialty-content">
-                                <h3 data-lang="specialty5">Classic Refreshment</h3>
-                                <div class="specialty-price" data-lang="price5">1200 AMD</div>
+                            <div class="dd-3d-item-info">
+                                <div class="dd-3d-item-name" data-lang="specialty4">Signature Drink</div>
+                                <div class="dd-3d-item-price" data-lang="price4">1700 AMD</div>
                             </div>
                         </article>
+
+                        <!-- Item 5: 1200 AMD -->
+                        <article class="dd-3d-item">
+                            <div class="dd-3d-item-img-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ecfa2c13-6bb8-4ed2-b8e6-c81037b9e1ad.jpg?v=1784713026" alt="Classic Refreshment" loading="lazy">
+                            </div>
+                            <div class="dd-3d-item-info">
+                                <div class="dd-3d-item-name" data-lang="specialty5">Classic Refreshment</div>
+                                <div class="dd-3d-item-price" data-lang="price5">1200 AMD</div>
+                            </div>
+                        </article>
+
                     </div>
                 </div>
+
+                <div class="dd-3d-dots" id="dd3dDots"></div>
             </div>
         </section>
 
@@ -1744,11 +1828,11 @@
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական երազանցություն",
                 heroTitle: "Երբ Համը Հանդիպում է Որակին։",
-                heroDesc: "այելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ ուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
+                heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
                 viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել",
                 // New Affogato Translations
                 affogatoTitle: "որ խմիչքներ. Աֆոգատո հավաքածու",
-                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո ցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո լցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական ոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
                 flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
                 curated: "եզ Համար Ընտրված",
@@ -1832,16 +1916,109 @@
             });
         });
 
+        // =========================================
+        // 3D CAROUSEL FUNCTIONALITY
+        // =========================================
+        (function () {
+            const ring = document.getElementById('dd3dRing');
+            if (!ring) return;
+            
+            const items = ring.querySelectorAll('.dd-3d-item');
+            const dotsContainer = document.getElementById('dd3dDots');
+            const count = items.length;
+            
+            if (count === 0) return;
+
+            const angle = 360 / count;
+
+            // Calculate perfect radius to prevent overlap
+            function getRadius() {
+                if (count <= 1) return 0;
+                const isMobile = window.innerWidth <= 768;
+                const itemWidth = isMobile ? 180 : 240;
+                // Math formula for polygon radius + breathing room
+                return Math.round((itemWidth / 2) / Math.tan(Math.PI / count)) + 60;
+            }
+            
+            let radius = getRadius();
+            
+            // Position each item in 3D space
+            items.forEach((item, i) => {
+                item.style.transform = `rotateY(${i * angle}deg) translateZ(${radius}px)`;
+            });
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                const rotateY = currentIndex * -angle;
+                ring.style.transform = `rotateY(${rotateY}deg)`;
+                
+                const activeDotIndex = ((currentIndex % count) + count) % count;
+                const dots = dotsContainer.querySelectorAll('.dd-3d-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeDotIndex);
+                });
+            }
+
+            function goToSlide(targetIndex) {
+                let currentMod = ((currentIndex % count) + count) % count;
+                let steps = targetIndex - currentMod;
+                
+                // Ensure we always move forward to the next occurrence of the target
+                if (steps <= 0) {
+                    steps += count;
+                }
+                
+                currentIndex += steps;
+                updateCarousel();
+                resetInterval();
+            }
+
+            // Create navigation dots
+            items.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'dd-3d-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.onclick = () => { 
+                    goToSlide(i);
+                };
+                dotsContainer.appendChild(dot);
+            });
+
+            // Auto-rotate every 3.5 seconds
+            let interval = setInterval(() => {
+                currentIndex++;
+                updateCarousel();
+            }, 3500);
+
+            function resetInterval() {
+                clearInterval(interval);
+                interval = setInterval(() => {
+                    currentIndex++;
+                    updateCarousel();
+                }, 3500);
+            }
+
+            // Pause rotation on hover
+            const scene = document.querySelector('.dd-3d-scene');
+            scene.addEventListener('mouseenter', () => clearInterval(interval));
+            scene.addEventListener('mouseleave', () => {
+                resetInterval();
+            });
+
+            // Recalculate radius on window resize
+            window.addEventListener('resize', () => {
+                radius = getRadius();
+                items.forEach((item, i) => {
+                    item.style.transform = `rotateY(${i * angle}deg) translateZ(${radius}px)`;
+                });
+                updateCarousel();
+            });
+        })();
+
         // Horizontal scroll functionality for ice cream
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
-            const scrollAmount = 380;
-            scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-
-        // Horizontal scroll functionality for specialty drinks
-        function scrollSpecialty(direction) {
-            const scroll = document.getElementById('specialtyScroll');
             const scrollAmount = 380;
             scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
@@ -1852,15 +2029,6 @@
             if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
                 e.preventDefault();
                 scrollContainer.scrollLeft += e.deltaY;
-            }
-        }, { passive: false });
-
-        // Mouse wheel horizontal scroll for specialty drinks
-        const specialtyScrollContainer = document.getElementById('specialtyScroll');
-        specialtyScrollContainer.addEventListener('wheel', (e) => {
-            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                e.preventDefault();
-                specialtyScrollContainer.scrollLeft += e.deltaY;
             }
         }, { passive: false });
 
@@ -1891,35 +2059,6 @@
             const x = e.pageX - scrollContainer.offsetLeft;
             const walk = (x - startX) * 2;
             scrollContainer.scrollLeft = scrollLeft - walk;
-        });
-
-        // Touch and drag functionality for specialty drinks
-        let isDownSpecialty = false;
-        let startXSpecialty, scrollLeftSpecialty;
-
-        specialtyScrollContainer.addEventListener('mousedown', (e) => {
-            isDownSpecialty = true;
-            specialtyScrollContainer.style.cursor = 'grabbing';
-            startXSpecialty = e.pageX - specialtyScrollContainer.offsetLeft;
-            scrollLeftSpecialty = specialtyScrollContainer.scrollLeft;
-        });
-
-        specialtyScrollContainer.addEventListener('mouseleave', () => {
-            isDownSpecialty = false;
-            specialtyScrollContainer.style.cursor = 'grab';
-        });
-
-        specialtyScrollContainer.addEventListener('mouseup', () => {
-            isDownSpecialty = false;
-            specialtyScrollContainer.style.cursor = 'grab';
-        });
-
-        specialtyScrollContainer.addEventListener('mousemove', (e) => {
-            if (!isDownSpecialty) return;
-            e.preventDefault();
-            const x = e.pageX - specialtyScrollContainer.offsetLeft;
-            const walk = (x - startXSpecialty) * 2;
-            specialtyScrollContainer.scrollLeft = scrollLeftSpecialty - walk;
         });
     </script>
 
