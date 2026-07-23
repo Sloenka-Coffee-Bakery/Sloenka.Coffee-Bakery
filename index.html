@@ -349,12 +349,12 @@
         }
 
         /* =========================================
-           NEW AFFOGATO VIDEO SECTION (MOVED UP)
+           NEW AFFOGATO VIDEO SECTION
            ========================================= */
         .affogato-section {
             position: relative;
             padding: 140px 24px;
-            background-color: #2C221C; /* Dark coffee brown base */
+            background-color: #2C221C;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -362,18 +362,16 @@
             min-height: 80vh;
         }
 
-        /* Dynamic Background Video */
         .affogato-bg-video {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.35; /* Subtle visibility */
+            opacity: 0.35;
             z-index: 0;
             animation: slowZoom 40s infinite alternate ease-in-out;
         }
 
-        /* Gradient Overlay for readability */
         .affogato-overlay {
             position: absolute;
             top: 0; left: 0;
@@ -416,7 +414,6 @@
             animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        /* Staggered animations for items */
         .flavor-item:nth-child(1) { animation-delay: 0.2s; }
         .flavor-item:nth-child(2) { animation-delay: 0.4s; }
         .flavor-item:nth-child(3) { animation-delay: 0.6s; }
@@ -782,170 +779,148 @@
         .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* =========================================
-           3D CAROUSEL SPECIALTY DRINKS SECTION
+           AESTHETIC ARTISAN BAKES SECTION (NEW)
            ========================================= */
-        .specialty-3d-section {
-            padding: 100px 20px;
-            text-align: center;
-            background: #1F1714; /* Rich espresso background */
+        .artisan-bakes-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #FAF8F5 0%, #F2EBE3 100%);
             position: relative;
             overflow: hidden;
         }
 
-        /* Subtle elegant pattern overlay */
-        .specialty-3d-section::before {
+        .artisan-bakes-section::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff'%3E%3Cpath opacity='0.04' d='M60 20c10 10 10 30 0 40-10-10-10-30 0-40z'/%3E%3Cpath opacity='0.03' d='M60 100c10-10 10-30 0-40-10 10-10 30 0 40z'/%3E%3Cpath opacity='0.03' d='M20 60c10-10 30-10 40 0-10 10-30 10-40 0z'/%3E%3Cpath opacity='0.03' d='M100 60c-10-10-30-10-40 0 10 10 30 10 40 0z'/%3E%3Ccircle cx='60' cy='60' r='6' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 140px 140px;
-            opacity: 0.9;
-            pointer-events: none;
-            animation: patternMove 40s linear infinite;
-            z-index: 0;
-        }
-
-        /* Warm gold/amber glow layer */
-        .specialty-3d-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.12) 0%, transparent 45%),
-                        radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 60%);
-            filter: blur(40px);
-            animation: floatGlow 12s ease-in-out infinite alternate;
-            z-index: 0;
-        }
-
-        /* Moving diagonal pattern */
-        .dd-3d-dots-pattern {
-            position: absolute;
-            inset: 0;
-            background-image: repeating-linear-gradient(
-                45deg,
-                rgba(255,255,255,0.02) 0px,
-                rgba(255,255,255,0.02) 1px,
-                transparent 1px,
-                transparent 14px
-            );
-            opacity: 0.3;
-            animation: movePattern 20s linear infinite;
-            z-index: 0;
-        }
-
-        /* Warm glow circles */
-        .dd-3d-glow-circle {
-            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
             border-radius: 50%;
+            filter: blur(60px);
             pointer-events: none;
-            z-index: 0;
-            filter: blur(50px);
-            opacity: 0.4;
         }
-        .glow-circle-1 { width: 400px; height: 400px; background: rgba(212, 165, 116, 0.1); top: -120px; right: -100px; }
-        .glow-circle-2 { width: 350px; height: 350px; background: rgba(212, 165, 116, 0.08); bottom: -100px; left: -80px; }
-        .glow-circle-3 { width: 260px; height: 260px; background: rgba(212, 165, 116, 0.06); top: 40%; left: 5%; }
 
-        .specialty-3d-content {
+        .artisan-bakes-section::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(166, 123, 91, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .artisan-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
             position: relative;
             z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        /* 🎠 3D Carousel Scene */
-        .dd-3d-scene {
-            perspective: 1200px;
-            width: 100%;
-            max-width: 600px;
-            height: 380px;
-            margin: 40px auto 0;
+        .artisan-scroll-wrapper {
             position: relative;
             z-index: 2;
+            padding: 0 40px;
         }
 
-        .dd-3d-ring {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        /* Individual 3D Card */
-        .dd-3d-item {
-            position: absolute;
-            width: 240px;
-            height: 340px;
-            left: 50%;
-            top: 50%;
-            margin-left: -120px;
-            margin-top: -170px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #F9F6F2; /* Light cream to contrast dark bg */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .artisan-scroll {
             display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            backface-visibility: hidden;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.1);
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 40px 20px 60px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
         }
 
-        .dd-3d-item-img-wrap {
-            flex: 1;
+        .artisan-scroll::-webkit-scrollbar { display: none; }
+
+        .artisan-card {
+            flex: 0 0 320px;
+            background: #FFFFFF;
+            border-radius: 24px;
             overflow: hidden;
-            background: #E8E2DB;
+            box-shadow: 0 10px 40px rgba(166, 123, 91, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            scroll-snap-align: center;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        .dd-3d-item-img-wrap img {
+        .artisan-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 60px rgba(166, 123, 91, 0.15);
+        }
+
+        .artisan-image-wrap {
+            height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .artisan-image-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .dd-3d-item:hover .dd-3d-item-img-wrap img {
+        .artisan-card:hover .artisan-image-wrap img {
             transform: scale(1.08);
         }
 
-        .dd-3d-item-info {
-            padding: 16px;
-            text-align: center;
-            background: #F9F6F2;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .dd-3d-item-name {
+        .artisan-price-tag {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: 50px;
             font-family: var(--font-heading);
             font-size: 1.1rem;
-            color: var(--text-primary);
-            font-weight: 400;
-            margin-bottom: 6px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            letter-spacing: 0.5px;
         }
 
-        .dd-3d-item-price {
+        .artisan-info {
+            padding: 28px 24px 32px;
+            text-align: center;
+        }
+
+        .artisan-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .artisan-info p {
             font-family: var(--font-body);
             font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent-dark);
-            letter-spacing: 1px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: 300;
         }
 
-        /* Navigation Arrows for 3D Carousel */
-        .dd-3d-nav {
+        .artisan-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 56px;
+            height: 56px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -953,100 +928,24 @@
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
-            color: var(--text-light);
+            color: var(--text-primary);
+            box-shadow: 0 8px 24px rgba(26, 21, 18, 0.06);
         }
 
-        .dd-3d-nav:hover {
+        .artisan-nav:hover {
             background: var(--accent);
-            color: var(--bg-dark);
+            color: #FFFFFF;
             border-color: var(--accent);
             transform: translateY(-50%) scale(1.1);
         }
 
-        .dd-3d-nav.prev { left: -70px; }
-        .dd-3d-nav.next { right: -70px; }
+        .artisan-nav.prev { left: 20px; }
+        .artisan-nav.next { right: 20px; }
 
-        .dd-3d-nav svg {
+        .artisan-nav svg {
             width: 24px;
             height: 24px;
             fill: currentColor;
-        }
-
-        /* Navigation Dots */
-        .dd-3d-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-            z-index: 2;
-            position: relative;
-        }
-
-        .dd-3d-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dd-3d-dot.active {
-            background: var(--accent);
-            transform: scale(1.5);
-            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
-        }
-
-        /* Animations */
-        @keyframes patternMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-60px, -60px); }
-        }
-
-        @keyframes floatGlow {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-20px); }
-        }
-
-        @keyframes movePattern {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-40px, -40px); }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 968px) {
-            .dd-3d-nav.prev { left: -20px; }
-            .dd-3d-nav.next { right: -20px; }
-        }
-
-        @media (max-width: 768px) {
-            .dd-3d-scene {
-                height: 320px;
-                max-width: 100%;
-            }
-            .dd-3d-item {
-                width: 180px;
-                height: 260px;
-                margin-left: -90px;
-                margin-top: -130px;
-            }
-            .dd-3d-item-name {
-                font-size: 1rem;
-            }
-            .dd-3d-item-price {
-                font-size: 0.85rem;
-            }
-            .dd-3d-nav.prev { left: 0; }
-            .dd-3d-nav.next { right: 0; }
-            .dd-3d-nav {
-                width: 40px;
-                height: 40px;
-            }
-            .dd-3d-nav svg {
-                width: 20px;
-                height: 20px;
-            }
         }
 
         /* VIDEO SECTION */
@@ -1321,7 +1220,6 @@
             
             .affogato-title { font-size: 2.5rem; margin-bottom: 40px; }
             
-            /* Stack flavors vertically on mobile */
             .flavor-grid {
                 grid-template-columns: 1fr;
                 gap: 50px;
@@ -1354,6 +1252,12 @@
                 font-size: 1.25rem;
                 padding: 14px 28px;
             }
+
+            .artisan-card { flex: 0 0 280px; }
+            .artisan-image-wrap { height: 320px; }
+            .artisan-nav { display: none; }
+            .artisan-scroll-wrapper { padding: 0 20px; }
+            .artisan-scroll { padding: 40px 0 60px; }
         }
     </style>
 </head>
@@ -1365,11 +1269,10 @@
             <div class="nav-wrapper">
                 <nav>
                     <ul class="nav-links">
-                        <!-- Updated Nav Order -->
                         <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#menu" data-lang="navBreakfast">Breakfast</a></li>
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
-                        <li><a href="#specialty" data-lang="navSpecialty">Specialty</a></li>
+                        <li><a href="#specialty" data-lang="navSpecialty">Artisan Bakes</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
                         <li><a href="#visit" data-lang="navVisit">Visit</a></li>
@@ -1397,36 +1300,24 @@
             <div class="scroll-hint" data-lang="scroll">Scroll</div>
         </section>
 
-        <!-- =========================================
-             NEW AFFOGATO EDITION SECTION (NOW 2ND)
-             ========================================= -->
         <section class="affogato-section" id="affogato">
-            <!-- Background Video -->
             <video class="affogato-bg-video" autoplay muted loop playsinline>
                 <source src="https://cdn.shopify.com/videos/c/o/v/1fe26f74af71415f81d2ba3fca6cad32.mov" type="video/mp4">
             </video>
-            
             <div class="affogato-overlay"></div>
-
             <div class="affogato-content">
                 <h2 class="affogato-title" data-lang="affogatoTitle">New drinks: Affogato edition</h2>
-                
                 <div class="flavor-grid">
-                    <!-- Pistachio -->
                     <div class="flavor-item">
                         <span class="flavor-bracket-text" data-lang="flavorPistachioBracket">[ pistachio ]</span>
                         <h3 class="flavor-name" data-lang="flavorPistachio">Pistachio Affogato</h3>
                         <p class="flavor-desc" data-lang="descPistachio">Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.</p>
                     </div>
-
-                    <!-- Chocolate -->
                     <div class="flavor-item">
                         <span class="flavor-bracket-text" data-lang="flavorChocolateBracket">[ chocolate ]</span>
                         <h3 class="flavor-name" data-lang="flavorChocolate">Chocolate Affogato</h3>
                         <p class="flavor-desc" data-lang="descChocolate">Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.</p>
                     </div>
-
-                    <!-- Vanilla -->
                     <div class="flavor-item">
                         <span class="flavor-bracket-text" data-lang="flavorVanillaBracket">[ vanilla ]</span>
                         <h3 class="flavor-name" data-lang="flavorVanilla">Vanilla Affogato</h3>
@@ -1447,7 +1338,6 @@
                         Crafted with locally sourced ingredients and baked fresh daily in our kitchen.
                     </p>
                 </div>
-
                 <div class="menu-grid">
                     <article class="menu-card">
                         <div class="menu-card-image">
@@ -1459,7 +1349,6 @@
                             <span class="menu-card-tag" data-lang="timeless">Timeless</span>
                         </div>
                     </article>
-
                     <article class="menu-card">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_e2823a60-c646-4e99-84f0-de3000d2deb8.jpg?v=1784656201" alt="English Breakfast Set">
@@ -1470,7 +1359,6 @@
                             <span class="menu-card-tag" data-lang="hearty">Hearty</span>
                         </div>
                     </article>
-
                     <article class="menu-card">
                         <div class="menu-card-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dbd97543-7465-469d-84ee-192c9032a422.jpg?v=1784656195" alt="Salmon Benedict Set">
@@ -1485,28 +1373,21 @@
             </div>
         </section>
 
-        <!-- =========================================
-             HORIZONTAL SCROLLING ICE CREAM SECTION
-             ========================================= -->
         <section class="ice-cream-section" id="ice-cream">
             <div class="ice-cream-overlay"></div>
-            
             <div class="ice-cream-header">
                 <span class="section-label" data-lang="handcrafted">Handcrafted Daily</span>
                 <h2 class="section-title" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
                 <div class="divider divider-center divider-light"></div>
                 <p data-lang="iceCreamDesc">Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.</p>
-                
                 <div class="section-price-badge" data-lang="allPriceBadge">All Flavors — 700 AMD</div>
             </div>
-
             <div class="scroll-indicator">
                 <div class="scroll-indicator-line"></div>
                 <span data-lang="scrollRight">Scroll Right</span>
                 <span class="scroll-arrow">→</span>
                 <div class="scroll-indicator-line"></div>
             </div>
-
             <div class="ice-cream-scroll-wrapper">
                 <div class="scroll-nav prev" onclick="scrollGallery(-1)">
                     <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -1514,7 +1395,6 @@
                 <div class="scroll-nav next" onclick="scrollGallery(1)">
                     <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
                 </div>
-
                 <div class="ice-cream-scroll" id="iceCreamScroll">
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
@@ -1526,7 +1406,6 @@
                             <p data-lang="ic1d">Creamy Madagascar vanilla with real bean specks</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_451372fe-55d1-4c94-a031-42decfa4fc7d.jpg?v=1784712922" alt="Chocolate Fudge">
@@ -1537,7 +1416,6 @@
                             <p data-lang="ic2d">Rich Belgian chocolate with fudge swirls</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_cc39a090-406e-4efc-b44e-37070c5dd3b2.jpg?v=1784712939" alt="Strawberry Delight">
@@ -1548,7 +1426,6 @@
                             <p data-lang="ic3d">Fresh strawberries with creamy base</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b7489e5e-7815-4f2a-b447-36ea051908ac.jpg?v=1784712960" alt="Pistachio Dream">
@@ -1559,7 +1436,6 @@
                             <p data-lang="ic4d">Roasted pistachios in smooth cream</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_040244df-6688-4bf9-a75d-2f0fa0f56d9e.jpg?v=1784712966" alt="Caramel Swirl">
@@ -1570,7 +1446,6 @@
                             <p data-lang="ic5d">Buttery caramel ribbons throughout</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_1b11d322-b9c7-44b6-b598-df29bcf38338.jpg?v=1784712981" alt="Mint Chocolate">
@@ -1581,7 +1456,6 @@
                             <p data-lang="ic6d">Refreshing mint with chocolate chips</p>
                         </div>
                     </article>
-
                     <article class="ice-cream-card">
                         <div class="ice-cream-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_35ec263e-9d3f-4f68-9973-c79f44c392a7.jpg?v=1784712987" alt="Cookies & Cream">
@@ -1597,89 +1471,90 @@
         </section>
 
         <!-- =========================================
-             3D CAROUSEL SPECIALTY DRINKS SECTION
+             AESTHETIC ARTISAN BAKES SECTION (NEW)
              ========================================= -->
-        <section class="specialty-3d-section" id="specialty">
-            <div class="dd-3d-dots-pattern"></div>
-            <div class="dd-3d-glow-circle glow-circle-1"></div>
-            <div class="dd-3d-glow-circle glow-circle-2"></div>
-            <div class="dd-3d-glow-circle glow-circle-3"></div>
+        <section class="artisan-bakes-section" id="specialty">
+            <div class="container">
+                <div class="artisan-header">
+                    <span class="section-label" data-lang="bakesLabel">Fresh from the Oven</span>
+                    <h2 class="section-title" data-lang="bakesTitle">Artisan Bakes</h2>
+                    <div class="divider divider-center"></div>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="bakesDesc">
+                        Handcrafted with passion and the finest ingredients. Every bite is a moment of pure, aesthetic delight.
+                    </p>
+                </div>
 
-            <div class="specialty-3d-content">
-                <span class="section-label section-label-light" data-lang="specialtyLabel">Fresh & Delicious</span>
-                <h2 class="section-title section-title-light" data-lang="specialtyTitle">Specialty Drinks</h2>
-                <div class="divider divider-center divider-light"></div>
-
-                <div class="dd-3d-scene">
-                    <!-- Left Arrow -->
-                    <button class="dd-3d-nav prev" id="dd3dPrev" aria-label="Previous slide">
+                <div class="artisan-scroll-wrapper">
+                    <button class="artisan-nav prev" onclick="scrollBakes(-1)" aria-label="Previous">
                         <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
                     </button>
                     
-                    <div class="dd-3d-ring" id="dd3dRing">
-                        <!-- Item 1: 1300 AMD -->
-                        <article class="dd-3d-item">
-                            <div class="dd-3d-item-img-wrap">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b0e903f6-24c8-438b-87e9-874bf24221a0.jpg?v=1784713000" alt="Fresh Smoothie" loading="lazy">
+                    <div class="artisan-scroll" id="bakesScroll">
+                        <!-- Item 1 -->
+                        <article class="artisan-card">
+                            <div class="artisan-image-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3188ec3b-5f2d-4f40-be54-72c36be6d7e5.jpg?v=1784713033" alt="Artisan Bake 1" loading="lazy">
+                                <div class="artisan-price-tag" data-lang="bakesPrice">1400 AMD</div>
                             </div>
-                            <div class="dd-3d-item-info">
-                                <div class="dd-3d-item-name" data-lang="specialty1">Fresh Smoothie</div>
-                                <div class="dd-3d-item-price" data-lang="price1">1300 AMD</div>
-                            </div>
-                        </article>
-
-                        <!-- Item 2: 1200 AMD -->
-                        <article class="dd-3d-item">
-                            <div class="dd-3d-item-img-wrap">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_2e7ab908-d355-4109-9174-77aa8ae7d958.jpg?v=1784713007" alt="Fresh Juice" loading="lazy">
-                            </div>
-                            <div class="dd-3d-item-info">
-                                <div class="dd-3d-item-name" data-lang="specialty2">Fresh Juice</div>
-                                <div class="dd-3d-item-price" data-lang="price2">1200 AMD</div>
+                            <div class="artisan-info">
+                                <h3 data-lang="bake1">Almond Croissant</h3>
+                                <p data-lang="bake1Desc">Flaky pastry filled with sweet almond cream and topped with sliced almonds.</p>
                             </div>
                         </article>
 
-                        <!-- Item 3: 1600 AMD -->
-                        <article class="dd-3d-item">
-                            <div class="dd-3d-item-img-wrap">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_b8d0ef42-0a5f-4888-9b97-54fcc05a4e9f.jpg?v=1784713012" alt="Premium Blend" loading="lazy">
+                        <!-- Item 2 -->
+                        <article class="artisan-card">
+                            <div class="artisan-image-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_06751d92-07cb-4cb6-b0b3-2ac0b441ad68.jpg?v=1784713040" alt="Artisan Bake 2" loading="lazy">
+                                <div class="artisan-price-tag" data-lang="bakesPrice">1400 AMD</div>
                             </div>
-                            <div class="dd-3d-item-info">
-                                <div class="dd-3d-item-name" data-lang="specialty3">Premium Blend</div>
-                                <div class="dd-3d-item-price" data-lang="price3">1600 AMD</div>
-                            </div>
-                        </article>
-
-                        <!-- Item 4: 1700 AMD -->
-                        <article class="dd-3d-item">
-                            <div class="dd-3d-item-img-wrap">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_96c99356-c1d4-414f-959c-55a9d326c011.jpg?v=1784713017" alt="Signature Drink" loading="lazy">
-                            </div>
-                            <div class="dd-3d-item-info">
-                                <div class="dd-3d-item-name" data-lang="specialty4">Signature Drink</div>
-                                <div class="dd-3d-item-price" data-lang="price4">1700 AMD</div>
+                            <div class="artisan-info">
+                                <h3 data-lang="bake2">Berry Danish</h3>
+                                <p data-lang="bake2Desc">Light, buttery dough layered with fresh seasonal berries and vanilla glaze.</p>
                             </div>
                         </article>
 
-                        <!-- Item 5: 1200 AMD -->
-                        <article class="dd-3d-item">
-                            <div class="dd-3d-item-img-wrap">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ecfa2c13-6bb8-4ed2-b8e6-c81037b9e1ad.jpg?v=1784713026" alt="Classic Refreshment" loading="lazy">
+                        <!-- Item 3 -->
+                        <article class="artisan-card">
+                            <div class="artisan-image-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_0a2f5e34-48e1-4d6d-a64c-90ca8ee281b9.jpg?v=1784713046" alt="Artisan Bake 3" loading="lazy">
+                                <div class="artisan-price-tag" data-lang="bakesPrice">1400 AMD</div>
                             </div>
-                            <div class="dd-3d-item-info">
-                                <div class="dd-3d-item-name" data-lang="specialty5">Classic Refreshment</div>
-                                <div class="dd-3d-item-price" data-lang="price5">1200 AMD</div>
+                            <div class="artisan-info">
+                                <h3 data-lang="bake3">Matcha Roll</h3>
+                                <p data-lang="bake3Desc">Soft, airy sponge cake rolled with premium matcha cream and dusted with powder.</p>
+                            </div>
+                        </article>
+
+                        <!-- Item 4 -->
+                        <article class="artisan-card">
+                            <div class="artisan-image-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_9b2bf93b-70bf-4897-bb61-abf09e70b270.jpg?v=1784713051" alt="Artisan Bake 4" loading="lazy">
+                                <div class="artisan-price-tag" data-lang="bakesPrice">1400 AMD</div>
+                            </div>
+                            <div class="artisan-info">
+                                <h3 data-lang="bake4">Chocolate Éclair</h3>
+                                <p data-lang="bake4Desc">Classic choux pastry filled with rich chocolate pastry cream and glossy ganache.</p>
+                            </div>
+                        </article>
+
+                        <!-- Item 5 -->
+                        <article class="artisan-card">
+                            <div class="artisan-image-wrap">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_c639e1d9-542e-420e-8ec8-52f37573dc3e.jpg?v=1784713056" alt="Artisan Bake 5" loading="lazy">
+                                <div class="artisan-price-tag" data-lang="bakesPrice">1400 AMD</div>
+                            </div>
+                            <div class="artisan-info">
+                                <h3 data-lang="bake5">Fruit Tart</h3>
+                                <p data-lang="bake5Desc">Buttery shortcrust pastry filled with vanilla custard and topped with fresh fruits.</p>
                             </div>
                         </article>
                     </div>
 
-                    <!-- Right Arrow -->
-                    <button class="dd-3d-nav next" id="dd3dNext" aria-label="Next slide">
+                    <button class="artisan-nav next" onclick="scrollBakes(1)" aria-label="Next">
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
                     </button>
                 </div>
-
-                <div class="dd-3d-dots" id="dd3dDots"></div>
             </div>
         </section>
 
@@ -1688,9 +1563,7 @@
                 <source src="https://cdn.shopify.com/videos/c/o/v/1cafa4449080404499fc379cfec57cda.mov" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            
             <div class="video-overlay"></div>
-            
             <div class="video-content">
                 <span class="section-label" data-lang="sloenkaExp">The Sloenka Experience</span>
                 <h2 data-lang="craftedMotion">Crafted in Motion</h2>
@@ -1707,7 +1580,6 @@
                         <h2 data-lang="discountTitle">-40% Discounts for <em>All Croissants</em> from 21:00</h2>
                         <div class="divider divider-light"></div>
                         <p data-lang="discountDesc">We believe that great pastry doesn't have a curfew. As the city winds down, our ovens stay warm. Treat yourself to our freshly baked, flaky artisan croissants at an exclusive evening price, because everyone deserves a little late-night indulgence.</p>
-                        
                         <div class="discount-badge">
                             <span class="percentage">-40%</span>
                             <div class="details">
@@ -1716,7 +1588,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="offer-image-wrapper">
                         <div class="offer-image">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_25bb8629-4228-4b6e-937a-6223532642f4.jpg?v=1784656235" alt="Freshly baked artisan croissants">
@@ -1731,7 +1602,6 @@
                 <span class="section-label section-label-light" data-lang="joinUs">Join Us</span>
                 <h2 class="section-title section-title-light" style="font-size: 2.5rem;" data-lang="awaitArrival">We Await Your Arrival</h2>
                 <div class="divider divider-center divider-light"></div>
-                
                 <div class="info-grid">
                     <div class="info-item">
                         <h4 data-lang="location">Location</h4>
@@ -1758,37 +1628,24 @@
     <script>
         const translations = {
             en: {
-                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSpecialty: "Specialty", navExperience: "Experience",
+                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSpecialty: "Artisan Bakes", navExperience: "Experience",
                 navEvening: "Evening", navVisit: "Visit",
-                heroLabel: "Artisanal Excellence",
-                heroTitle: "When Taste Meets Quality.",
+                heroLabel: "Artisanal Excellence", heroTitle: "When Taste Meets Quality.",
                 heroDesc: "Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.",
                 viewMenu: "View Menu", scroll: "Scroll",
-                // New Affogato Translations
                 affogatoTitle: "New drinks: Affogato edition",
                 flavorPistachioBracket: "[ pistachio ]", flavorPistachio: "Pistachio Affogato", descPistachio: "Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.",
                 flavorChocolateBracket: "[ chocolate ]", flavorChocolate: "Chocolate Affogato", descChocolate: "Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.",
                 flavorVanillaBracket: "[ vanilla ]", flavorVanilla: "Vanilla Affogato", descVanilla: "Classic Madagascar vanilla bean ice cream meeting the bold intensity of coffee.",
-                curated: "Curated for You",
-                signatureMorning: "Signature Morning Sets",
+                curated: "Curated for You", signatureMorning: "Signature Morning Sets",
                 morningDesc: "Each set is thoughtfully composed to bring harmony to your morning. Crafted with locally sourced ingredients and baked fresh daily in our kitchen.",
-                classicSet: "Classic Set",
-                classicDesc: "A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.",
-                timeless: "Timeless",
-                englishSet: "English Breakfast Set",
-                englishDesc: "A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.",
-                hearty: "Hearty",
-                salmonSet: "Salmon Benedict Set",
-                salmonDesc: "Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.",
-                chefChoice: "Chef's Choice",
-                handcrafted: "Handcrafted Daily",
-                artisanIceCream: "Artisan Ice Cream Collection",
+                classicSet: "Classic Set", classicDesc: "A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.", timeless: "Timeless",
+                englishSet: "English Breakfast Set", englishDesc: "A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.", hearty: "Hearty",
+                salmonSet: "Salmon Benedict Set", salmonDesc: "Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.", chefChoice: "Chef's Choice",
+                handcrafted: "Handcrafted Daily", artisanIceCream: "Artisan Ice Cream Collection",
                 iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.",
-                allPriceBadge: "All Flavors — 700 AMD",
-                scrollRight: "Scroll Right",
-                badgeClassic: "Classic", badgeRich: "Rich", badgeFresh: "Fresh",
-                badgePremium: "Premium", badgeSweet: "Sweet",
-                badgeCool: "Cool", badgeCrispy: "Crispy",
+                allPriceBadge: "All Flavors — 700 AMD", scrollRight: "Scroll Right",
+                badgeClassic: "Classic", badgeRich: "Rich", badgeFresh: "Fresh", badgePremium: "Premium", badgeSweet: "Sweet", badgeCool: "Cool", badgeCrispy: "Crispy",
                 ic1: "Vanilla Bean", ic1d: "Creamy Madagascar vanilla with real bean specks",
                 ic2: "Chocolate Fudge", ic2d: "Rich Belgian chocolate with fudge swirls",
                 ic3: "Strawberry Delight", ic3d: "Fresh strawberries with creamy base",
@@ -1796,62 +1653,43 @@
                 ic5: "Caramel Swirl", ic5d: "Buttery caramel ribbons throughout",
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
-                // Specialty Drinks
-                specialtyLabel: "Fresh & Delicious",
-                specialtyTitle: "Specialty Drinks",
-                specialtyDesc: "Refreshing beverages crafted with care. Perfect for any time of day.",
-                specialty1: "Fresh Smoothie", price1: "1300 AMD",
-                specialty2: "Fresh Juice", price2: "1200 AMD",
-                specialty3: "Premium Blend", price3: "1600 AMD",
-                specialty4: "Signature Drink", price4: "1700 AMD",
-                specialty5: "Classic Refreshment", price5: "1200 AMD",
-                sloenkaExp: "The Sloenka Experience",
-                craftedMotion: "Crafted in Motion",
+                // New Aesthetic Bakes Translations
+                bakesLabel: "Fresh from the Oven", bakesTitle: "Artisan Bakes",
+                bakesDesc: "Handcrafted with passion and the finest ingredients. Every bite is a moment of pure, aesthetic delight.",
+                bakesPrice: "1400 AMD",
+                bake1: "Almond Croissant", bake1Desc: "Flaky pastry filled with sweet almond cream and topped with sliced almonds.",
+                bake2: "Berry Danish", bake2Desc: "Light, buttery dough layered with fresh seasonal berries and vanilla glaze.",
+                bake3: "Matcha Roll", bake3Desc: "Soft, airy sponge cake rolled with premium matcha cream and dusted with powder.",
+                bake4: "Chocolate Éclair", bake4Desc: "Classic choux pastry filled with rich chocolate pastry cream and glossy ganache.",
+                bake5: "Fruit Tart", bake5Desc: "Buttery shortcrust pastry filled with vanilla custard and topped with fresh fruits.",
+                sloenkaExp: "The Sloenka Experience", craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
-                discoverOffers: "Discover Our Offers",
-                eveningIndulgence: "Evening Indulgence",
+                discoverOffers: "Discover Our Offers", eveningIndulgence: "Evening Indulgence",
                 discountTitle: '-40% Discounts for <em>All Croissants</em> from 21:00',
                 discountDesc: "We believe that great pastry doesn't have a curfew. As the city winds down, our ovens stay warm. Treat yourself to our freshly baked, flaky artisan croissants at an exclusive evening price, because everyone deserves a little late-night indulgence.",
-                allCroissants: "All Croissants",
-                availableDaily: "Available Daily from 21:00",
-                joinUs: "Join Us",
-                awaitArrival: "We Await Your Arrival",
-                location: "Location", hours: "Hours",
-                breakfastUntil: "(Breakfast sets until 19:00)",
-                contact: "Contact"
+                allCroissants: "All Croissants", availableDaily: "Available Daily from 21:00",
+                joinUs: "Join Us", awaitArrival: "We Await Your Arrival",
+                location: "Location", hours: "Hours", breakfastUntil: "(Breakfast sets until 19:00)", contact: "Contact"
             },
             ru: {
-                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSpecialty: "Напитки", navExperience: "Опыт",
+                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSpecialty: "Выпечка", navExperience: "Опыт",
                 navEvening: "Вечер", navVisit: "Визит",
-                heroLabel: "Ремесленное Превосходство",
-                heroTitle: "Когда Вкус Встречает Качество.",
+                heroLabel: "Ремесленное Превосходство", heroTitle: "Когда Вкус Встречает Качество.",
                 heroDesc: "Насладитесь идеальной гармонией ремесленного мастерства и премиальных ингредиентов. Каждый кусочек и глоток тщательно приготовлены, чтобы превратить ваши повседневные моменты во что-то по-настоящему особенное.",
                 viewMenu: "Посмотреть Меню", scroll: "Прокрутить",
-                // New Affogato Translations
                 affogatoTitle: "Новинка: Коллекция Аффогато",
                 flavorPistachioBracket: "[ фисташка ]", flavorPistachio: "Фисташковое Аффогато", descPistachio: "Насыщенный эспрессо, политый поверх сливочного фисташкового джелато с ореховой крошкой.",
                 flavorChocolateBracket: "[ шоколад ]", flavorChocolate: "Шоколадное Аффогато", descChocolate: "Декадентское бельгийское шоколадное мороженое, утопленное в горячем ароматном эспрессо.",
-                flavorVanillaBracket: "[ ваниль ]", flavorVanilla: "Ванильное Аффогато", descVanilla: "Классическое мадагаскарское ванильное мороженое встречается с_bold_ интенсивностью кофе.",
-                curated: "Подобрано для Вас",
-                signatureMorning: "Фирменные Утренние Наборы",
+                flavorVanillaBracket: "[ ваниль ]", flavorVanilla: "Ванильное Аффогато", descVanilla: "Классическое мадагаскарское ванильное мороженое встречается с интенсивностью кофе.",
+                curated: "Подобрано для Вас", signatureMorning: "Фирменные Утренние Наборы",
                 morningDesc: "Каждый набор тщательно составлен, чтобы принести гармонию вашему утру. Приготовлен из местных ингредиентов и выпекается свежим ежедневно на нашей кухне.",
-                classicSet: "Классический Набор",
-                classicDesc: "Вневременное утреннее любимое блюдо. Идеально сбалансированные вкусы, свежеиспеченный хлеб и ремесленные консервы, чтобы пробудить ваши чувства.",
-                timeless: "Вневременной",
-                englishSet: "Английский Завтрак",
-                englishDesc: "Сытный, традиционный утренний пир. Богатый, пикантный и глубоко удовлетворяющий, приготовленный из лучших местных ингредиентов.",
-                hearty: "Сытный",
-                salmonSet: "Лосось Бенедикт",
-                salmonDesc: "Нежный копченый лосось на поджаренном ремесленном маффине, увенчанный идеально приготовленным яйцом пашот и нашим фирменным голландским соусом.",
-                chefChoice: "Выбор Шефа",
-                handcrafted: "Ежедневное Ремесло",
-                artisanIceCream: "Коллекция Ремесленного Мороженого",
-                iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно. Насладитесь сладостью совершенства.",
-                allPriceBadge: "Все Вкусы — 700 AMD",
-                scrollRight: "Прокрутите Вправо",
-                badgeClassic: "Классика", badgeRich: "Насыщенный", badgeFresh: "Свежий",
-                badgePremium: "Премиум", badgeSweet: "Сладкий",
-                badgeCool: "Прохладный", badgeCrispy: "Хрустящий",
+                classicSet: "Классический Набор", classicDesc: "Вневременное утреннее любимое блюдо. Идеально сбалансированные вкусы, свежеиспеченный хлеб и ремесленные консервы, чтобы пробудить ваши чувства.", timeless: "Вневременной",
+                englishSet: "Английский Завтрак", englishDesc: "Сытный, традиционный утренний пир. Богатый, пикантный и глубоко удовлетворяющий, приготовленный из лучших местных ингредиентов.", hearty: "Сытный",
+                salmonSet: "Лосось Бенедикт", salmonDesc: "Нежный копченый лосось на поджаренном ремесленном маффине, увенчанный идеально приготовленным яйцом пашот и нашим фирменным голландским соусом.", chefChoice: "Выбор Шефа",
+                handcrafted: "Ежедневное Ремесло", artisanIceCream: "Коллекция Ремесленного Мороженого",
+                iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно.",
+                allPriceBadge: "Все Вкусы — 700 AMD", scrollRight: "Прокрутите Вправо",
+                badgeClassic: "Классика", badgeRich: "Насыщенный", badgeFresh: "Свежий", badgePremium: "Премиум", badgeSweet: "Сладкий", badgeCool: "Прохладный", badgeCrispy: "Хрустящий",
                 ic1: "Ванильный Боб", ic1d: "Сливочная мадагаскарская ваниль с настоящими бобами",
                 ic2: "Шоколадный Фадж", ic2d: "Насыщенный бельгийский шоколад с завитками фаджа",
                 ic3: "Клубничное Наслаждение", ic3d: "Свежая клубника со сливочной основой",
@@ -1859,92 +1697,67 @@
                 ic5: "Карамельный Вихрь", ic5d: "Масляные карамельные ленты повсюду",
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
-                // Specialty Drinks
-                specialtyLabel: "Свежие и Вкусные",
-                specialtyTitle: "Фирменные Напитки",
-                specialtyDesc: "Освежающие напитки, приготовленные с заботой. Идеально подходят для любого времени дня.",
-                specialty1: "Свежий Смузи", price1: "1300 AMD",
-                specialty2: "Свежий Сок", price2: "1200 AMD",
-                specialty3: "Премиум Бленд", price3: "1600 AMD",
-                specialty4: "Фирменный Напиток", price4: "1700 AMD",
-                specialty5: "Классическое Освежение", price5: "1200 AMD",
-                sloenkaExp: "Опыт Sloenka",
-                craftedMotion: "Создано в Движении",
+                // New Aesthetic Bakes Translations
+                bakesLabel: "Свежая Выпечка", bakesTitle: "Ремесленная Выпечка",
+                bakesDesc: "Изготовлено с любовью из лучших ингредиентов. Каждый кусочек — это момент чистого эстетического наслаждения.",
+                bakesPrice: "1400 AMD",
+                bake1: "Миндальный Круассан", bake1Desc: "Слоеная выпечка с нежным миндальным кремом и лепестками миндаля.",
+                bake2: "Ягодный Даниш", bake2Desc: "Воздушное слоеное тесто со свежими сезонными ягодами и ванильной глазурью.",
+                bake3: "Матча Ролл", bake3Desc: "Мягкий бисквит, свернутый с премиальным матча-кремом и посыпанный пудрой.",
+                bake4: "Шоколадный Эклер", bake4Desc: "Классическое заварное тесто с богатым шоколадным кремом и глянцевой глазурью.",
+                bake5: "Фруктовый Тарт", bake5Desc: "Песочное тесто с ванильным заварным кремом и свежими фруктами.",
+                sloenkaExp: "Опыт Sloenka", craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
-                discoverOffers: "Откройте Наши Предложения",
-                eveningIndulgence: "Вечернее Наслаждение",
+                discoverOffers: "Откройте Наши Предложения", eveningIndulgence: "Вечернее Наслаждение",
                 discountTitle: '-40% Скидка на <em>Все Круассаны</em> с 21:00',
-                discountDesc: "Мы верим, что у отличной выпечки нет комендантского часа. Когда город затихает, наши печи остаются теплыми. Побалуйте себя нашими свежеиспеченными круассанами по эксклюзивной вечерней цене.",
-                allCroissants: "Все Круассаны",
-                availableDaily: "Доступно Ежедневно с 21:00",
-                joinUs: "Присоединяйтесь к Нам",
-                awaitArrival: "Мы Ждем Вашего Прибытия",
-                location: "Местоположение", hours: "Часы Работы",
-                breakfastUntil: "(Завтраки до 19:00)",
-                contact: "Контакт"
+                discountDesc: "Мы верим, что у отличной выпечки нет комендантского часа. Когда город затихает, наши печи остаются теплыми.",
+                allCroissants: "Все Круассаны", availableDaily: "Доступно Ежедневно с 21:00",
+                joinUs: "Присоединяйтесь к Нам", awaitArrival: "Мы Ждем Вашего Прибытия",
+                location: "Местоположение", hours: "Часы Работы", breakfastUntil: "(Завтраки до 19:00)", contact: "Контакт"
             },
             hy: {
-                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSpecialty: "Խմիչքներ", navExperience: "Փորձ",
+                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSpecialty: "Թխվածք", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
-                heroLabel: "Արհեստավորական երազանցություն",
-                heroTitle: "Երբ Համը Հանդիպում է Որակին։",
+                heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
                 heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
                 viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել",
-                // New Affogato Translations
-                affogatoTitle: "որ խմիչքներ. Աֆոգատո հավաքածու",
-                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "իստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո լցված սերուցքային պիստակի ջելատոյի վրա։",
-                flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական ոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
+                affogatoTitle: "Նոր խմիչքներ. Աֆոգատո հավաքածու",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ լցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական շոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
                 flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
-                curated: "եզ Համար Ընտրված",
-                signatureMorning: "իրմային Առավոտյան Հավաքածուներ",
+                curated: "Ձեզ Համար Ընտրված", signatureMorning: "Ֆիրմային Առավոտյան Հավաքածուներ",
                 morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով։",
-                classicSet: "Դասական Հավաքածու",
-                classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։",
-                timeless: "Անժամանակ",
-                englishSet: "Անգլիական Նախաճաշ",
-                englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։",
-                hearty: "Հագեցած",
-                salmonSet: "ալմոն Բենեդիկտ",
-                salmonDesc: "ուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված վով։",
-                chefChoice: "եֆի Ընտրություն",
-                handcrafted: "Ամենօրյա Արհեստ",
-                artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
+                classicSet: "Դասական Հավաքածու", classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։", timeless: "Անժամանակ",
+                englishSet: "Անգլիական Նախաճաշ", englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։", hearty: "Հագեցած",
+                salmonSet: "Սալմոն Բենեդիկտ", salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։", chefChoice: "Շեֆի Ընտրություն",
+                handcrafted: "Ամենօրյա Արհեստ", artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
-                allPriceBadge: "Բոլոր Համերը — 700 AMD",
-                scrollRight: "Ոլորեք Աջ",
-                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "արմ",
-                badgePremium: "րեմիում", badgeSweet: "աղցր",
-                badgeCool: "Զով", badgeCrispy: "րթխրթան",
+                allPriceBadge: "Բոլոր Համերը — 700 AMD", scrollRight: "Ոլորեք Աջ",
+                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "Թարմ", badgePremium: "Պրեմիում", badgeSweet: "Քաղցր", badgeCool: "Զով", badgeCrispy: "Խրթխրթան",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
-                ic2: "ոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ ֆաջի ոլորաններով",
+                ic2: "Շոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
                 ic3: "Ելակային Հաճույք", ic3d: "Թարմ ելակ՝ սերուցքային հիմքով",
                 ic4: "Պիստակային Երազ", ic4d: "Խանձված պիստակներ՝ հարթ սերուցքով",
-                ic5: "արամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
-                ic6: "Անանուխ Շոկոլադ", ic6d: "արմացնող անանուխ ոկոլադե կտորներով",
-                ic7: "Թխվածք և երուցք", ic7d: "արդված թխվածք վանիլային հիմքով",
-                // Specialty Drinks
-                specialtyLabel: "Թարմ և Համեղ",
-                specialtyTitle: "իրմային Խմիչքներ",
-                specialtyDesc: "Թարմացնող միչքներ՝ պատրաստված հոգատարությամբ։ Իդեալական ցանկացած ժամանակի համար։",
-                specialty1: "Թարմ Սմուզի", price1: "1300 AMD",
-                specialty2: "արմ Հյութ", price2: "1200 AMD",
-                specialty3: "րեմիում Խառնուրդ", price3: "1600 AMD",
-                specialty4: "իրմային Խմիչք", price4: "1700 AMD",
-                specialty5: "Դասական Թարմացում", price5: "1200 AMD",
-                sloenkaExp: "Sloenka Փորձ",
-                craftedMotion: "Ստեղծված Շարժման եջ",
-                videoDesc: "կա եղեք ուրաքանչյուր ցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
-                discoverOffers: "Հայտնաբերեք Մեր Առաջարկները",
-                eveningIndulgence: "Երեկոյան Հաճույք",
+                ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
+                ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
+                ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
+                // New Aesthetic Bakes Translations
+                bakesLabel: "Թարմ Թխվածք", bakesTitle: "Արհեստավորական Թխվածք",
+                bakesDesc: "Պատրաստված կրքով և լավագույն բաղադրիչներով: Յուրաքանչյուր խայթոց մաքուր գեղագիտական հաճույքի պահ է:",
+                bakesPrice: "1400 AMD",
+                bake1: "Նուշե Կրուասան", bake1Desc: "Փխրուն խմոր՝ լցոնված քաղցր նուշի կրեմով և զարդարված նուշի թերթիկներով:",
+                bake2: "Հատապտղային Դանիշ", bake2Desc: "Թեթև, կարագային խմոր՝ թարմ սեզոնային հատապտուղներով և վանիլային գլազուրով:",
+                bake3: "Մաչա Ռոլ", bake3Desc: "Փափուկ բիսկվիտ՝ պրեմիում մաչա կրեմով և փոշիով պատված:",
+                bake4: "Շոկոլադե Էկլեր", bake4Desc: "Դասական չուքս խմոր՝ լցոնված հարուստ շոկոլադե կրեմով և փայլուն գանաշով:",
+                bake5: "Մրգային Տարտ", bake5Desc: "Կարագային կարճ խմոր՝ լցոնված վանիլային կրեմով և զարդարված թարմ մրգերով:",
+                sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
+                videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
+                discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
-                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ ունի։ Երբ քաղաքը հանգստանում է, մեր եռոցները մնում են տաք։",
-                allCroissants: "Բոլոր Կրուասաններ",
-                availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
-                joinUs: "Միացեք Մեզ",
-                awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
-                location: "Վայր", hours: "Ժամեր",
-                breakfastUntil: "(Նախաճաշեր մինչև 19:00)",
-                contact: "Կապ"
+                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
+                allCroissants: "Բոլոր Կրուասաններ", availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
+                joinUs: "Միացեք Մեզ", awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
+                location: "Վայր", hours: "Ժամեր", breakfastUntil: "(Նախաճաշեր մինչև 19:00)", contact: "Կապ"
             }
         };
 
@@ -1960,148 +1773,70 @@
                     }
                 }
             });
-
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-lang-code') === lang) btn.classList.add('active');
             });
-
             document.documentElement.lang = lang;
         }
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                const lang = btn.getAttribute('data-lang-code');
-                updateLanguage(lang);
+                updateLanguage(btn.getAttribute('data-lang-code'));
             });
         });
 
-        // =========================================
-        // 3D CAROUSEL FUNCTIONALITY
-        // =========================================
-        (function () {
-            const ring = document.getElementById('dd3dRing');
-            if (!ring) return;
-            
-            const items = ring.querySelectorAll('.dd-3d-item');
-            const dotsContainer = document.getElementById('dd3dDots');
-            const count = items.length;
-            
-            if (count === 0) return;
+        // Scroll functionality for artisan bakes
+        function scrollBakes(direction) {
+            const scroll = document.getElementById('bakesScroll');
+            const scrollAmount = 352; // 320px card + 32px gap
+            scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
 
-            const angle = 360 / count;
-
-            // Calculate perfect radius to prevent overlap
-            function getRadius() {
-                if (count <= 1) return 0;
-                const isMobile = window.innerWidth <= 768;
-                const itemWidth = isMobile ? 180 : 240;
-                // Math formula for polygon radius + breathing room
-                return Math.round((itemWidth / 2) / Math.tan(Math.PI / count)) + 60;
-            }
-            
-            let radius = getRadius();
-            
-            // Position each item in 3D space
-            items.forEach((item, i) => {
-                item.style.transform = `rotateY(${i * angle}deg) translateZ(${radius}px)`;
-            });
-
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                const rotateY = currentIndex * -angle;
-                ring.style.transform = `rotateY(${rotateY}deg)`;
-                
-                const activeDotIndex = ((currentIndex % count) + count) % count;
-                const dots = dotsContainer.querySelectorAll('.dd-3d-dot');
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === activeDotIndex);
-                });
-            }
-
-            function goToSlide(targetIndex) {
-                let currentMod = ((currentIndex % count) + count) % count;
-                let steps = targetIndex - currentMod;
-                
-                // Ensure we always move forward to the next occurrence of the target
-                if (steps <= 0) {
-                    steps += count;
+        const bakesScrollContainer = document.getElementById('bakesScroll');
+        if (bakesScrollContainer) {
+            bakesScrollContainer.addEventListener('wheel', (e) => {
+                if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                    e.preventDefault();
+                    bakesScrollContainer.scrollLeft += e.deltaY;
                 }
-                
-                currentIndex += steps;
-                updateCarousel();
-                resetInterval();
-            }
+            }, { passive: false });
 
-            // Create navigation dots
-            items.forEach((_, i) => {
-                const dot = document.createElement('button');
-                dot.className = 'dd-3d-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-                dot.onclick = () => { 
-                    goToSlide(i);
-                };
-                dotsContainer.appendChild(dot);
+            let isDownBakes = false;
+            let startXBakes, scrollLeftBakes;
+
+            bakesScrollContainer.addEventListener('mousedown', (e) => {
+                isDownBakes = true;
+                bakesScrollContainer.style.cursor = 'grabbing';
+                startXBakes = e.pageX - bakesScrollContainer.offsetLeft;
+                scrollLeftBakes = bakesScrollContainer.scrollLeft;
             });
 
-            // Navigation arrows
-            const prevBtn = document.getElementById('dd3dPrev');
-            const nextBtn = document.getElementById('dd3dNext');
-
-            if (prevBtn && nextBtn) {
-                prevBtn.addEventListener('click', () => {
-                    currentIndex--;
-                    updateCarousel();
-                    resetInterval();
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    currentIndex++;
-                    updateCarousel();
-                    resetInterval();
-                });
-            }
-
-            // Auto-rotate every 3.5 seconds
-            let interval = setInterval(() => {
-                currentIndex++;
-                updateCarousel();
-            }, 3500);
-
-            function resetInterval() {
-                clearInterval(interval);
-                interval = setInterval(() => {
-                    currentIndex++;
-                    updateCarousel();
-                }, 3500);
-            }
-
-            // Pause rotation on hover
-            const scene = document.querySelector('.dd-3d-scene');
-            scene.addEventListener('mouseenter', () => clearInterval(interval));
-            scene.addEventListener('mouseleave', () => {
-                resetInterval();
+            bakesScrollContainer.addEventListener('mouseleave', () => {
+                isDownBakes = false;
+                bakesScrollContainer.style.cursor = 'grab';
             });
 
-            // Recalculate radius on window resize
-            window.addEventListener('resize', () => {
-                radius = getRadius();
-                items.forEach((item, i) => {
-                    item.style.transform = `rotateY(${i * angle}deg) translateZ(${radius}px)`;
-                });
-                updateCarousel();
+            bakesScrollContainer.addEventListener('mouseup', () => {
+                isDownBakes = false;
+                bakesScrollContainer.style.cursor = 'grab';
             });
-        })();
+
+            bakesScrollContainer.addEventListener('mousemove', (e) => {
+                if (!isDownBakes) return;
+                e.preventDefault();
+                const x = e.pageX - bakesScrollContainer.offsetLeft;
+                const walk = (x - startXBakes) * 2;
+                bakesScrollContainer.scrollLeft = scrollLeftBakes - walk;
+            });
+        }
 
         // Horizontal scroll functionality for ice cream
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
-            const scrollAmount = 380;
-            scroll.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            scroll.scrollBy({ left: direction * 380, behavior: 'smooth' });
         }
 
-        // Mouse wheel horizontal scroll on desktop for ice cream
         const scrollContainer = document.getElementById('iceCreamScroll');
         scrollContainer.addEventListener('wheel', (e) => {
             if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
@@ -2110,35 +1845,21 @@
             }
         }, { passive: false });
 
-        // Touch and drag functionality for ice cream
-        let isDown = false;
-        let startX, scrollLeft;
-
+        let isDown = false, startX, scrollLeft;
         scrollContainer.addEventListener('mousedown', (e) => {
             isDown = true;
             scrollContainer.style.cursor = 'grabbing';
             startX = e.pageX - scrollContainer.offsetLeft;
             scrollLeft = scrollContainer.scrollLeft;
         });
-
-        scrollContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            scrollContainer.style.cursor = 'grab';
-        });
-
-        scrollContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            scrollContainer.style.cursor = 'grab';
-        });
-
+        scrollContainer.addEventListener('mouseleave', () => { isDown = false; scrollContainer.style.cursor = 'grab'; });
+        scrollContainer.addEventListener('mouseup', () => { isDown = false; scrollContainer.style.cursor = 'grab'; });
         scrollContainer.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - scrollContainer.offsetLeft;
-            const walk = (x - startX) * 2;
-            scrollContainer.scrollLeft = scrollLeft - walk;
+            scrollContainer.scrollLeft = scrollLeft - (x - startX) * 2;
         });
     </script>
-
 </body>
 </html>
