@@ -935,6 +935,43 @@
             letter-spacing: 1px;
         }
 
+        /* Navigation Arrows for 3D Carousel */
+        .dd-3d-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .dd-3d-nav:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .dd-3d-nav.prev { left: -70px; }
+        .dd-3d-nav.next { right: -70px; }
+
+        .dd-3d-nav svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
         /* Navigation Dots */
         .dd-3d-dots {
             display: flex;
@@ -978,6 +1015,11 @@
         }
 
         /* Mobile responsiveness */
+        @media (max-width: 968px) {
+            .dd-3d-nav.prev { left: -20px; }
+            .dd-3d-nav.next { right: -20px; }
+        }
+
         @media (max-width: 768px) {
             .dd-3d-scene {
                 height: 320px;
@@ -994,6 +1036,16 @@
             }
             .dd-3d-item-price {
                 font-size: 0.85rem;
+            }
+            .dd-3d-nav.prev { left: 0; }
+            .dd-3d-nav.next { right: 0; }
+            .dd-3d-nav {
+                width: 40px;
+                height: 40px;
+            }
+            .dd-3d-nav svg {
+                width: 20px;
+                height: 20px;
             }
         }
 
@@ -1559,8 +1611,12 @@
                 <div class="divider divider-center divider-light"></div>
 
                 <div class="dd-3d-scene">
+                    <!-- Left Arrow -->
+                    <button class="dd-3d-nav prev" id="dd3dPrev" aria-label="Previous slide">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    
                     <div class="dd-3d-ring" id="dd3dRing">
-                        
                         <!-- Item 1: 1300 AMD -->
                         <article class="dd-3d-item">
                             <div class="dd-3d-item-img-wrap">
@@ -1615,8 +1671,12 @@
                                 <div class="dd-3d-item-price" data-lang="price5">1200 AMD</div>
                             </div>
                         </article>
-
                     </div>
+
+                    <!-- Right Arrow -->
+                    <button class="dd-3d-nav next" id="dd3dNext" aria-label="Next slide">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
                 </div>
 
                 <div class="dd-3d-dots" id="dd3dDots"></div>
@@ -1984,6 +2044,24 @@
                 };
                 dotsContainer.appendChild(dot);
             });
+
+            // Navigation arrows
+            const prevBtn = document.getElementById('dd3dPrev');
+            const nextBtn = document.getElementById('dd3dNext');
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex--;
+                    updateCarousel();
+                    resetInterval();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex++;
+                    updateCarousel();
+                    resetInterval();
+                });
+            }
 
             // Auto-rotate every 3.5 seconds
             let interval = setInterval(() => {
