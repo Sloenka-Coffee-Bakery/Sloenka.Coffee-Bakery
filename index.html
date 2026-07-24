@@ -18,7 +18,7 @@
             --text-light: #F5F0EB;
             --text-secondary: #6B5E58;
             --text-muted: #9C928A;
-            --accent: #C9A96E; /* Premium Champagne Gold */
+            --accent: #C9A96E;
             --accent-dark: #A68B5B;
             --border-light: #E8E2DB;
             --border-dark: rgba(245, 240, 235, 0.08);
@@ -87,6 +87,33 @@
 
         .divider-center { margin: 36px auto; }
         .divider-light { background-color: var(--accent); opacity: 0.6; }
+
+        /* STUNNING DECORATIVE LINE */
+        .stunning-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent) 20%, 
+                var(--accent) 80%, 
+                transparent 100%);
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .stunning-line::before,
+        .stunning-line::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 8px;
+            opacity: 0.6;
+        }
+
+        .stunning-line::before { left: 45%; }
+        .stunning-line::after { left: 52%; }
 
         .btn-primary {
             display: inline-block;
@@ -553,7 +580,7 @@
             border-color: var(--accent);
         }
 
-        /* HORIZONTAL SCROLLING SECTIONS (Ice Cream & Salad) */
+        /* HORIZONTAL SCROLLING SECTIONS */
         .ice-cream-section, .salad-section {
             position: relative;
             padding: 140px 0;
@@ -822,9 +849,7 @@
         .scroll-nav.next { right: 20px; }
         .scroll-nav svg { width: 22px; height: 22px; fill: currentColor; }
 
-        /* =========================================
-           PURE PHOTO GALLERY (SMOOTHIE SECTION)
-           ========================================= */
+        /* PURE PHOTO GALLERY */
         .aesthetic-grid-section {
             padding: var(--section-padding);
             background: linear-gradient(180deg, #FAF8F5 0%, #F2EBE3 100%);
@@ -1228,10 +1253,10 @@
             <div class="nav-wrapper">
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#menu" data-lang="navBreakfast">Breakfast</a></li>
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
                         <li><a href="#salad" data-lang="navSalad">Salads</a></li>
+                        <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#specialty" data-lang="navSpecialty">Our Selection</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
@@ -1255,36 +1280,9 @@
                 <span class="hero-label" data-lang="heroLabel">Artisanal Excellence</span>
                 <h1 class="hero-title" data-lang="heroTitle">When Taste Meets Quality.</h1>
                 <p class="hero-description" data-lang="heroDesc">Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.</p>
-                <a href="#affogato" class="hero-btn" data-lang="viewMenu">View Menu</a>
+                <a href="#menu" class="hero-btn" data-lang="viewMenu">View Menu</a>
             </div>
             <div class="scroll-hint" data-lang="scroll">Scroll</div>
-        </section>
-
-        <section class="affogato-section reveal" id="affogato">
-            <video class="affogato-bg-video" autoplay muted loop playsinline>
-                <source src="https://cdn.shopify.com/videos/c/o/v/1fe26f74af71415f81d2ba3fca6cad32.mov" type="video/mp4">
-            </video>
-            <div class="affogato-overlay"></div>
-            <div class="affogato-content">
-                <h2 class="affogato-title" data-lang="affogatoTitle">New drinks: Affogato edition</h2>
-                <div class="flavor-grid">
-                    <div class="flavor-item">
-                        <span class="flavor-bracket-text" data-lang="flavorPistachioBracket">[ pistachio ]</span>
-                        <h3 class="flavor-name" data-lang="flavorPistachio">Pistachio Affogato</h3>
-                        <p class="flavor-desc" data-lang="descPistachio">Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.</p>
-                    </div>
-                    <div class="flavor-item">
-                        <span class="flavor-bracket-text" data-lang="flavorChocolateBracket">[ chocolate ]</span>
-                        <h3 class="flavor-name" data-lang="flavorChocolate">Chocolate Affogato</h3>
-                        <p class="flavor-desc" data-lang="descChocolate">Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.</p>
-                    </div>
-                    <div class="flavor-item">
-                        <span class="flavor-bracket-text" data-lang="flavorVanillaBracket">[ vanilla ]</span>
-                        <h3 class="flavor-name" data-lang="flavorVanilla">Vanilla Affogato</h3>
-                        <p class="flavor-desc" data-lang="descVanilla">Classic Madagascar vanilla bean ice cream meeting the bold intensity of coffee.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section class="menu-section reveal" id="menu">
@@ -1544,9 +1542,38 @@
             </div>
         </section>
 
-        <!-- =========================================
-           PURE PHOTO GALLERY (NO TEXT, ONLY PHOTOS)
-           ========================================= -->
+        <!-- AFFOGATO SECTION - MOVED HERE AFTER SALADS -->
+        <section class="affogato-section reveal" id="affogato">
+            <video class="affogato-bg-video" autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/1fe26f74af71415f81d2ba3fca6cad32.mov" type="video/mp4">
+            </video>
+            <div class="affogato-overlay"></div>
+            <div class="affogato-content">
+                <h2 class="affogato-title" data-lang="affogatoTitle">New drinks: Affogato edition</h2>
+                <div class="flavor-grid">
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorPistachioBracket">[ pistachio ]</span>
+                        <h3 class="flavor-name" data-lang="flavorPistachio">Pistachio Affogato</h3>
+                        <p class="flavor-desc" data-lang="descPistachio">Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.</p>
+                    </div>
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorChocolateBracket">[ chocolate ]</span>
+                        <h3 class="flavor-name" data-lang="flavorChocolate">Chocolate Affogato</h3>
+                        <p class="flavor-desc" data-lang="descChocolate">Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.</p>
+                    </div>
+                    <div class="flavor-item">
+                        <span class="flavor-bracket-text" data-lang="flavorVanillaBracket">[ vanilla ]</span>
+                        <h3 class="flavor-name" data-lang="flavorVanilla">Vanilla Affogato</h3>
+                        <p class="flavor-desc" data-lang="descVanilla">Classic Madagascar vanilla bean ice cream meeting the bold intensity of coffee.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUNNING DECORATIVE LINE -->
+        <div class="stunning-line"></div>
+
+        <!-- PURE PHOTO GALLERY (SMOOTHIES) - SEPARATED WITH STUNNING LINE -->
         <section class="aesthetic-grid-section reveal" id="specialty">
             <div class="container">
                 <div class="pure-gallery">
@@ -1637,7 +1664,6 @@
     </footer>
 
     <script>
-        // Translations object remains exactly as provided for all other sections
         const translations = {
             en: {
                 navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSalad: "Salads", navSpecialty: "Our Selection", navExperience: "Experience",
@@ -1731,13 +1757,13 @@
                 navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSalad: "Աղցաններ", navSpecialty: "Մեր Ընտրանին", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
-                heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
+                heroDesc: "այելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
                 viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել", scrollRight: "Ոլորեք Աջ",
                 affogatoTitle: "Նոր խմիչքներ. Աֆոգատո հավաքածու",
-                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ լցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ ցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական շոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
                 flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
-                curated: "Ձեզ Համար Ընտրված", signatureMorning: "Ֆիրմային Առավոտյան Հավաքածուներ",
+                curated: "Ձեզ Համար Ընտրված", signatureMorning: "իրմային Առավոտյան Հավաքածուներ",
                 morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով։",
                 classicSet: "Դասական Հավաքածու", classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։", timeless: "Անժամանակ",
                 englishSet: "Անգլիական Նախաճաշ", englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։", hearty: "Հագեցած",
@@ -1752,24 +1778,24 @@
                 ic4: "Պիստակային Երազ", ic4d: "Խանձված պիստակներ՝ հարթ սերուցքով",
                 ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
                 ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
-                ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
-                saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
-                saladDesc: "Խրթխրթան սեզոնային բաղադրիչներ՝ զգուշորեն համադրված թարմացնող և սննդարար գլուխգործոցներ ստեղծելու համար։ Յուրաքանչյուր ափսե թարմության տոն է։",
+                ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված խվածք՝ վանիլային հիմքով",
+                saladLabel: "Թարմ և առ", saladTitle: "Հեղինակային Աղցաններ",
+                saladDesc: "Խրթխրթան սեզոնային բաղադրիչներ զգուշորեն համադրված թարմացնող և սննդարար գլուխգործոցներ ստեղծելու համար։ Յուրաքանչյուր ափսե թարմության տոն է։",
                 saladPrice1: "2300 AMD", salad1: "Միջերկրածովյան Քինոա", salad1Desc: "Թարմ քինոա, չերի լոլիկներ, վարունգ, ֆետա և կիտրոնաբույսային սոուս։",
-                saladPrice2: "2500 AMD", salad2: "Գրիլ հավով Ցեզար", salad2Desc: "Խրթխրթան ռոմեն, պարմեզանի շերտեր, սխտորով չորահաց և դասական Ցեզար սոուս։",
+                saladPrice2: "2500 AMD", salad2: "Գրիլ հավով Ցեզար", salad2Desc: "Խրթխրթան ոմեն, պարմեզանի շերտեր, սխտորով չորահաց և դասական Ցեզար սոուս։",
                 saladPrice3: "2100 AMD", salad3: "Այգու Բերք", salad3Desc: "Կանաչիների խառնուրդ, բողկ, գազար և թեթև բալզամիկ վինեգրետ։",
-                saladPrice4: "2300 AMD", salad4: "Ավոկադո և Ընկույզ", salad4Desc: "Սերուցքային ավոկադո, խանձված ընկույզ, կանաչի և մեղր-մանանեխ սոուս։",
-                saladPrice5: "2400 AMD", salad5: "Ծխած Սալմոն և Կանաչի", salad5Desc: "Պրեմիում ծխած սալմոն, կապարիս, կարմիր սոխ և սամիթով սերուցքային սոուս։",
+                saladPrice4: "2300 AMD", salad4: "Ավոկադո և Ընկույզ", salad4Desc: "Սերուցքային ավոկադո, խանձված նկույզ, կանաչի և մեղր-մանանեխ սոուս։",
+                saladPrice5: "2400 AMD", salad5: "Ծխած Սալմոն և Կանաչի", salad5Desc: "րեմիում ծխած սալմոն, կապարիս, կարմիր սոխ և սամիթով սերուցքային սոուս։",
                 saladPrice6: "2300 AMD", salad6: "Կապրեզե Դելայթ", salad6Desc: "Թարմ մոցարելա, ժառանգական լոլիկներ, ռեհան և հասունացված բալզամիկ գլեյզ։",
                 saladPrice7: "2100 AMD", salad7: "Խորոված Ճակնդեղ և Այծի Պանիր", salad7Desc: "Խորոված ճակնդեղ, սերուցքային այծի պանիր, կարամելացված պեկան և ռուկոլա։",
-                sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
+                sloenkaExp: "Sloenka որձ", craftedMotion: "տեղծված Շարժման Մեջ",
                 videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
                 discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
                 allCroissants: "Բոլոր Կրուասաններ", availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
                 joinUs: "Միացեք Մեզ", awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
-                location: "Վայր", hours: "Ժամեր", breakfastUntil: "(Նախաճաշեր մինչև 19:00)", contact: "Կապ"
+                location: "Վայր", hours: "ամեր", breakfastUntil: "(ախաճաշեր մինչև 19:00)", contact: "Կապ"
             }
         };
 
@@ -1798,7 +1824,6 @@
             });
         });
 
-        // Horizontal scroll functionality
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
             scroll.scrollBy({ left: direction * 400, behavior: 'smooth' });
@@ -1809,7 +1834,6 @@
             scroll.scrollBy({ left: direction * 400, behavior: 'smooth' });
         }
 
-        // Wheel and Drag scrolling for both sections
         ['iceCreamScroll', 'saladScroll'].forEach(id => {
             const container = document.getElementById(id);
             if (!container) return;
@@ -1838,7 +1862,6 @@
             });
         });
 
-        // Premium Scroll Reveal Animation
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1849,7 +1872,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
