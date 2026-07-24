@@ -349,7 +349,7 @@
         }
 
         /* =========================================
-           NEW AFFOGATO VIDEO SECTION
+           AFFOGATO VIDEO SECTION
            ========================================= */
         .affogato-section {
             position: relative;
@@ -779,184 +779,194 @@
         .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* =========================================
-           NEW SALAD SECTION
+           NEW HORIZONTAL SCROLLING SALAD SECTION
            ========================================= */
         .salad-section {
             position: relative;
-            padding: 160px 0;
-            background: linear-gradient(135deg, #F7FBF7 0%, #E8F5E9 50%, #D5E8D4 100%);
+            padding: 120px 0;
             overflow: hidden;
-        }
-
-        .salad-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067'),
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072'),
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080');
-            background-size: 450px 450px, 350px 350px, 400px 400px;
-            background-position: 5% 15%, 85% 50%, 15% 85%;
-            background-repeat: no-repeat;
-            opacity: 0.05;
-            pointer-events: none;
-            animation: floatBackground 25s ease-in-out infinite;
-        }
-
-        @keyframes floatBackground {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .salad-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
-            position: relative;
-            z-index: 2;
-            padding: 0 24px;
-        }
-
-        .salad-header .section-label {
-            color: #556B2F;
-            font-size: 0.85rem;
-            letter-spacing: 4px;
-        }
-
-        .salad-header .section-title {
-            font-size: 4rem;
-            color: var(--text-primary);
-            margin-bottom: 32px;
-        }
-
-        .salad-header p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .salad-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .salad-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(85, 107, 47, 0.1);
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            background: white;
-            aspect-ratio: 3/4;
-            opacity: 0;
-            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        .salad-card:nth-child(1) { animation-delay: 0.1s; }
-        .salad-card:nth-child(2) { animation-delay: 0.2s; }
-        .salad-card:nth-child(3) { animation-delay: 0.3s; }
-        .salad-card:nth-child(4) { animation-delay: 0.4s; }
-        .salad-card:nth-child(5) { animation-delay: 0.5s; }
-        .salad-card:nth-child(6) { animation-delay: 0.6s; }
-        .salad-card:nth-child(7) { animation-delay: 0.7s; }
-
-        .salad-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(85, 107, 47, 0.2);
-        }
-
-        .salad-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .salad-card:hover .salad-image {
-            transform: scale(1.1);
+            /* Beautiful fresh background using one of the salad images subtly */
+            background: url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .salad-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px 24px 32px;
-            background: linear-gradient(to top, rgba(26, 21, 18, 0.95) 0%, rgba(26, 21, 18, 0.5) 60%, transparent 100%);
-            color: white;
-            transform: translateY(20px);
-            opacity: 0;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            /* Fresh, airy, frosted light-green/cream overlay */
+            background: linear-gradient(to bottom,
+                rgba(249, 251, 249, 0.94) 0%,
+                rgba(232, 245, 233, 0.92) 50%,
+                rgba(249, 251, 249, 0.95) 100%);
+            pointer-events: none;
+        }
+
+        .salad-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 2;
+            padding: 0 24px;
+        }
+
+        .salad-header .section-label { 
+            color: #556B2F; /* Fresh olive green */
+        }
+        
+        .salad-header .section-title { 
+            color: var(--text-primary); 
+        }
+
+        .salad-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .salad-scroll-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 0 40px;
+        }
+
+        .salad-scroll {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 40px 0 60px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .salad-scroll::-webkit-scrollbar { display: none; }
+
+        .salad-card {
+            flex: 0 0 340px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(85, 107, 47, 0.15);
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 20px 50px rgba(85, 107, 47, 0.08);
+            scroll-snap-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .salad-card:hover .salad-overlay {
-            transform: translateY(0);
-            opacity: 1;
+        .salad-card:hover {
+            transform: translateY(-16px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(85, 107, 47, 0.15);
+            border-color: #556B2F;
         }
 
-        .salad-overlay h3 {
+        .salad-image {
+            height: 360px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .salad-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .salad-card:hover .salad-image img { transform: scale(1.1); }
+
+        .salad-badge {
+            position: absolute;
+            top: 20px; left: 20px;
+            background: rgba(85, 107, 47, 0.9);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .salad-content {
+            padding: 28px 24px 32px;
+            text-align: center;
+        }
+
+        .salad-content h3 {
             font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+            color: var(--text-primary);
             margin-bottom: 8px;
             font-weight: 400;
             font-style: italic;
         }
 
-        .salad-overlay p {
-            font-size: 0.95rem;
-            opacity: 0.9;
+        .salad-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
             font-weight: 300;
-            line-height: 1.6;
         }
 
-        .salad-price {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            border-radius: 50px;
+        .salad-price-tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: rgba(85, 107, 47, 0.08);
+            color: #556B2F;
             font-family: var(--font-heading);
             font-size: 1.1rem;
-            color: #556B2F;
             font-weight: 600;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            border-radius: 50px;
+            letter-spacing: 0.5px;
         }
 
-        .salad-card:hover .salad-price {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .salad-decoration {
+        .salad-nav {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(85, 107, 47, 0.2);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(85, 107, 47, 0.15) 0%, transparent 70%);
-            filter: blur(40px);
-            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            color: #556B2F;
+            font-size: 1.2rem;
         }
 
-        .salad-decoration-1 { top: 10%; left: -5%; }
-        .salad-decoration-2 { bottom: 10%; right: -5%; background: radial-gradient(circle, rgba(107, 142, 35, 0.2) 0%, transparent 70%); }
+        .salad-nav:hover {
+            background: #556B2F;
+            color: white;
+            border-color: #556B2F;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .salad-nav.prev { left: 20px; }
+        .salad-nav.next { right: 20px; }
+
+        .salad-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* =========================================
-           AESTHETIC GRID SECTION (REPLACES 3D CAROUSEL)
+           AESTHETIC GRID SECTION
            ========================================= */
         .aesthetic-grid-section {
             padding: var(--section-padding);
@@ -1335,7 +1345,6 @@
         @media (max-width: 968px) {
             .hero-title { font-size: 4rem; }
             .affogato-title { font-size: 3.5rem; }
-            .salad-header .section-title { font-size: 3rem; }
 
             .split-layout {
                 grid-template-columns: 1fr;
@@ -1355,17 +1364,12 @@
             .nav-wrapper { gap: 16px; }
             .nav-links { gap: 24px; }
 
-            .ice-cream-card { flex: 0 0 300px; }
-            .ice-cream-image { height: 320px; }
+            .ice-cream-card, .salad-card { flex: 0 0 300px; }
+            .ice-cream-image, .salad-image { height: 320px; }
             
-            .ice-cream-section { background-attachment: scroll; }
+            .ice-cream-section, .salad-section { background-attachment: scroll; }
             
             .flavor-grid { gap: 30px; }
-
-            .salad-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 24px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1401,10 +1405,10 @@
             .lang-switcher { gap: 4px; }
             .lang-btn { padding: 4px 8px; font-size: 0.65rem; }
 
-            .ice-cream-card { flex: 0 0 280px; }
-            .ice-cream-image { height: 280px; }
-            .ice-cream-scroll-wrapper { padding: 0 20px; }
-            .scroll-nav { display: none; }
+            .ice-cream-card, .salad-card { flex: 0 0 280px; }
+            .ice-cream-image, .salad-image { height: 280px; }
+            .ice-cream-scroll-wrapper, .salad-scroll-wrapper { padding: 0 20px; }
+            .scroll-nav, .salad-nav { display: none; }
             
             .section-price-badge {
                 font-size: 1.25rem;
@@ -1412,11 +1416,6 @@
             }
             
             .aesthetic-image-wrap { height: 180px; }
-
-            .salad-header .section-title { font-size: 2.25rem; }
-            .salad-header p { font-size: 1rem; }
-            .salad-grid { grid-template-columns: 1fr; }
-            .salad-card { aspect-ratio: 4/5; }
         }
     </style>
 </head>
@@ -1631,82 +1630,119 @@
         </section>
 
         <!-- =========================================
-           NEW SALAD SECTION
+           NEW HORIZONTAL SCROLLING SALAD SECTION
            ========================================= -->
         <section class="salad-section" id="salad">
-            <div class="salad-decoration salad-decoration-1"></div>
-            <div class="salad-decoration salad-decoration-2"></div>
-            
-            <div class="salad-header">
-                <span class="section-label" data-lang="saladLabel">Fresh & Vibrant</span>
-                <h2 class="section-title" data-lang="saladTitle">Artisan Salads</h2>
-                <div class="divider divider-center"></div>
-                <p data-lang="saladDesc">Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.</p>
-            </div>
+            <div class="salad-overlay"></div>
+            <div class="container">
+                <div class="salad-header">
+                    <span class="section-label" data-lang="saladLabel">Fresh & Vibrant</span>
+                    <h2 class="section-title" data-lang="saladTitle">Artisan Salads</h2>
+                    <div class="divider divider-center" style="background-color: #556B2F;"></div>
+                    <p data-lang="saladDesc">Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.</p>
+                </div>
 
-            <div class="salad-grid">
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Mediterranean Quinoa" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice1">2300 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad1">Mediterranean Quinoa</h3>
-                        <p data-lang="salad1Desc">Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.</p>
-                    </div>
-                </article>
+                <div class="scroll-indicator">
+                    <div class="scroll-indicator-line" style="background: #556B2F;"></div>
+                    <span data-lang="scrollRight">Scroll Right</span>
+                    <span class="scroll-arrow">→</span>
+                    <div class="scroll-indicator-line" style="background: #556B2F;"></div>
+                </div>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Grilled Chicken Caesar" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice2">2500 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad2">Grilled Chicken Caesar</h3>
-                        <p data-lang="salad2Desc">Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.</p>
+                <div class="salad-scroll-wrapper">
+                    <div class="salad-nav prev" onclick="scrollSalad(-1)">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
                     </div>
-                </article>
+                    <div class="salad-nav next" onclick="scrollSalad(1)">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </div>
+                    
+                    <div class="salad-scroll" id="saladScroll">
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Mediterranean Quinoa">
+                                <span class="salad-badge" data-lang="badgeFresh">Fresh</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad1">Mediterranean Quinoa</h3>
+                                <p data-lang="salad1Desc">Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice1">2300 AMD</div>
+                            </div>
+                        </article>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Garden Harvest" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice3">2100 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad3">Garden Harvest</h3>
-                        <p data-lang="salad3Desc">Mixed greens, radishes, carrots, and a light balsamic vinaigrette.</p>
-                    </div>
-                </article>
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Grilled Chicken Caesar">
+                                <span class="salad-badge" data-lang="badgePremium">Premium</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad2">Grilled Chicken Caesar</h3>
+                                <p data-lang="salad2Desc">Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice2">2500 AMD</div>
+                            </div>
+                        </article>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Avocado & Walnut" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice4">2300 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad4">Avocado & Walnut</h3>
-                        <p data-lang="salad4Desc">Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.</p>
-                    </div>
-                </article>
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Garden Harvest">
+                                <span class="salad-badge" data-lang="badgeClassic">Classic</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad3">Garden Harvest</h3>
+                                <p data-lang="salad3Desc">Mixed greens, radishes, carrots, and a light balsamic vinaigrette.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice3">2100 AMD</div>
+                            </div>
+                        </article>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Smoked Salmon & Greens" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice5">2400 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad5">Smoked Salmon & Greens</h3>
-                        <p data-lang="salad5Desc">Premium smoked salmon, capers, red onion, and dill cream dressing.</p>
-                    </div>
-                </article>
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Avocado & Walnut">
+                                <span class="salad-badge" data-lang="badgeFresh">Fresh</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad4">Avocado & Walnut</h3>
+                                <p data-lang="salad4Desc">Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice4">2300 AMD</div>
+                            </div>
+                        </article>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Caprese Delight" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice6">2300 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad6">Caprese Delight</h3>
-                        <p data-lang="salad6Desc">Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.</p>
-                    </div>
-                </article>
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Smoked Salmon & Greens">
+                                <span class="salad-badge" data-lang="badgePremium">Premium</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad5">Smoked Salmon & Greens</h3>
+                                <p data-lang="salad5Desc">Premium smoked salmon, capers, red onion, and dill cream dressing.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice5">2400 AMD</div>
+                            </div>
+                        </article>
 
-                <article class="salad-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Roasted Beet & Goat Cheese" class="salad-image" loading="lazy">
-                    <div class="salad-price" data-lang="saladPrice7">2100 AMD</div>
-                    <div class="salad-overlay">
-                        <h3 data-lang="salad7">Roasted Beet & Goat Cheese</h3>
-                        <p data-lang="salad7Desc">Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.</p>
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Caprese Delight">
+                                <span class="salad-badge" data-lang="badgeClassic">Classic</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad6">Caprese Delight</h3>
+                                <p data-lang="salad6Desc">Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice6">2300 AMD</div>
+                            </div>
+                        </article>
+
+                        <article class="salad-card">
+                            <div class="salad-image">
+                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Roasted Beet & Goat Cheese">
+                                <span class="salad-badge" data-lang="badgeFresh">Fresh</span>
+                            </div>
+                            <div class="salad-content">
+                                <h3 data-lang="salad7">Roasted Beet & Goat Cheese</h3>
+                                <p data-lang="salad7Desc">Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.</p>
+                                <div class="salad-price-tag" data-lang="saladPrice7">2100 AMD</div>
+                            </div>
+                        </article>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
@@ -1857,7 +1893,7 @@
                 navEvening: "Evening", navVisit: "Visit",
                 heroLabel: "Artisanal Excellence", heroTitle: "When Taste Meets Quality.",
                 heroDesc: "Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.",
-                viewMenu: "View Menu", scroll: "Scroll",
+                viewMenu: "View Menu", scroll: "Scroll", scrollRight: "Scroll Right",
                 affogatoTitle: "New drinks: Affogato edition",
                 flavorPistachioBracket: "[ pistachio ]", flavorPistachio: "Pistachio Affogato", descPistachio: "Rich espresso poured over creamy pistachio gelato, topped with crushed nuts.",
                 flavorChocolateBracket: "[ chocolate ]", flavorChocolate: "Chocolate Affogato", descChocolate: "Decadent Belgian chocolate ice cream drowned in hot aromatic espresso.",
@@ -1869,7 +1905,7 @@
                 salmonSet: "Salmon Benedict Set", salmonDesc: "Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.", chefChoice: "Chef's Choice",
                 handcrafted: "Handcrafted Daily", artisanIceCream: "Artisan Ice Cream Collection",
                 iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.",
-                allPriceBadge: "All Flavors — 700 AMD", scrollRight: "Scroll Right",
+                allPriceBadge: "All Flavors — 700 AMD",
                 badgeClassic: "Classic", badgeRich: "Rich", badgeFresh: "Fresh", badgePremium: "Premium", badgeSweet: "Sweet", badgeCool: "Cool", badgeCrispy: "Crispy",
                 ic1: "Vanilla Bean", ic1d: "Creamy Madagascar vanilla with real bean specks",
                 ic2: "Chocolate Fudge", ic2d: "Rich Belgian chocolate with fudge swirls",
@@ -1909,7 +1945,7 @@
                 navEvening: "Вечер", navVisit: "Визит",
                 heroLabel: "Ремесленное Превосходство", heroTitle: "Когда Вкус Встречает Качество.",
                 heroDesc: "Насладитесь идеальной гармонией ремесленного мастерства и премиальных ингредиентов. Каждый кусочек и глоток тщательно приготовлены, чтобы превратить ваши повседневные моменты во что-то по-настоящему особенное.",
-                viewMenu: "Посмотреть Меню", scroll: "Прокрутить",
+                viewMenu: "Посмотреть Меню", scroll: "Прокрутить", scrollRight: "Прокрутите Вправо",
                 affogatoTitle: "Новинка: Коллекция Аффогато",
                 flavorPistachioBracket: "[ фисташка ]", flavorPistachio: "Фисташковое Аффогато", descPistachio: "Насыщенный эспрессо, политый поверх сливочного фисташкового джелато с ореховой крошкой.",
                 flavorChocolateBracket: "[ шоколад ]", flavorChocolate: "Шоколадное Аффогато", descChocolate: "Декадентское бельгийское шоколадное мороженое, утопленное в горячем ароматном эспрессо.",
@@ -1921,7 +1957,7 @@
                 salmonSet: "Лосось Бенедикт", salmonDesc: "Нежный копченый лосось на поджаренном ремесленном маффине, увенчанный идеально приготовленным яйцом пашот и нашим фирменным голландским соусом.", chefChoice: "Выбор Шефа",
                 handcrafted: "Ежедневное Ремесло", artisanIceCream: "Коллекция Ремесленного Мороженого",
                 iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно.",
-                allPriceBadge: "Все Вкусы — 700 AMD", scrollRight: "Прокрутите Вправо",
+                allPriceBadge: "Все Вкусы — 700 AMD",
                 badgeClassic: "Классика", badgeRich: "Насыщенный", badgeFresh: "Свежий", badgePremium: "Премиум", badgeSweet: "Сладкий", badgeCool: "Прохладный", badgeCrispy: "Хрустящий",
                 ic1: "Ванильный Боб", ic1d: "Сливочная мадагаскарская ваниль с настоящими бобами",
                 ic2: "Шоколадный Фадж", ic2d: "Насыщенный бельгийский шоколад с завитками фаджа",
@@ -1961,7 +1997,7 @@
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
                 heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
-                viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել",
+                viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել", scrollRight: "Ոլորեք Աջ",
                 affogatoTitle: "Նոր խմիչքներ. Աֆոգատո հավաքածու",
                 flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ լցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական շոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
@@ -1973,7 +2009,7 @@
                 salmonSet: "Սալմոն Բենեդիկտ", salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։", chefChoice: "Շեֆի Ընտրություն",
                 handcrafted: "Ամենօրյա Արհեստ", artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
                 iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
-                allPriceBadge: "Բոլոր Համերը — 700 AMD", scrollRight: "Ոլորեք Աջ",
+                allPriceBadge: "Բոլոր Համերը — 700 AMD",
                 badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "Թարմ", badgePremium: "Պրեմիում", badgeSweet: "Քաղցր", badgeCool: "Զով", badgeCrispy: "Խրթխրթան",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
                 ic2: "Շոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
@@ -2035,6 +2071,7 @@
             });
         });
 
+        // Ice Cream Horizontal scroll functionality
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
             scroll.scrollBy({ left: direction * 380, behavior: 'smooth' });
@@ -2063,6 +2100,38 @@
             const x = e.pageX - scrollContainer.offsetLeft;
             scrollContainer.scrollLeft = scrollLeft - (x - startX) * 2;
         });
+
+        // Salad Horizontal scroll functionality
+        function scrollSalad(direction) {
+            const scroll = document.getElementById('saladScroll');
+            scroll.scrollBy({ left: direction * 380, behavior: 'smooth' });
+        }
+
+        const saladScrollContainer = document.getElementById('saladScroll');
+        if (saladScrollContainer) {
+            saladScrollContainer.addEventListener('wheel', (e) => {
+                if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                    e.preventDefault();
+                    saladScrollContainer.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+
+            let isSaladDown = false, saladStartX, saladScrollLeft;
+            saladScrollContainer.addEventListener('mousedown', (e) => {
+                isSaladDown = true;
+                saladScrollContainer.style.cursor = 'grabbing';
+                saladStartX = e.pageX - saladScrollContainer.offsetLeft;
+                saladScrollLeft = saladScrollContainer.scrollLeft;
+            });
+            saladScrollContainer.addEventListener('mouseleave', () => { isSaladDown = false; saladScrollContainer.style.cursor = 'grab'; });
+            saladScrollContainer.addEventListener('mouseup', () => { isSaladDown = false; saladScrollContainer.style.cursor = 'grab'; });
+            saladScrollContainer.addEventListener('mousemove', (e) => {
+                if (!isSaladDown) return;
+                e.preventDefault();
+                const x = e.pageX - saladScrollContainer.offsetLeft;
+                saladScrollContainer.scrollLeft = saladScrollLeft - (x - saladStartX) * 2;
+            });
+        }
     </script>
 </body>
 </html>
