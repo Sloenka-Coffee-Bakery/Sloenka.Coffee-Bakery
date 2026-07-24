@@ -88,7 +88,6 @@
         .divider-center { margin: 36px auto; }
         .divider-light { background-color: var(--accent); opacity: 0.6; }
 
-        /* STUNNING DECORATIVE LINE */
         .stunning-line {
             width: 100%;
             height: 1px;
@@ -138,7 +137,6 @@
             box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
         }
 
-        /* LANGUAGE SWITCHER */
         .lang-switcher {
             display: flex;
             gap: 4px;
@@ -171,7 +169,6 @@
             box-shadow: 0 2px 8px rgba(201, 169, 110, 0.3);
         }
 
-        /* HEADER */
         header {
             padding: 20px 24px;
             position: fixed;
@@ -239,7 +236,6 @@
         .nav-links a:hover { color: var(--text-primary); }
         .nav-links a:hover::after { width: 100%; }
 
-        /* HERO */
         .hero {
             position: relative;
             height: 100vh;
@@ -381,7 +377,6 @@
             50% { transform: translateX(-50%) translateY(10px); }
         }
 
-        /* SCROLL REVEAL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -392,7 +387,6 @@
             transform: translateY(0);
         }
 
-        /* AFFOGATO VIDEO SECTION */
         .affogato-section {
             position: relative;
             padding: 160px 24px;
@@ -480,7 +474,6 @@
             max-width: 280px;
         }
 
-        /* MENU SECTION */
         .menu-section {
             padding: var(--section-padding);
             background-color: #F4F0EA;
@@ -580,7 +573,6 @@
             border-color: var(--accent);
         }
 
-        /* HORIZONTAL SCROLLING SECTIONS */
         .ice-cream-section, .salad-section {
             position: relative;
             padding: 140px 0;
@@ -725,17 +717,6 @@
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
         }
 
-        .salad-section .scroll-card {
-            background: rgba(255, 255, 255, 0.96);
-            border: 1px solid rgba(85, 107, 47, 0.12);
-            box-shadow: 0 20px 50px rgba(85, 107, 47, 0.06);
-        }
-
-        .salad-section .scroll-card:hover {
-            border-color: #556B2F;
-            box-shadow: 0 40px 80px rgba(85, 107, 47, 0.12);
-        }
-
         .card-image {
             height: 380px;
             overflow: hidden;
@@ -765,11 +746,6 @@
             text-transform: uppercase;
             backdrop-filter: blur(10px);
             z-index: 2;
-        }
-
-        .salad-section .card-badge {
-            background: rgba(85, 107, 47, 0.9);
-            color: white;
         }
 
         .card-content {
@@ -849,7 +825,7 @@
         .scroll-nav.next { right: 20px; }
         .scroll-nav svg { width: 22px; height: 22px; fill: currentColor; }
 
-        /* PURE PHOTO GALLERY */
+        /* PURE PHOTO GALLERY STYLES */
         .aesthetic-grid-section {
             padding: var(--section-padding);
             background: linear-gradient(180deg, #FAF8F5 0%, #F2EBE3 100%);
@@ -915,6 +891,54 @@
             border-color: rgba(201, 169, 110, 0.5);
         }
 
+        /* SALAD PURE PHOTO STYLES (No zoom, full visibility) */
+        .salad-photo-scroll {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 40px 0 80px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+        .salad-photo-scroll::-webkit-scrollbar { display: none; }
+
+        .salad-photo-card {
+            flex: 0 0 380px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(85, 107, 47, 0.15);
+            box-shadow: 0 15px 40px rgba(85, 107, 47, 0.06);
+            scroll-snap-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s var(--ease-luxury);
+        }
+
+        .salad-photo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(85, 107, 47, 0.12);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .salad-photo-card img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain; /* Ensures the FULL photo is visible without cropping/zooming */
+            border-radius: 4px;
+            transition: transform 0.6s var(--ease-luxury);
+        }
+
+        .salad-photo-card:hover img {
+            transform: scale(1.02);
+        }
+
         @media (min-width: 1024px) {
             .pure-gallery {
                 grid-template-columns: repeat(6, 1fr);
@@ -928,7 +952,6 @@
             .pure-photo-card:nth-child(5) { grid-column: 5 / span 2; }
         }
 
-        /* VIDEO SECTION */
         .video-experience {
             position: relative;
             height: 100vh;
@@ -994,7 +1017,6 @@
             margin-right: auto;
         }
 
-        /* EVENING OFFER */
         .evening-offer {
             padding: var(--section-padding);
             background-color: var(--bg-dark);
@@ -1102,7 +1124,6 @@
 
         .offer-image:hover img { transform: scale(1.04); }
 
-        /* INFO SECTION */
         .info-section {
             padding: 120px 24px;
             background-color: #0A0807;
@@ -1159,7 +1180,6 @@
             letter-spacing: 1.5px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 968px) {
             .hero-title { font-size: 4rem; }
             .affogato-title { font-size: 3.5rem; }
@@ -1185,9 +1205,9 @@
 
             .scroll-card { flex: 0 0 320px; }
             .card-image { height: 340px; }
+            .salad-photo-card { flex: 0 0 320px; }
             
             .ice-cream-section, .salad-section { background-attachment: scroll; }
-            
             .flavor-grid { gap: 40px; }
         }
 
@@ -1198,7 +1218,6 @@
             .hero-title { font-size: 3rem; }
             .hero-description { font-size: 1.05rem; }
             .section-title { font-size: 2.5rem; }
-            
             .affogato-title { font-size: 2.5rem; margin-bottom: 50px; }
             
             .flavor-grid {
@@ -1242,6 +1261,7 @@
                 grid-row: span 1 !important;
                 aspect-ratio: 4/5 !important;
             }
+            .salad-photo-card { flex: 0 0 85vw; }
         }
     </style>
 </head>
@@ -1428,6 +1448,7 @@
             </div>
         </section>
 
+        <!-- SALAD SECTION: PURE PHOTOS ONLY, FULLY VISIBLE (NO ZOOM/CROP) -->
         <section class="salad-section reveal" id="salad">
             <div class="salad-overlay"></div>
             <div class="container">
@@ -1435,14 +1456,6 @@
                     <span class="section-label" style="color: #556B2F;" data-lang="saladLabel">Fresh & Vibrant</span>
                     <h2 class="section-title" data-lang="saladTitle">Artisan Salads</h2>
                     <div class="divider divider-center" style="background-color: #556B2F;"></div>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="saladDesc">Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.</p>
-                </div>
-
-                <div class="scroll-indicator" style="color: rgba(26, 21, 18, 0.5);">
-                    <div class="scroll-indicator-line" style="background: #556B2F;"></div>
-                    <span data-lang="scrollRight">Scroll Right</span>
-                    <span class="scroll-arrow" style="color: #556B2F;">→</span>
-                    <div class="scroll-indicator-line" style="background: #556B2F;"></div>
                 </div>
 
                 <div class="scroll-wrapper">
@@ -1453,96 +1466,33 @@
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
                     </div>
                     
-                    <div class="horizontal-scroll" id="saladScroll">
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Mediterranean Quinoa">
-                                <span class="card-badge" data-lang="badgeFresh">Fresh</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad1">Mediterranean Quinoa</h3>
-                                <p data-lang="salad1Desc">Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.</p>
-                                <div class="price-tag" data-lang="saladPrice1">2300 AMD</div>
-                            </div>
+                    <div class="salad-photo-scroll" id="saladScroll">
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Grilled Chicken Caesar">
-                                <span class="card-badge" data-lang="badgePremium">Premium</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad2">Grilled Chicken Caesar</h3>
-                                <p data-lang="salad2Desc">Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.</p>
-                                <div class="price-tag" data-lang="saladPrice2">2500 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Garden Harvest">
-                                <span class="card-badge" data-lang="badgeClassic">Classic</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad3">Garden Harvest</h3>
-                                <p data-lang="salad3Desc">Mixed greens, radishes, carrots, and a light balsamic vinaigrette.</p>
-                                <div class="price-tag" data-lang="saladPrice3">2100 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Avocado & Walnut">
-                                <span class="card-badge" data-lang="badgeFresh">Fresh</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad4">Avocado & Walnut</h3>
-                                <p data-lang="salad4Desc">Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.</p>
-                                <div class="price-tag" data-lang="saladPrice4">2300 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Smoked Salmon & Greens">
-                                <span class="card-badge" data-lang="badgePremium">Premium</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad5">Smoked Salmon & Greens</h3>
-                                <p data-lang="salad5Desc">Premium smoked salmon, capers, red onion, and dill cream dressing.</p>
-                                <div class="price-tag" data-lang="saladPrice5">2400 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Caprese Delight">
-                                <span class="card-badge" data-lang="badgeClassic">Classic</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad6">Caprese Delight</h3>
-                                <p data-lang="salad6Desc">Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.</p>
-                                <div class="price-tag" data-lang="saladPrice6">2300 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Salad">
                         </article>
-
-                        <article class="scroll-card">
-                            <div class="card-image">
-                                <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Roasted Beet & Goat Cheese">
-                                <span class="card-badge" data-lang="badgeFresh">Fresh</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 data-lang="salad7">Roasted Beet & Goat Cheese</h3>
-                                <p data-lang="salad7Desc">Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.</p>
-                                <div class="price-tag" data-lang="saladPrice7">2100 AMD</div>
-                            </div>
+                        <article class="salad-photo-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Salad">
                         </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AFFOGATO SECTION - MOVED HERE AFTER SALADS -->
         <section class="affogato-section reveal" id="affogato">
             <video class="affogato-bg-video" autoplay muted loop playsinline>
                 <source src="https://cdn.shopify.com/videos/c/o/v/1fe26f74af71415f81d2ba3fca6cad32.mov" type="video/mp4">
@@ -1570,10 +1520,8 @@
             </div>
         </section>
 
-        <!-- STUNNING DECORATIVE LINE -->
         <div class="stunning-line"></div>
 
-        <!-- PURE PHOTO GALLERY (SMOOTHIES) - SEPARATED WITH STUNNING LINE -->
         <section class="aesthetic-grid-section reveal" id="specialty">
             <div class="container">
                 <div class="pure-gallery">
@@ -1692,14 +1640,6 @@
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
                 saladLabel: "Fresh & Vibrant", saladTitle: "Artisan Salads",
-                saladDesc: "Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.",
-                saladPrice1: "2300 AMD", salad1: "Mediterranean Quinoa", salad1Desc: "Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.",
-                saladPrice2: "2500 AMD", salad2: "Grilled Chicken Caesar", salad2Desc: "Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.",
-                saladPrice3: "2100 AMD", salad3: "Garden Harvest", salad3Desc: "Mixed greens, radishes, carrots, and a light balsamic vinaigrette.",
-                saladPrice4: "2300 AMD", salad4: "Avocado & Walnut", salad4Desc: "Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.",
-                saladPrice5: "2400 AMD", salad5: "Smoked Salmon & Greens", salad5Desc: "Premium smoked salmon, capers, red onion, and dill cream dressing.",
-                saladPrice6: "2300 AMD", salad6: "Caprese Delight", salad6Desc: "Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.",
-                saladPrice7: "2100 AMD", salad7: "Roasted Beet & Goat Cheese", salad7Desc: "Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.",
                 sloenkaExp: "The Sloenka Experience", craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
                 discoverOffers: "Discover Our Offers", eveningIndulgence: "Evening Indulgence",
@@ -1736,14 +1676,6 @@
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
                 saladLabel: "Свежесть и Яркость", saladTitle: "Авторские Салаты",
-                saladDesc: "Хрустящие сезонные ингредиенты, тщательно подобранные для создания освежающих и питательных шедевров. Каждая тарелка — это праздник свежести.",
-                saladPrice1: "2300 AMD", salad1: "Средиземноморский Киноа", salad1Desc: "Свежий киноа, помидоры черри, огурцы, фета и лимонно-травяная заправка.",
-                saladPrice2: "2500 AMD", salad2: "Цезарь с Курицей", salad2Desc: "Хрустящий ромэн, стружка пармезана, чесночные гренки и классический соус Цезарь.",
-                saladPrice3: "2100 AMD", salad3: "Садовый Сбор", salad3Desc: "Смесь зелени, редис, морковь и легкая бальзамическая заправка.",
-                saladPrice4: "2300 AMD", salad4: "Авокадо и Грецкий Орех", salad4Desc: "Сливочный авокадо, жареные грецкие орехи, зелень и медово-горчичная заправка.",
-                saladPrice5: "2400 AMD", salad5: "Копченый Лосось и Зелень", salad5Desc: "Премиальный копченый лосось, каперсы, красный лук и сливочная заправка с укропом.",
-                saladPrice6: "2300 AMD", salad6: "Капрезе Делайт", salad6Desc: "Свежая моцарелла, помидоры черри, базилик и выдержанный бальзамический крем.",
-                saladPrice7: "2100 AMD", salad7: "Печеная Свекла и Козий Сыр", salad7Desc: "Землистая печеная свекла, сливочный козий сыр, карамелизированные пеканы и руккола.",
                 sloenkaExp: "Опыт Sloenka", craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
                 discoverOffers: "Откройте Наши Предложения", eveningIndulgence: "Вечернее Наслаждение",
@@ -1757,13 +1689,13 @@
                 navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSalad: "Աղցաններ", navSpecialty: "Մեր Ընտրանին", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
-                heroDesc: "այելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
+                heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
                 viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել", scrollRight: "Ոլորեք Աջ",
                 affogatoTitle: "Նոր խմիչքներ. Աֆոգատո հավաքածու",
-                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ ցված սերուցքային պիստակի ջելատոյի վրա։",
+                flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ լցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական շոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
                 flavorVanillaBracket: "[ վանիլ ]", flavorVanilla: "Վանիլ Աֆոգատո", descVanilla: "Դասական մադագասկարյան վանիլային պաղպաղակ և սուրճի համադրություն։",
-                curated: "Ձեզ Համար Ընտրված", signatureMorning: "իրմային Առավոտյան Հավաքածուներ",
+                curated: "Ձեզ Համար Ընտրված", signatureMorning: "Ֆիրմային Առավոտյան Հավաքածուներ",
                 morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով։",
                 classicSet: "Դասական Հավաքածու", classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։", timeless: "Անժամանակ",
                 englishSet: "Անգլիական Նախաճաշ", englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։", hearty: "Հագեցած",
@@ -1778,24 +1710,16 @@
                 ic4: "Պիստակային Երազ", ic4d: "Խանձված պիստակներ՝ հարթ սերուցքով",
                 ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
                 ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
-                ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված խվածք՝ վանիլային հիմքով",
-                saladLabel: "Թարմ և առ", saladTitle: "Հեղինակային Աղցաններ",
-                saladDesc: "Խրթխրթան սեզոնային բաղադրիչներ զգուշորեն համադրված թարմացնող և սննդարար գլուխգործոցներ ստեղծելու համար։ Յուրաքանչյուր ափսե թարմության տոն է։",
-                saladPrice1: "2300 AMD", salad1: "Միջերկրածովյան Քինոա", salad1Desc: "Թարմ քինոա, չերի լոլիկներ, վարունգ, ֆետա և կիտրոնաբույսային սոուս։",
-                saladPrice2: "2500 AMD", salad2: "Գրիլ հավով Ցեզար", salad2Desc: "Խրթխրթան ոմեն, պարմեզանի շերտեր, սխտորով չորահաց և դասական Ցեզար սոուս։",
-                saladPrice3: "2100 AMD", salad3: "Այգու Բերք", salad3Desc: "Կանաչիների խառնուրդ, բողկ, գազար և թեթև բալզամիկ վինեգրետ։",
-                saladPrice4: "2300 AMD", salad4: "Ավոկադո և Ընկույզ", salad4Desc: "Սերուցքային ավոկադո, խանձված նկույզ, կանաչի և մեղր-մանանեխ սոուս։",
-                saladPrice5: "2400 AMD", salad5: "Ծխած Սալմոն և Կանաչի", salad5Desc: "րեմիում ծխած սալմոն, կապարիս, կարմիր սոխ և սամիթով սերուցքային սոուս։",
-                saladPrice6: "2300 AMD", salad6: "Կապրեզե Դելայթ", salad6Desc: "Թարմ մոցարելա, ժառանգական լոլիկներ, ռեհան և հասունացված բալզամիկ գլեյզ։",
-                saladPrice7: "2100 AMD", salad7: "Խորոված Ճակնդեղ և Այծի Պանիր", salad7Desc: "Խորոված ճակնդեղ, սերուցքային այծի պանիր, կարամելացված պեկան և ռուկոլա։",
-                sloenkaExp: "Sloenka որձ", craftedMotion: "տեղծված Շարժման Մեջ",
+                ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
+                saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
+                sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
                 videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
                 discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
                 allCroissants: "Բոլոր Կրուասաններ", availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
                 joinUs: "Միացեք Մեզ", awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
-                location: "Վայր", hours: "ամեր", breakfastUntil: "(ախաճաշեր մինչև 19:00)", contact: "Կապ"
+                location: "Վայր", hours: "Ժամեր", breakfastUntil: "(Նախաճաշեր մինչև 19:00)", contact: "Կապ"
             }
         };
 
