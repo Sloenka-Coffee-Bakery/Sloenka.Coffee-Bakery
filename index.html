@@ -779,6 +779,183 @@
         .scroll-nav svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* =========================================
+           NEW SALAD SECTION
+           ========================================= */
+        .salad-section {
+            position: relative;
+            padding: 160px 0;
+            background: linear-gradient(135deg, #F7FBF7 0%, #E8F5E9 50%, #D5E8D4 100%);
+            overflow: hidden;
+        }
+
+        .salad-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067'),
+                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072'),
+                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080');
+            background-size: 450px 450px, 350px 350px, 400px 400px;
+            background-position: 5% 15%, 85% 50%, 15% 85%;
+            background-repeat: no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+            animation: floatBackground 25s ease-in-out infinite;
+        }
+
+        @keyframes floatBackground {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .salad-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 2;
+            padding: 0 24px;
+        }
+
+        .salad-header .section-label {
+            color: #556B2F;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+        }
+
+        .salad-header .section-title {
+            font-size: 4rem;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+        }
+
+        .salad-header p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .salad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .salad-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(85, 107, 47, 0.1);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            background: white;
+            aspect-ratio: 3/4;
+            opacity: 0;
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .salad-card:nth-child(1) { animation-delay: 0.1s; }
+        .salad-card:nth-child(2) { animation-delay: 0.2s; }
+        .salad-card:nth-child(3) { animation-delay: 0.3s; }
+        .salad-card:nth-child(4) { animation-delay: 0.4s; }
+        .salad-card:nth-child(5) { animation-delay: 0.5s; }
+        .salad-card:nth-child(6) { animation-delay: 0.6s; }
+        .salad-card:nth-child(7) { animation-delay: 0.7s; }
+
+        .salad-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(85, 107, 47, 0.2);
+        }
+
+        .salad-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .salad-card:hover .salad-image {
+            transform: scale(1.1);
+        }
+
+        .salad-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 24px 32px;
+            background: linear-gradient(to top, rgba(26, 21, 18, 0.95) 0%, rgba(26, 21, 18, 0.5) 60%, transparent 100%);
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .salad-card:hover .salad-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .salad-overlay h3 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .salad-overlay p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .salad-price {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: #556B2F;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .salad-card:hover .salad-price {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .salad-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(85, 107, 47, 0.15) 0%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .salad-decoration-1 { top: 10%; left: -5%; }
+        .salad-decoration-2 { bottom: 10%; right: -5%; background: radial-gradient(circle, rgba(107, 142, 35, 0.2) 0%, transparent 70%); }
+
+        /* =========================================
            AESTHETIC GRID SECTION (REPLACES 3D CAROUSEL)
            ========================================= */
         .aesthetic-grid-section {
@@ -850,7 +1027,6 @@
             box-shadow: 0 20px 50px rgba(166, 123, 91, 0.15);
         }
 
-        /* UPDATED: Smaller photo size so text is fully visible */
         .aesthetic-image-wrap {
             height: 220px;
             overflow: hidden;
@@ -884,7 +1060,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* UPDATED: Optimized padding and font sizes for better text visibility */
         .aesthetic-info {
             padding: 20px 20px 24px;
             text-align: center;
@@ -910,7 +1085,6 @@
             font-weight: 300;
         }
 
-        /* Perfect centering for 5 items on large screens */
         @media (min-width: 1024px) {
             .aesthetic-grid {
                 grid-template-columns: repeat(6, 1fr);
@@ -924,192 +1098,6 @@
             .aesthetic-card:nth-child(5) {
                 grid-column: 4 / span 2;
             }
-        }
-
-        /* =========================================
-           NEW ICE CREAM GALLERY SECTION
-           ========================================= */
-        .ice-cream-gallery-section {
-            position: relative;
-            padding: 160px 0;
-            background: linear-gradient(135deg, #FFF8F0 0%, #FFECD2 50%, #FCB69F 100%);
-            overflow: hidden;
-        }
-
-        .ice-cream-gallery-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067'),
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072'),
-                url('https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080');
-            background-size: 400px 400px, 350px 350px, 300px 300px;
-            background-position: 10% 20%, 80% 60%, 50% 80%;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            pointer-events: none;
-            animation: floatBackground 20s ease-in-out infinite;
-        }
-
-        @keyframes floatBackground {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .ice-cream-gallery-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
-            position: relative;
-            z-index: 2;
-            padding: 0 24px;
-        }
-
-        .ice-cream-gallery-header .section-label {
-            color: var(--accent-dark);
-            font-size: 0.85rem;
-            letter-spacing: 4px;
-        }
-
-        .ice-cream-gallery-header .section-title {
-            font-size: 4rem;
-            color: var(--text-primary);
-            margin-bottom: 32px;
-        }
-
-        .ice-cream-gallery-header p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(166, 123, 91, 0.15);
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            background: white;
-            aspect-ratio: 3/4;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(166, 123, 91, 0.25);
-        }
-
-        .gallery-item:nth-child(1) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards; opacity: 0; }
-        .gallery-item:nth-child(2) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards; opacity: 0; }
-        .gallery-item:nth-child(3) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards; opacity: 0; }
-        .gallery-item:nth-child(4) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards; opacity: 0; }
-        .gallery-item:nth-child(5) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards; opacity: 0; }
-        .gallery-item:nth-child(6) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards; opacity: 0; }
-        .gallery-item:nth-child(7) { animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.7s forwards; opacity: 0; }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px 24px 32px;
-            background: linear-gradient(to top, rgba(26, 21, 18, 0.9) 0%, rgba(26, 21, 18, 0.4) 60%, transparent 100%);
-            color: white;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .gallery-overlay h3 {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .gallery-price {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--accent-dark);
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .gallery-item:hover .gallery-price {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .gallery-decoration {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
-            filter: blur(40px);
-            pointer-events: none;
-        }
-
-        .gallery-decoration-1 {
-            top: 10%;
-            left: -5%;
-        }
-
-        .gallery-decoration-2 {
-            bottom: 10%;
-            right: -5%;
-            background: radial-gradient(circle, rgba(166, 123, 91, 0.25) 0%, transparent 70%);
         }
 
         /* VIDEO SECTION */
@@ -1347,7 +1335,7 @@
         @media (max-width: 968px) {
             .hero-title { font-size: 4rem; }
             .affogato-title { font-size: 3.5rem; }
-            .ice-cream-gallery-header .section-title { font-size: 3rem; }
+            .salad-header .section-title { font-size: 3rem; }
 
             .split-layout {
                 grid-template-columns: 1fr;
@@ -1374,7 +1362,7 @@
             
             .flavor-grid { gap: 30px; }
 
-            .gallery-grid {
+            .salad-grid {
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                 gap: 24px;
             }
@@ -1423,13 +1411,12 @@
                 padding: 14px 28px;
             }
             
-            /* UPDATED: Even smaller photo size on mobile for maximum text visibility */
             .aesthetic-image-wrap { height: 180px; }
 
-            .ice-cream-gallery-header .section-title { font-size: 2.25rem; }
-            .ice-cream-gallery-header p { font-size: 1rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item { aspect-ratio: 4/5; }
+            .salad-header .section-title { font-size: 2.25rem; }
+            .salad-header p { font-size: 1rem; }
+            .salad-grid { grid-template-columns: 1fr; }
+            .salad-card { aspect-ratio: 4/5; }
         }
     </style>
 </head>
@@ -1444,7 +1431,7 @@
                         <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
                         <li><a href="#menu" data-lang="navBreakfast">Breakfast</a></li>
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
-                        <li><a href="#gallery" data-lang="navGallery">Gallery</a></li>
+                        <li><a href="#salad" data-lang="navSalad">Salads</a></li>
                         <li><a href="#specialty" data-lang="navSpecialty">Our Selection</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
@@ -1644,87 +1631,87 @@
         </section>
 
         <!-- =========================================
-           NEW ICE CREAM GALLERY SECTION
+           NEW SALAD SECTION
            ========================================= -->
-        <section class="ice-cream-gallery-section" id="gallery">
-            <div class="gallery-decoration gallery-decoration-1"></div>
-            <div class="gallery-decoration gallery-decoration-2"></div>
+        <section class="salad-section" id="salad">
+            <div class="salad-decoration salad-decoration-1"></div>
+            <div class="salad-decoration salad-decoration-2"></div>
             
-            <div class="ice-cream-gallery-header">
-                <span class="section-label" data-lang="galleryLabel">Visual Delight</span>
-                <h2 class="section-title" data-lang="galleryTitle">Ice Cream Gallery</h2>
+            <div class="salad-header">
+                <span class="section-label" data-lang="saladLabel">Fresh & Vibrant</span>
+                <h2 class="section-title" data-lang="saladTitle">Artisan Salads</h2>
                 <div class="divider divider-center"></div>
-                <p data-lang="galleryDesc">A visual journey through our artisan ice cream creations. Each cone is a work of art, crafted with passion and the finest ingredients.</p>
+                <p data-lang="saladDesc">Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.</p>
             </div>
 
-            <div class="gallery-grid">
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Artisan Cone 1" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem1">Classic Elegance</h3>
-                        <p data-lang="galleryItem1Desc">Timeless vanilla perfection in a handcrafted waffle cone</p>
+            <div class="salad-grid">
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Mediterranean Quinoa" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice1">2300 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad1">Mediterranean Quinoa</h3>
+                        <p data-lang="salad1Desc">Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Artisan Cone 2" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem2">Chocolate Dream</h3>
-                        <p data-lang="galleryItem2Desc">Rich Belgian chocolate layered with fudge swirls</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Grilled Chicken Caesar" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice2">2500 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad2">Grilled Chicken Caesar</h3>
+                        <p data-lang="salad2Desc">Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Artisan Cone 3" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem3">Berry Bliss</h3>
-                        <p data-lang="galleryItem3Desc">Fresh strawberry and cream with berry compote</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Garden Harvest" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice3">2100 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad3">Garden Harvest</h3>
+                        <p data-lang="salad3Desc">Mixed greens, radishes, carrots, and a light balsamic vinaigrette.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Artisan Cone 4" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem4">Pistachio Paradise</h3>
-                        <p data-lang="galleryItem4Desc">Roasted Sicilian pistachios in creamy perfection</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Avocado & Walnut" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice4">2300 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad4">Avocado & Walnut</h3>
+                        <p data-lang="salad4Desc">Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Artisan Cone 5" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem5">Caramel Cascade</h3>
-                        <p data-lang="galleryItem5Desc">Buttery salted caramel with dulce de leche ribbons</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Smoked Salmon & Greens" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice5">2400 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad5">Smoked Salmon & Greens</h3>
+                        <p data-lang="salad5Desc">Premium smoked salmon, capers, red onion, and dill cream dressing.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Artisan Cone 6" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem6">Mint Majesty</h3>
-                        <p data-lang="galleryItem6Desc">Refreshing mint with dark chocolate chunks</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Caprese Delight" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice6">2300 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad6">Caprese Delight</h3>
+                        <p data-lang="salad6Desc">Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.</p>
                     </div>
                 </article>
 
-                <article class="gallery-item">
-                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Artisan Cone 7" class="gallery-image" loading="lazy">
-                    <div class="gallery-price" data-lang="galleryPrice">700 AMD</div>
-                    <div class="gallery-overlay">
-                        <h3 data-lang="galleryItem7">Cookies & Cream</h3>
-                        <p data-lang="galleryItem7Desc">Crushed artisan cookies in vanilla bean base</p>
+                <article class="salad-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Roasted Beet & Goat Cheese" class="salad-image" loading="lazy">
+                    <div class="salad-price" data-lang="saladPrice7">2100 AMD</div>
+                    <div class="salad-overlay">
+                        <h3 data-lang="salad7">Roasted Beet & Goat Cheese</h3>
+                        <p data-lang="salad7Desc">Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.</p>
                     </div>
                 </article>
             </div>
         </section>
 
         <!-- =========================================
-           SIGNATURE CREATIONS SECTION (UPDATED)
+           SIGNATURE CREATIONS SECTION
            ========================================= -->
         <section class="aesthetic-grid-section" id="specialty">
             <div class="container">
@@ -1738,7 +1725,6 @@
                 </div>
 
                 <div class="aesthetic-grid">
-                    <!-- Item 1 -->
                     <article class="aesthetic-card">
                         <div class="aesthetic-image-wrap">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3188ec3b-5f2d-4f40-be54-72c36be6d7e5.jpg?v=1784713033" alt="Artisan Matcha Latte" loading="lazy">
@@ -1750,7 +1736,6 @@
                         </div>
                     </article>
 
-                    <!-- Item 2 -->
                     <article class="aesthetic-card">
                         <div class="aesthetic-image-wrap">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_06751d92-07cb-4cb6-b0b3-2ac0b441ad68.jpg?v=1784713040" alt="Berry Bliss Smoothie" loading="lazy">
@@ -1762,7 +1747,6 @@
                         </div>
                     </article>
 
-                    <!-- Item 3 -->
                     <article class="aesthetic-card">
                         <div class="aesthetic-image-wrap">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_0a2f5e34-48e1-4d6d-a64c-90ca8ee281b9.jpg?v=1784713046" alt="Caramel Cloud Coffee" loading="lazy">
@@ -1774,7 +1758,6 @@
                         </div>
                     </article>
 
-                    <!-- Item 4 -->
                     <article class="aesthetic-card">
                         <div class="aesthetic-image-wrap">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_9b2bf93b-70bf-4897-bb61-abf09e70b270.jpg?v=1784713051" alt="Golden Turmeric Tonic" loading="lazy">
@@ -1786,7 +1769,6 @@
                         </div>
                     </article>
 
-                    <!-- Item 5 -->
                     <article class="aesthetic-card">
                         <div class="aesthetic-image-wrap">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_c639e1d9-542e-420e-8ec8-52f37573dc3e.jpg?v=1784713056" alt="Velvet Cocoa Dream" loading="lazy">
@@ -1871,7 +1853,7 @@
     <script>
         const translations = {
             en: {
-                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navGallery: "Gallery", navSpecialty: "Our Selection", navExperience: "Experience",
+                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSalad: "Salads", navSpecialty: "Our Selection", navExperience: "Experience",
                 navEvening: "Evening", navVisit: "Visit",
                 heroLabel: "Artisanal Excellence", heroTitle: "When Taste Meets Quality.",
                 heroDesc: "Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.",
@@ -1896,18 +1878,15 @@
                 ic5: "Caramel Swirl", ic5d: "Buttery caramel ribbons throughout",
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
-                // New Gallery Section Translations
-                galleryLabel: "Visual Delight", galleryTitle: "Ice Cream Gallery",
-                galleryDesc: "A visual journey through our artisan ice cream creations. Each cone is a work of art, crafted with passion and the finest ingredients.",
-                galleryPrice: "700 AMD",
-                galleryItem1: "Classic Elegance", galleryItem1Desc: "Timeless vanilla perfection in a handcrafted waffle cone",
-                galleryItem2: "Chocolate Dream", galleryItem2Desc: "Rich Belgian chocolate layered with fudge swirls",
-                galleryItem3: "Berry Bliss", galleryItem3Desc: "Fresh strawberry and cream with berry compote",
-                galleryItem4: "Pistachio Paradise", galleryItem4Desc: "Roasted Sicilian pistachios in creamy perfection",
-                galleryItem5: "Caramel Cascade", galleryItem5Desc: "Buttery salted caramel with dulce de leche ribbons",
-                galleryItem6: "Mint Majesty", galleryItem6Desc: "Refreshing mint with dark chocolate chunks",
-                galleryItem7: "Cookies & Cream", galleryItem7Desc: "Crushed artisan cookies in vanilla bean base",
-                // Updated Aesthetic Grid Translations
+                saladLabel: "Fresh & Vibrant", saladTitle: "Artisan Salads",
+                saladDesc: "Crisp, seasonal ingredients thoughtfully combined to create refreshing and nourishing masterpieces. Every bowl is a celebration of freshness.",
+                saladPrice1: "2300 AMD", salad1: "Mediterranean Quinoa", salad1Desc: "Fresh quinoa, cherry tomatoes, cucumbers, feta, and lemon herb dressing.",
+                saladPrice2: "2500 AMD", salad2: "Grilled Chicken Caesar", salad2Desc: "Crisp romaine, parmesan shavings, garlic croutons, and classic Caesar dressing.",
+                saladPrice3: "2100 AMD", salad3: "Garden Harvest", salad3Desc: "Mixed greens, radishes, carrots, and a light balsamic vinaigrette.",
+                saladPrice4: "2300 AMD", salad4: "Avocado & Walnut", salad4Desc: "Creamy avocado, toasted walnuts, mixed greens, and honey mustard dressing.",
+                saladPrice5: "2400 AMD", salad5: "Smoked Salmon & Greens", salad5Desc: "Premium smoked salmon, capers, red onion, and dill cream dressing.",
+                saladPrice6: "2300 AMD", salad6: "Caprese Delight", salad6Desc: "Fresh mozzarella, heirloom tomatoes, basil, and aged balsamic glaze.",
+                saladPrice7: "2100 AMD", salad7: "Roasted Beet & Goat Cheese", salad7Desc: "Earthy roasted beets, creamy goat cheese, candied pecans, and arugula.",
                 bakesLabel: "Crafted with Love", bakesTitle: "Signature Creations",
                 bakesDesc: "A curated collection of our most beautiful and delicious creations, each priced at 1400 AMD.",
                 bakePrice: "1400 AMD",
@@ -1926,7 +1905,7 @@
                 location: "Location", hours: "Hours", breakfastUntil: "(Breakfast sets until 19:00)", contact: "Contact"
             },
             ru: {
-                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navGallery: "Галерея", navSpecialty: "Наш Выбор", navExperience: "Опыт",
+                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSalad: "Салаты", navSpecialty: "Наш Выбор", navExperience: "Опыт",
                 navEvening: "Вечер", navVisit: "Визит",
                 heroLabel: "Ремесленное Превосходство", heroTitle: "Когда Вкус Встречает Качество.",
                 heroDesc: "Насладитесь идеальной гармонией ремесленного мастерства и премиальных ингредиентов. Каждый кусочек и глоток тщательно приготовлены, чтобы превратить ваши повседневные моменты во что-то по-настоящему особенное.",
@@ -1951,18 +1930,15 @@
                 ic5: "Карамельный Вихрь", ic5d: "Масляные карамельные ленты повсюду",
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
-                // New Gallery Section Translations
-                galleryLabel: "Визуальное Наслаждение", galleryTitle: "Галерея Мороженого",
-                galleryDesc: "Визуальное путешествие через наши ремесленные creations мороженого. Каждый рожок - произведение искусства, созданное со страстью и лучшими ингредиентами.",
-                galleryPrice: "700 AMD",
-                galleryItem1: "Классическая Элегантность", galleryItem1Desc: "Вневременное ванильное совершенство в ремесленном вафельном рожке",
-                galleryItem2: "Шоколадная Мечта", galleryItem2Desc: "Насыщенный бельгийский шоколад со слоями фаджа",
-                galleryItem3: "Ягодный Близ", galleryItem3Desc: "Свежая клубника и сливки с ягодным компотом",
-                galleryItem4: "Фисташковый Рай", galleryItem4Desc: "Жареные сицилийские фисташки в сливочном совершенстве",
-                galleryItem5: "Карамельный Каскад", galleryItem5Desc: "Масляная соленая карамель с лентами дульсе де лече",
-                galleryItem6: "Мятное Величие", galleryItem6Desc: "Освежающая мята с кусочками темного шоколада",
-                galleryItem7: "Печенье и Сливки", galleryItem7Desc: "Измельченное ремесленное печенье в ванильной основе",
-                // Updated Aesthetic Grid Translations
+                saladLabel: "Свежесть и Яркость", saladTitle: "Авторские Салаты",
+                saladDesc: "Хрустящие сезонные ингредиенты, тщательно подобранные для создания освежающих и питательных шедевров. Каждая тарелка — это праздник свежести.",
+                saladPrice1: "2300 AMD", salad1: "Средиземноморский Киноа", salad1Desc: "Свежий киноа, помидоры черри, огурцы, фета и лимонно-травяная заправка.",
+                saladPrice2: "2500 AMD", salad2: "Цезарь с Курицей", salad2Desc: "Хрустящий ромэн, стружка пармезана, чесночные гренки и классический соус Цезарь.",
+                saladPrice3: "2100 AMD", salad3: "Садовый Сбор", salad3Desc: "Смесь зелени, редис, морковь и легкая бальзамическая заправка.",
+                saladPrice4: "2300 AMD", salad4: "Авокадо и Грецкий Орех", salad4Desc: "Сливочный авокадо, жареные грецкие орехи, зелень и медово-горчичная заправка.",
+                saladPrice5: "2400 AMD", salad5: "Копченый Лосось и Зелень", salad5Desc: "Премиальный копченый лосось, каперсы, красный лук и сливочная заправка с укропом.",
+                saladPrice6: "2300 AMD", salad6: "Капрезе Делайт", salad6Desc: "Свежая моцарелла, помидоры черри, базилик и выдержанный бальзамический крем.",
+                saladPrice7: "2100 AMD", salad7: "Печеная Свекла и Козий Сыр", salad7Desc: "Землистая печеная свекла, сливочный козий сыр, карамелизированные пеканы и руккола.",
                 bakesLabel: "Сделано с любовью", bakesTitle: "Фирменные Шедевры",
                 bakesDesc: "Подборка наших самых красивых и вкусных творений, каждое по цене 1400 AMD.",
                 bakePrice: "1400 AMD",
@@ -1981,11 +1957,11 @@
                 location: "Местоположение", hours: "Часы Работы", breakfastUntil: "(Завтраки до 19:00)", contact: "Контакт"
             },
             hy: {
-                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navGallery: "Պատկերասրահ", navSpecialty: "Մեր Ընտրանին", navExperience: "Փորձ",
+                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSalad: "Աղցաններ", navSpecialty: "Մեր Ընտրանին", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
                 heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
-                viewMenu: "իտել Մենյուն", scroll: "Ոլորել",
+                viewMenu: "Դիտել Մենյուն", scroll: "Ոլորել",
                 affogatoTitle: "Նոր խմիչքներ. Աֆոգատո հավաքածու",
                 flavorPistachioBracket: "[ պիստակ ]", flavorPistachio: "Պիստակ Աֆոգատո", descPistachio: "Հարուստ էսպրեսո՝ լցված սերուցքային պիստակի ջելատոյի վրա։",
                 flavorChocolateBracket: "[ շոկոլադ ]", flavorChocolate: "Շոկոլադ Աֆոգատո", descChocolate: "Բելգիական շոկոլադե պաղպաղակ՝ թաթախված տաք էսպրեսոյի մեջ։",
@@ -1994,11 +1970,11 @@
                 morningDesc: "Յուրաքանչյուր հավաքածու մտածված կազմված է՝ ձեր առավոտը ներդաշնակ դարձնելու համար։ Պատրաստված տեղական բաղադրիչներով։",
                 classicSet: "Դասական Հավաքածու", classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։", timeless: "Անժամանակ",
                 englishSet: "Անգլիական Նախաճաշ", englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։", hearty: "Հագեցած",
-                salmonSet: "Սալմոն Բենեդիկտ", salmonDesc: "Նուրբ ծխած սալմոն տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։", chefChoice: "Շեֆի Ընտրություն",
+                salmonSet: "Սալմոն Բենեդիկտ", salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։", chefChoice: "Շեֆի Ընտրություն",
                 handcrafted: "Ամենօրյա Արհեստ", artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
-                iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ ուրաքանչյուր գդալը համի գլուխգործոց է։",
+                iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է։",
                 allPriceBadge: "Բոլոր Համերը — 700 AMD", scrollRight: "Ոլորեք Աջ",
-                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "արմ", badgePremium: "րեմիում", badgeSweet: "աղցր", badgeCool: "ով", badgeCrispy: "Խրթխրթան",
+                badgeClassic: "Դասական", badgeRich: "Հարուստ", badgeFresh: "Թարմ", badgePremium: "Պրեմիում", badgeSweet: "Քաղցր", badgeCool: "Զով", badgeCrispy: "Խրթխրթան",
                 ic1: "Վանիլային Հատիկ", ic1d: "Սերուցքային մադագասկարյան վանիլ՝ իրական հատիկներով",
                 ic2: "Շոկոլադե Ֆաջ", ic2d: "Հարուստ բելգիական շոկոլադ՝ ֆաջի ոլորաններով",
                 ic3: "Ելակային Հաճույք", ic3d: "Թարմ ելակ՝ սերուցքային հիմքով",
@@ -2006,34 +1982,31 @@
                 ic5: "Կարամելի Ոլորան", ic5d: "Կարագային կարամելի ժապավեններ ամենուր",
                 ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
                 ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
-                // New Gallery Section Translations
-                galleryLabel: "Վիզուալ Հաճույք", galleryTitle: "աղպաղակի Պատկերասրահ",
-                galleryDesc: "Վիզուալ անապարհորդություն մեր արհեստավորական պաղպաղակի ստեղծագործությունների միջով։ Յուրաքանչյուր կոնը արվեստի գործ է։",
-                galleryPrice: "700 AMD",
-                galleryItem1: "Դասական Էլեգանտություն", galleryItem1Desc: "Անժամանակ վանիլային կատարելություն՝ արհեստավորական վալի կոնով",
-                galleryItem2: "Շոկոլադե Երազ", galleryItem2Desc: "Հարուստ բելգիական շոկոլադ՝ ֆաջի երտերով",
-                galleryItem3: "Հատապտղային Բլիս", galleryItem3Desc: "Թարմ ելակ և սերուցք հատապտղային կոմպոտով",
-                galleryItem4: "Պիստակային Դրախտ", galleryItem4Desc: "Խանձված սիցիլիական պիստակներ՝ սերուցքային կատարելության մեջ",
-                galleryItem5: "Կարամելե Կասկադ", galleryItem5Desc: "Կարագային աղի կարամել դուլսե դե եչեի ժապավեններով",
-                galleryItem6: "Անանուխի Մեծություն", galleryItem6Desc: "Թարմացնող անանուխ՝ մուգ շոկոլադի կտորներով",
-                galleryItem7: "խվածք և Սերուցք", galleryItem7Desc: "արդված արհեստավորական թխվածք վանիլային հատիկների հիմքով",
-                // Updated Aesthetic Grid Translations
+                saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
+                saladDesc: "Խրթխրթան սեզոնային բաղադրիչներ՝ զգուշորեն համադրված թարմացնող և սննդարար գլուխգործոցներ ստեղծելու համար։ Յուրաքանչյուր ափսե թարմության տոն է։",
+                saladPrice1: "2300 AMD", salad1: "Միջերկրածովյան Քինոա", salad1Desc: "Թարմ քինոա, չերի լոլիկներ, վարունգ, ֆետա և կիտրոնաբույսային սոուս։",
+                saladPrice2: "2500 AMD", salad2: "Գրիլ հավով Ցեզար", salad2Desc: "Խրթխրթան ռոմեն, պարմեզանի շերտեր, սխտորով չորահաց և դասական Ցեզար սոուս։",
+                saladPrice3: "2100 AMD", salad3: "Այգու Բերք", salad3Desc: "Կանաչիների խառնուրդ, բողկ, գազար և թեթև բալզամիկ վինեգրետ։",
+                saladPrice4: "2300 AMD", salad4: "Ավոկադո և Ընկույզ", salad4Desc: "Սերուցքային ավոկադո, խանձված ընկույզ, կանաչի և մեղր-մանանեխ սոուս։",
+                saladPrice5: "2400 AMD", salad5: "Ծխած Սալմոն և Կանաչի", salad5Desc: "Պրեմիում ծխած սալմոն, կապարիս, կարմիր սոխ և սամիթով սերուցքային սոուս։",
+                saladPrice6: "2300 AMD", salad6: "Կապրեզե Դելայթ", salad6Desc: "Թարմ մոցարելա, ժառանգական լոլիկներ, ռեհան և հասունացված բալզամիկ գլեյզ։",
+                saladPrice7: "2100 AMD", salad7: "Խորոված Ճակնդեղ և Այծի Պանիր", salad7Desc: "Խորոված ճակնդեղ, սերուցքային այծի պանիր, կարամելացված պեկան և ռուկոլա։",
                 bakesLabel: "Պատրաստված սիրով", bakesTitle: "Հեղինակային Ստեղծագործություններ",
                 bakesDesc: "Մեր ամենագեղեցիկ և համեղ ստեղծագործությունների ընտրանին, յուրաքանչյուրը՝ 1400 AMD:",
                 bakePrice: "1400 AMD",
-                bake1: "Արհեստավորական աչա Լատտե", bake1Desc: "Պրեմիում մաչա՝ կատարյալ հարվածած կրեմային վարսակի կաթով:",
+                bake1: "Արհեստավորական Մաչա Լատտե", bake1Desc: "Պրեմիում մաչա՝ կատարյալ հարվածած կրեմային վարսակի կաթով:",
                 bake2: "Հատապտղային Բլիս Սմուզի", bake2Desc: "Թարմ ելակի, հապալասի և վանիլի թեթև նոտայի վառ խառնուրդ:",
-                bake3: "արամելե Օբլակո ուրճ", bake3Desc: "Հարուստ էսպրեսո տնական աղի կարամելի սառը փրփուրով:",
-                bake4: "Ոսկեգույն Կուրկումա Տոնիկ", bake4Desc: "երմացնող, հանգստացնող կուրկումայի, կոճապղպեղի, մեղրի և կիտրոնի խառնուրդ:",
+                bake3: "Կարամելե Օբլակո Սուրճ", bake3Desc: "Հարուստ էսպրեսո՝ տնական աղի կարամելի սառը փրփուրով:",
+                bake4: "Ոսկեգույն Կուրկումա Տոնիկ", bake4Desc: "Ջերմացնող, հանգստացնող կուրկումայի, կոճապղպեղի, մեղրի և կիտրոնի խառնուրդ:",
                 bake5: "Թավշյա Կակաո Երազ", bake5Desc: "Դեկադենտ մուգ տաք շոկոլադ՝ կակաոյի փոշիով և մարշմելոուով:",
                 sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
                 videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
                 discountTitle: '-40% Զեղչ <em>Բոլոր Կրուասանների</em> վրա 21:00-ից',
-                discountDesc: "ենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր եռոցները մնում են տաք։",
+                discountDesc: "Մենք հավատում ենք, որ հիանալի հացաբուլկեղենը ժամկետ չունի։ Երբ քաղաքը հանգստանում է, մեր ջեռոցները մնում են տաք։",
                 allCroissants: "Բոլոր Կրուասաններ", availableDaily: "Հասանելի Ամեն Օր 21:00-ից",
                 joinUs: "Միացեք Մեզ", awaitArrival: "Սպասում ենք Ձեր Ժամանմանը",
-                location: "Վայր", hours: "ամեր", breakfastUntil: "(ախաճաշեր մինչև 19:00)", contact: "Կապ"
+                location: "Վայր", hours: "Ժամեր", breakfastUntil: "(Նախաճաշեր մինչև 19:00)", contact: "Կապ"
             }
         };
 
@@ -2062,7 +2035,6 @@
             });
         });
 
-        // Horizontal scroll functionality for ice cream
         function scrollGallery(direction) {
             const scroll = document.getElementById('iceCreamScroll');
             scroll.scrollBy({ left: direction * 380, behavior: 'smooth' });
