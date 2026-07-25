@@ -615,6 +615,23 @@
             padding: 0 24px;
         }
 
+        .section-price-badge {
+            display: inline-block;
+            margin-top: 36px;
+            padding: 18px 44px;
+            background: rgba(201, 169, 110, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-radius: 50px;
+            color: var(--text-light);
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
         .scroll-wrapper {
             position: relative;
             z-index: 2;
@@ -1283,9 +1300,18 @@
             </div>
         </section>
 
-        <!-- ICE CREAM SECTION: PURE PHOTOS ONLY -->
+        <!-- ICE CREAM SECTION: HEADER + PRICE + PURE PHOTOS -->
         <section class="ice-cream-section reveal" id="ice-cream">
             <div class="ice-cream-overlay"></div>
+            <div class="container">
+                <div class="scroll-header">
+                    <span class="section-label section-label-light" data-lang="handcrafted">Handcrafted Daily</span>
+                    <h2 class="section-title section-title-light" data-lang="artisanIceCream">Artisan Ice Cream Collection</h2>
+                    <div class="divider divider-center divider-light"></div>
+                    <p style="color: rgba(245, 240, 235, 0.8); font-size: 1.05rem; font-weight: 300; line-height: 1.8;" data-lang="iceCreamDesc">Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.</p>
+                    <div class="section-price-badge" data-lang="allPriceBadge">All Flavors — 700 AMD</div>
+                </div>
+            </div>
             <div class="scroll-wrapper">
                 <div class="scroll-nav prev" onclick="scrollGallery(-1)">
                     <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -1512,6 +1538,9 @@
                 classicSet: "Classic Set", classicDesc: "A timeless morning favorite. Perfectly balanced flavors, freshly baked bread, and artisan preserves to awaken your senses and set the tone for a wonderful day.", timeless: "Timeless",
                 englishSet: "English Breakfast Set", englishDesc: "A hearty, traditional morning feast. Rich, savory, and deeply satisfying, crafted with the finest locally sourced ingredients to comfort and energize.", hearty: "Hearty",
                 salmonSet: "Salmon Benedict Set", salmonDesc: "Delicate smoked salmon draped over a toasted artisan muffin, crowned with a perfectly poached egg and our signature velvety hollandaise sauce.", chefChoice: "Chef's Choice",
+                handcrafted: "Handcrafted Daily", artisanIceCream: "Artisan Ice Cream Collection",
+                iceCreamDesc: "Made with premium ingredients and pure passion. Each scoop is a masterpiece of flavor, crafted fresh daily. Indulge in the sweetness of perfection.",
+                allPriceBadge: "All Flavors — 700 AMD",
                 saladLabel: "Fresh & Vibrant", saladTitle: "Artisan Salads",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
@@ -1540,6 +1569,9 @@
                 classicSet: "Классический Набор", classicDesc: "Вневременное утреннее любимое блюдо. Идеально сбалансированные вкусы, свежеиспеченный хлеб и ремесленные консервы, чтобы пробудить ваши чувства.", timeless: "Вневременной",
                 englishSet: "Английский Завтрак", englishDesc: "Сытный, традиционный утренний пир. Богатый, пикантный и глубоко удовлетворяющий, приготовленный из лучших местных ингредиентов.", hearty: "Сытный",
                 salmonSet: "Лосось Бенедикт", salmonDesc: "Нежный копченый лосось на поджаренном ремесленном маффине, увенчанный идеально приготовленным яйцом пашот и нашим фирменным голландским соусом.", chefChoice: "Выбор Шефа",
+                handcrafted: "Ежедневное Ремесло", artisanIceCream: "Коллекция Ремесленного Мороженого",
+                iceCreamDesc: "Приготовлено из премиальных ингредиентов и чистой страсти. Каждая ложка - шедевр вкуса, приготовленный свежим ежедневно. Насладитесь сладостью совершенства.",
+                allPriceBadge: "Все Вкусы — 700 AMD",
                 saladLabel: "Свежесть и Яркость", saladTitle: "Авторские Салаты",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
@@ -1568,6 +1600,9 @@
                 classicSet: "Դասական Հավաքածու", classicDesc: "Անժամանակ առավոտյան սիրելի։ Կատարյալ հավասարակշռված համեր, թարմ թխված հաց և արհեստավորական պահածոներ։", timeless: "Անժամանակ",
                 englishSet: "Անգլիական Նախաճաշ", englishDesc: "Հագեցած, ավանդական առավոտյան խնջույք։ Հարուստ, համեղ և խորապես բավարարող։", hearty: "Հագեցած",
                 salmonSet: "Սալմոն Բենեդիկտ", salmonDesc: "Նուրբ ծխած սալմոն՝ տապակած արհեստավորական մաֆինի վրա, պսակված կատարյալ պոշիրոված ձվով։", chefChoice: "Շեֆի Ընտրություն",
+                handcrafted: "Ամենօրյա Արհեստ", artisanIceCream: "Արհեստավորական Պաղպաղակի Հավաքածու",
+                iceCreamDesc: "Պատրաստված պրեմիում բաղադրիչներով և մաքուր կիրքով։ Յուրաքանչյուր գդալը համի գլուխգործոց է, պատրաստված թարմ ամեն օր։ Վայելեք կատարելության քաղցրությունը:",
+                allPriceBadge: "Բոլոր Համերը — 700 AMD",
                 saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
