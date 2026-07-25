@@ -891,7 +891,7 @@
             border-color: rgba(201, 169, 110, 0.5);
         }
 
-        /* SALAD PURE PHOTO STYLES (No zoom, full visibility) */
+        /* SALAD PHOTO STYLES - WITH PRICE ONLY */
         .salad-photo-scroll {
             display: flex;
             gap: 32px;
@@ -915,8 +915,10 @@
             box-shadow: 0 15px 40px rgba(85, 107, 47, 0.06);
             scroll-snap-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 16px;
             transition: all 0.5s var(--ease-luxury);
         }
 
@@ -930,13 +932,24 @@
             width: 100%;
             height: auto;
             max-height: 450px;
-            object-fit: contain; /* Ensures the FULL photo is visible without cropping/zooming */
+            object-fit: contain;
             border-radius: 4px;
             transition: transform 0.6s var(--ease-luxury);
         }
 
         .salad-photo-card:hover img {
             transform: scale(1.02);
+        }
+
+        .salad-price {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #556B2F;
+            letter-spacing: 1px;
+            padding: 8px 24px;
+            background: rgba(85, 107, 47, 0.08);
+            border-radius: 50px;
         }
 
         @media (min-width: 1024px) {
@@ -1448,7 +1461,7 @@
             </div>
         </section>
 
-        <!-- SALAD SECTION: PURE PHOTOS ONLY, FULLY VISIBLE (NO ZOOM/CROP) -->
+        <!-- SALAD SECTION: PHOTOS + PRICE ONLY -->
         <section class="salad-section reveal" id="salad">
             <div class="salad-overlay"></div>
             <div class="container">
@@ -1469,24 +1482,31 @@
                     <div class="salad-photo-scroll" id="saladScroll">
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3796e8fc-d378-4d51-b420-74cb0a4eeb4e.jpg?v=1784713067" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice1">2300 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_d2140bc8-c5a5-4933-b74e-b2e261e73ea1.jpg?v=1784713072" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice2">2500 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_dc1f9493-48ee-4258-b197-e1cef91531a5.jpg?v=1784713080" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice3">2100 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_12d37087-10f8-48db-b65a-3528b657eaa0.jpg?v=1784713086" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice4">2300 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ac0cf934-894c-4486-9549-3549a14e9efc.jpg?v=1784713096" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice5">2400 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_ec9bee28-f1ef-4bd3-a5c1-f3fdc753be2b.jpg?v=1784713106" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice6">2300 AMD</div>
                         </article>
                         <article class="salad-photo-card">
                             <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_09ef7c38-9b4d-4123-b563-aa759371f816.jpg?v=1784713110" alt="Salad">
+                            <div class="salad-price" data-lang="saladPrice7">2100 AMD</div>
                         </article>
                     </div>
                 </div>
@@ -1640,6 +1660,8 @@
                 ic6: "Mint Chocolate", ic6d: "Refreshing mint with chocolate chips",
                 ic7: "Cookies & Cream", ic7d: "Crushed cookies in vanilla base",
                 saladLabel: "Fresh & Vibrant", saladTitle: "Artisan Salads",
+                saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
+                saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
                 sloenkaExp: "The Sloenka Experience", craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
                 discoverOffers: "Discover Our Offers", eveningIndulgence: "Evening Indulgence",
@@ -1676,6 +1698,8 @@
                 ic6: "Мятный Шоколад", ic6d: "Освежающая мята с шоколадной крошкой",
                 ic7: "Печенье и Сливки", ic7d: "Измельченное печенье в ванильной основе",
                 saladLabel: "Свежесть и Яркость", saladTitle: "Авторские Салаты",
+                saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
+                saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
                 sloenkaExp: "Опыт Sloenka", craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
                 discoverOffers: "Откройте Наши Предложения", eveningIndulgence: "Вечернее Наслаждение",
@@ -1712,6 +1736,8 @@
                 ic6: "Անանուխ Շոկոլադ", ic6d: "Թարմացնող անանուխ՝ շոկոլադե կտորներով",
                 ic7: "Թխվածք և Սերուցք", ic7d: "Ջարդված թխվածք՝ վանիլային հիմքով",
                 saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
+                saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
+                saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
                 sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
                 videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
