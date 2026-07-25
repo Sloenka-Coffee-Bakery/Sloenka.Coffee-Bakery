@@ -795,6 +795,44 @@
             pointer-events: none;
         }
 
+        /* FRESH SQUEEZED HEADER */
+        .fresh-squeezed-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 70px;
+            position: relative;
+            z-index: 2;
+            padding: 0 24px;
+        }
+
+        .fresh-squeezed-header .section-label {
+            color: #E87A2E;
+            letter-spacing: 5px;
+        }
+
+        .fresh-squeezed-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .fresh-squeezed-title em {
+            color: #E87A2E;
+            font-style: italic;
+        }
+
+        .fresh-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #E87A2E, transparent);
+            margin: 0 auto;
+        }
+
         .pure-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1085,6 +1123,7 @@
             .hero-title { font-size: 4rem; }
             .affogato-title { font-size: 3.5rem; }
             .section-title { font-size: 3rem; }
+            .fresh-squeezed-title { font-size: 3rem; }
 
             .split-layout {
                 grid-template-columns: 1fr;
@@ -1118,6 +1157,7 @@
             .hero-description { font-size: 1.05rem; }
             .section-title { font-size: 2.5rem; }
             .affogato-title { font-size: 2.5rem; margin-bottom: 50px; }
+            .fresh-squeezed-title { font-size: 2.25rem; }
             
             .flavor-grid {
                 grid-template-columns: 1fr;
@@ -1169,7 +1209,7 @@
                         <li><a href="#ice-cream" data-lang="navIceCream">Ice Cream</a></li>
                         <li><a href="#salad" data-lang="navSalad">Salads</a></li>
                         <li><a href="#affogato" data-lang="navAffogato">Affogato</a></li>
-                        <li><a href="#specialty" data-lang="navSpecialty">Our Selection</a></li>
+                        <li><a href="#specialty" data-lang="navSpecialty">Fresh Squeezed</a></li>
                         <li><a href="#experience" data-lang="navExperience">Experience</a></li>
                         <li><a href="#evening" data-lang="navEvening">Evening</a></li>
                         <li><a href="#visit" data-lang="navVisit">Visit</a></li>
@@ -1360,23 +1400,29 @@
 
         <div class="stunning-line"></div>
 
+        <!-- FRESH SQUEEZED SECTION WITH TITLE -->
         <section class="aesthetic-grid-section reveal" id="specialty">
             <div class="container">
+                <div class="fresh-squeezed-header">
+                    <span class="section-label" data-lang="freshLabel">Vitamin Boost</span>
+                    <h2 class="fresh-squeezed-title" data-lang="freshTitle">Fresh Squeezed <em data-lang="freshEmphasis">Fresh</em></h2>
+                    <div class="fresh-divider"></div>
+                </div>
                 <div class="pure-gallery">
                     <article class="pure-photo-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3188ec3b-5f2d-4f40-be54-72c36be6d7e5.jpg?v=1784713033" alt="Signature Creation" loading="lazy">
+                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_3188ec3b-5f2d-4f40-be54-72c36be6d7e5.jpg?v=1784713033" alt="Fresh Squeezed" loading="lazy">
                     </article>
                     <article class="pure-photo-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_06751d92-07cb-4cb6-b0b3-2ac0b441ad68.jpg?v=1784713040" alt="Signature Creation" loading="lazy">
+                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_06751d92-07cb-4cb6-b0b3-2ac0b441ad68.jpg?v=1784713040" alt="Fresh Squeezed" loading="lazy">
                     </article>
                     <article class="pure-photo-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_0a2f5e34-48e1-4d6d-a64c-90ca8ee281b9.jpg?v=1784713046" alt="Signature Creation" loading="lazy">
+                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_0a2f5e34-48e1-4d6d-a64c-90ca8ee281b9.jpg?v=1784713046" alt="Fresh Squeezed" loading="lazy">
                     </article>
                     <article class="pure-photo-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_9b2bf93b-70bf-4897-bb61-abf09e70b270.jpg?v=1784713051" alt="Signature Creation" loading="lazy">
+                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_9b2bf93b-70bf-4897-bb61-abf09e70b270.jpg?v=1784713051" alt="Fresh Squeezed" loading="lazy">
                     </article>
                     <article class="pure-photo-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_c639e1d9-542e-420e-8ec8-52f37573dc3e.jpg?v=1784713056" alt="Signature Creation" loading="lazy">
+                        <img src="https://cdn.shopify.com/s/files/1/0732/8779/4799/files/FullSizeRender_c639e1d9-542e-420e-8ec8-52f37573dc3e.jpg?v=1784713056" alt="Fresh Squeezed" loading="lazy">
                     </article>
                 </div>
             </div>
@@ -1452,7 +1498,7 @@
     <script>
         const translations = {
             en: {
-                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSalad: "Salads", navSpecialty: "Our Selection", navExperience: "Experience",
+                navAffogato: "Affogato", navBreakfast: "Breakfast", navIceCream: "Ice Cream", navSalad: "Salads", navSpecialty: "Fresh Squeezed", navExperience: "Experience",
                 navEvening: "Evening", navVisit: "Visit",
                 heroLabel: "Artisanal Excellence", heroTitle: "When Taste Meets Quality.",
                 heroDesc: "Indulge in the perfect harmony of artisanal craftsmanship and premium ingredients. Every bite and sip is thoughtfully prepared to elevate your everyday moments into something truly extraordinary.",
@@ -1469,6 +1515,7 @@
                 saladLabel: "Fresh & Vibrant", saladTitle: "Artisan Salads",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
+                freshLabel: "Vitamin Boost", freshTitle: "Fresh Squeezed", freshEmphasis: "Fresh",
                 sloenkaExp: "The Sloenka Experience", craftedMotion: "Crafted in Motion",
                 videoDesc: "Witness the artistry behind every pour and pastry. A symphony of flavor, texture, and tradition, captured in every moment of our craft.",
                 discoverOffers: "Discover Our Offers", eveningIndulgence: "Evening Indulgence",
@@ -1479,7 +1526,7 @@
                 location: "Location", hours: "Hours", breakfastUntil: "(Breakfast sets until 19:00)", contact: "Contact"
             },
             ru: {
-                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSalad: "Салаты", navSpecialty: "Наш Выбор", navExperience: "Опыт",
+                navAffogato: "Аффогато", navBreakfast: "Завтрак", navIceCream: "Мороженое", navSalad: "Салаты", navSpecialty: "Свежевыжатые", navExperience: "Опыт",
                 navEvening: "Вечер", navVisit: "Визит",
                 heroLabel: "Ремесленное Превосходство", heroTitle: "Когда Вкус Встречает Качество.",
                 heroDesc: "Насладитесь идеальной гармонией ремесленного мастерства и премиальных ингредиентов. Каждый кусочек и глоток тщательно приготовлены, чтобы превратить ваши повседневные моменты во что-то по-настоящему особенное.",
@@ -1496,6 +1543,7 @@
                 saladLabel: "Свежесть и Яркость", saladTitle: "Авторские Салаты",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
+                freshLabel: "Витаминный Заряд", freshTitle: "Свежевыжатые", freshEmphasis: "Свежие",
                 sloenkaExp: "Опыт Sloenka", craftedMotion: "Создано в Движении",
                 videoDesc: "Станьте свидетелем мастерства за каждым наливанием и выпечкой. Симфония вкуса, текстуры и традиции.",
                 discoverOffers: "Откройте Наши Предложения", eveningIndulgence: "Вечернее Наслаждение",
@@ -1506,7 +1554,7 @@
                 location: "Местоположение", hours: "Часы Работы", breakfastUntil: "(Завтраки до 19:00)", contact: "Контакт"
             },
             hy: {
-                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSalad: "Աղցաններ", navSpecialty: "Մեր Ընտրանին", navExperience: "Փորձ",
+                navAffogato: "Աֆոգատո", navBreakfast: "Նախաճաշ", navIceCream: "Պաղպաղակ", navSalad: "Աղցաններ", navSpecialty: "Թարմ Հյութեր", navExperience: "Փորձ",
                 navEvening: "Երեկո", navVisit: "Այց",
                 heroLabel: "Արհեստավորական Գերազանցություն", heroTitle: "Երբ Համը Հանդիպում է Որակին։",
                 heroDesc: "Վայելեք արհեստավորական վարպետության և պրեմիում բաղադրիչների կատարյալ ներդաշնակությունը։ Յուրաքանչյուր խայթոց և կում մտածված պատրաստված է։",
@@ -1523,6 +1571,7 @@
                 saladLabel: "Թարմ և Վառ", saladTitle: "Հեղինակային Աղցաններ",
                 saladPrice1: "2300 AMD", saladPrice2: "2500 AMD", saladPrice3: "2100 AMD",
                 saladPrice4: "2300 AMD", saladPrice5: "2400 AMD", saladPrice6: "2300 AMD", saladPrice7: "2100 AMD",
+                freshLabel: "Վիտամինային Լիցք", freshTitle: "Թարմ Քամած", freshEmphasis: "Թարմ",
                 sloenkaExp: "Sloenka Փորձ", craftedMotion: "Ստեղծված Շարժման Մեջ",
                 videoDesc: "Վկա եղեք յուրաքանչյուր լցման և հացաբուլկեղենի հետևում կանգնած վարպետությանը։",
                 discoverOffers: "Հայտնաբերեք Մեր Առաջարկները", eveningIndulgence: "Երեկոյան Հաճույք",
